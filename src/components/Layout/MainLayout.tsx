@@ -1,6 +1,6 @@
 import React from 'react'
-import s from './MainLayout.module.scss'
 import { Outlet } from 'react-router'
+import s from './MainLayout.module.scss'
 
 const MainLayout: React.FC = () => {
   return (

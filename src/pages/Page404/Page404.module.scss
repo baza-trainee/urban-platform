@@ -1,0 +1,70 @@
+@import "../../styles/styles.scss";
+
+.section {
+  width: $desktop-min-width;
+  background-color: $white;
+}
+
+.container {
+  width: $content-max-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: $black;
+  font-family: $heading-font-family;
+  font-size: $fs-xxl;
+  font-weight: $font-bold;
+  line-height: $heading-line-height;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  color: $black;
+  font-family: $heading-font-family;
+  font-size: $fs-l-mob;
+  font-weight: $font-bold;
+  line-height: $heading-line-height;
+  margin-bottom: 40px;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 588px;
+  height: 274px;
+  background: rgb(217, 217, 217);
+
+  margin-bottom: 40px;
+}
+
+.error {
+  color: $black;
+  font-family: $heading-font-family;
+  font-size: $fs-xxl;
+  font-weight: $font-bold;
+  line-height: $heading-line-height;
+  letter-spacing: 0%;
+}
+
+.errorBtn {
+  padding: 16px 32px 16px 32px;
+  border-radius: 5px;
+  background: $button-primary-bg;
+  width: 294px;
+}
+
+.link {
+  color: $black;
+  font-family: $body-font-family;
+  font-size: $fs-m;
+  font-weight: $font-medium;
+  line-height: 23px;
+}
+
+

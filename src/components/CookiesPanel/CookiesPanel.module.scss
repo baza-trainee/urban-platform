@@ -1,0 +1,48 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.cookies {
+
+    @include flex(column, center, start);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    padding: 32px 40px;
+    color: $black;
+    text-align: left;
+    background: $white;
+    width: 850px;
+
+    h3 {
+        font-family: $heading-font-family;
+        font-weight: $font-bold;
+        font-size: $fs-m;
+        line-height: $heading-line-height;
+        color: #000;
+        margin-top: 0;
+    }
+
+    p {
+        color: $color-content-text;
+        font-family: $body-font-family;
+        font-weight: $font-regular;
+        font-size: $fs-s;
+        line-height: $text-line-height;
+
+        a {
+            color: $blue;
+        }
+    }
+
+    button {
+        border-radius: 8px;
+        padding: 16px 98px;
+        align-self: center;
+        background: $white;
+        font-family: $body-font-family;
+        font-weight: $font-medium;
+        font-size: $fs-m;
+         @include border($yellow);
+    }
+}

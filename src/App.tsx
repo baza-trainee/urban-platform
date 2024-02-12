@@ -4,6 +4,9 @@ import './App.scss'
 import MainLayout from './components/Layout/MainLayout'
 import HomePage from './pages/Home/HomePage'
 import Page404 from './pages/Page404/Page404'
+import About from './pages/About/About'
+import HowItWorks from './pages/HowItWorks/HowItWorks'
+
 // import Contacts from './pages/Contacts/Contacts'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
@@ -31,6 +34,8 @@ function App() {
           }
         />
         <Route path="*" element={<Page404 />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
       </Route>
       {/* <Route element={<ProtectedRoute page="admin" />}>
         <Route path="admin" element={<AdminLayout />} />

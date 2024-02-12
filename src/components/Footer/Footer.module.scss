@@ -1,0 +1,137 @@
+@import "../../styles/styles.scss";
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.footer {
+    padding-top: calc(40px + (64 - 20) * ((100vw - 320px) / (1230 - 320)));
+    color: #f7f2ed;
+    background-color: #001a40;
+    text-align: left;
+    &__container {
+        width: $content-max-width;
+        padding: 0px 15px;
+        margin: 0 auto;
+    }
+    &__body {
+        display: flex;
+        margin-bottom: 48px;
+        column-gap: calc(25px + (50 - 20) * ((100vw - 320px) / (1230 - 320)));
+    }
+    &__menu{
+        li {
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            transition: background-color 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: #ffc700;
+                }
+            }
+        }
+        &__link {
+            font-size: 20px;
+            line-height: 150%;
+        }
+    }
+    &__item {
+        display: grid;
+        column-gap: 72px;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: 240px;
+    }
+    &__btn {
+        cursor: pointer;
+        display: block;
+        border: 2px solid #ffc700;
+        text-align: center;
+        color: #ffc700;
+        font-size: 20px;
+        line-height: 115%; /* 23/20 */
+        padding: 16px 24px;
+        max-width: 270px;
+        transition: background-color 0.3s ease 0s;
+        &:hover {
+            color: #fff;
+            background-color: #ffc700;
+        }
+    }
+    &__link {
+        font-size: 20px;
+        line-height: 150%; /* 30/20 */
+        margin-bottom: 10px;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: #ffc700;
+                a::before {
+                    content: "";
+                    background-color: #ffc700;
+                }
+            }
+        }
+
+        a {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                left: 0;
+                bottom: -3px;
+                background-color: #fff;
+            }
+        }
+    }
+
+    &__copy {
+        padding-top: 24px;
+        font-weight: 400;
+        line-height: 150%; /* 24/16 */
+        padding-bottom: 30px;
+        border-top: 1px solid #f7f2ed;
+    }
+    &__title {
+        font-family: "Merriweather";
+        font-size: 20px;
+        line-height: 150%; /* 30/20 */
+        margin-bottom: 5px;
+    }
+    &__socialLink {
+        display: inline-flex;
+        column-gap: 10px;
+    }
+    &__contact {
+        font-size: 20px;
+        line-height: 160%; /* 30/20 */
+    }
+    &__contact {
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: #ffc700;
+            }
+        }
+    }
+}
+@media (max-width: 1040.98px) {
+    .footer__item {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        row-gap: 24px;
+    }
+    .footer__button {
+        order: 2;
+    }
+}
+@media (max-width: 667.98px) {
+    .footer {
+        &__body {
+            row-gap: 30px;
+            flex-direction: column;
+        }
+    }
+}

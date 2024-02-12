@@ -46,6 +46,7 @@ a {
         cursor: pointer;
         display: block;
         border: 2px solid #ffc700;
+        border-radius: 10px;
         text-align: center;
         color: #ffc700;
         font-size: 20px;
@@ -126,7 +127,6 @@ a {
 @media (max-width: 667.98px) {
     .footer {
         &__body {
-            row-gap: 30px;
             flex-direction: column;
         }
     }

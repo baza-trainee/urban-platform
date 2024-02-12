@@ -26,7 +26,7 @@ a {
             }
             transition: background-color 0.3s ease 0s;
             @media (any-hover: hover) {
-                &:hover {
+                &:hover a {
                     color: #ffc700;
                 }
             }
@@ -64,9 +64,9 @@ a {
         margin-bottom: 10px;
         transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
-            &:hover {
+            &:hover a {
                 color: #ffc700;
-                a::before {
+                &::before {
                     content: "";
                     background-color: #ffc700;
                 }
@@ -110,11 +110,7 @@ a {
     }
     &__contact {
         transition: color 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                color: #ffc700;
-            }
-        }
+      
     }
 }
 @media (max-width: 1040.98px) {

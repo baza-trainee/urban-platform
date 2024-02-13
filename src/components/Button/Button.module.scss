@@ -1,0 +1,153 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.button {
+  cursor: pointer;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+.button:hover {
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+.buttonIcon {
+  @include desktop {
+    position: relative;
+    top: 3px;
+  }
+}
+
+.button.filledBtn {
+  cursor: pointer;
+  height: 56px;
+  display: flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: $button-primary-bg;
+  color: $color-content-text;
+  font-weight: 500;
+  font-size: 20px;
+
+  &:hover {
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $button-primary-bg-hover;
+  }
+
+  &:active {
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $yellow;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $color-bg-alt;
+    color: $color-text-faded;
+  }
+}
+
+.outlineBtn {
+  cursor: pointer;
+  height: 56px;
+  display: inline-flex;
+  border-radius: 8px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid $yellow;
+  color: $yellow;
+  font-weight: 500;
+  font-size: 20px;
+
+  &:hover {
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $button-secondary-bg-hover;
+  }
+
+  &:active {
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $yellow;
+    color: $color-content-text;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $color-bg-alt;
+    color: $color-text-faded;
+  }
+}
+
+.outlineIconLike {
+  cursor: pointer;
+  border: 2px solid $blue;
+  border-radius: 8px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: row;
+  color: $blue;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
+  &:hover {
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: rgba(0, 65, 161, 0.1);
+  }
+  &:active {
+    color: $button-secondary-bg-active;
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border: 2px solid $color-text-faded;
+    color: $color-text-faded;
+  }
+}
+
+.heroNavGrid {
+  cursor: pointer;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  color: $black;
+  font-weight: 400;
+  line-height: 157%;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+
+  @include tablet {
+    height: 46px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  @include desktop {
+    font-size: 20px;
+    letter-spacing: normal;
+  }
+
+  &:hover {
+    border: 2px solid $blue;
+    color: $blue;
+  }
+  &:active {
+    color: $button-secondary-bg-active;
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border: 2px solid $color-text-faded;
+    color: $color-text-faded;
+  }
+}

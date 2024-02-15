@@ -7,6 +7,7 @@ import HeroNav from './components/HeroNav/HeroNav'
 import Button from '../Button/Button'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import heroTextData from './heroTextData.json'
+import routs from '../../routes/NavLinks'
 
 interface HeroProps {
   setSearchWord?: React.Dispatch<React.SetStateAction<string | null>>
@@ -35,7 +36,7 @@ const Hero = ({ setSearchWord }: HeroProps) => {
   }
 
   const handleClick = () => {
-    window.location.href = '/'
+    window.location.href = `${routs.createProject}`
   }
 
   return (

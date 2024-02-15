@@ -1,22 +1,24 @@
+import routs from '../../routes/NavLinks'
+
 export const navLinks = [
   {
     name: 'Проєкти',
-    to: '/projects'
+    to: routs.projects
   },
   {
     name: 'Учасники',
-    to: '/parties'
+    to: routs.members
   },
   {
     name: 'Громадські організації',
-    to: '/publicOrgs'
+    to: routs.organizations
   },
   {
     name: 'Гранти',
-    to: '/grants'
+    to: routs.grants
   },
   {
     name: 'Вакансії у громадському секторі',
-    to: '/vacancies'
+    to: routs.vacancies
   }
 ]

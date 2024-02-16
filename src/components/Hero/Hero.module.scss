@@ -2,6 +2,7 @@
 @import 'src/styles/mixins';
 
 .hero {
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,10 +14,12 @@
 
   @include tablet {
     height: 453px;
+    padding-top: 88px;
   }
 
   @include desktop {
     height: 580px;
+    padding-top: 88px;
   }
 }
 

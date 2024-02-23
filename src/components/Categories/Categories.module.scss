@@ -41,9 +41,6 @@
 }
 
 .content {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   width: 288px;
 
   @include tablet {
@@ -56,9 +53,6 @@
 }
 
 .contentTitle {
-  // margin: 40px 0 16px 0;
-  // display: inline-block;
-  // left: 0;
   margin-bottom: 24px;
   font-family: $heading-font-family;
   font-weight: 700;

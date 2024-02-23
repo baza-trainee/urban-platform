@@ -23,7 +23,6 @@ const Categories: React.FC<CategoriesProps> = ({ onClick }) => {
   const { executeScroll, registerRef } = useScroll()
   const categoriesRef = useRef(null)
 
-  // const initialItemsCount = isMobile ? 6 : isTablet ? 8 : 9
   const initialItemsCount = isMobile ? 6 : isDesktop ? 9 : 8
 
   useEffect(() => {

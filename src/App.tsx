@@ -8,7 +8,7 @@ import Page404 from './pages/Page404/Page404'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
-import Footer from './components/Footer/Footer'
+// import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
 // import ProtectedRoute from './routes/ProtectedRouteAdmin.tsx'
 // import LoginAdmin from './pages/AdminPanel/LoginAdmin/LoginAdmin.tsx'
@@ -19,11 +19,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path='/' element={<Footer />}></Route>
         <Route path="/" element={<HomePage />}>
           <Route path="confirm-password" element={<ConfirmPasswordForm />} />
           <Route path="request-password" element={<RequestPasswordForm />} />
         </Route>
+        {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"
           element={

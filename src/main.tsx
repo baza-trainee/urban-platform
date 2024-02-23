@@ -5,7 +5,7 @@ import App from './App.tsx'
 
 import { Provider } from 'react-redux'
 import store from './store/store.ts'
-import { ScrollProvider } from '../src/components/context/ScrollContext.tsx'
+import { ScrollProvider } from '../src/context/ScrollContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>

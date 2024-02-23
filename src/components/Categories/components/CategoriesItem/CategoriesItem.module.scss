@@ -1,0 +1,29 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $blue;
+  border-radius: 12px;
+  padding: 16px;
+  width: 136px;
+  height: 132px;
+
+  @include tablet {
+    width: 332px;
+    height: 114px;
+  }
+
+  @include desktop {
+    width: 384px;
+    height: 180px;
+    padding: 32px;
+  }
+}
+
+.cardComtent {
+  display: flex;
+  width: 320px;
+}

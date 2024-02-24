@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import s from './Home.module.scss'
 import { scrollToSection, scrollOnTop } from '../../utils/scrollToSection'
 import Hero from '../../components/Hero/Hero'
+import Categories from '../../components/Categories/Categories'
 
 const HomePage: React.FC = () => {
   const location = useLocation()
@@ -15,7 +16,7 @@ const HomePage: React.FC = () => {
   return (
     <div className={s.wrapper}>
       <Hero />
-      {/* <Categories /> */}
+      <Categories />
       {/* <MakeGrant /> */}
       {/* <Counts /> */}
       {/* <Faq /> */}

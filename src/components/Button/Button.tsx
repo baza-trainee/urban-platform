@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
+import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import s from './Button.module.scss'
 
-interface IButtonProps {
+type LinkProps = {
+  to: string
+  component: 'link'
+  handleMouseEnter: () => void
+  handleMouseLeave: () => void
+}
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  component?: 'button'
+}
+
+type CommonProps = {
   name?: string
   buttonClasses?: string
   onClick?: () => void
@@ -12,11 +24,11 @@ interface IButtonProps {
   startIcon?: React.ReactNode
   styleBtn?: React.CSSProperties
   children?: React.ReactNode
-  handleMouseEnter: () => void
-  handleMouseLeave: () => void
 }
 
-const Button: React.FC<IButtonProps> = ({
+type Props = CommonProps & (LinkProps | ButtonProps)
+
+const Button: React.FC<Props> = ({
   name,
   buttonClasses,
   onClick,
@@ -25,8 +37,8 @@ const Button: React.FC<IButtonProps> = ({
   styleBtn,
   children,
   startIcon,
-  handleMouseEnter,
-  handleMouseLeave
+  component = 'button',
+  ...otherProps
 }) => {
   const btnClasses = buttonClasses
     ? clsx(s.button, buttonClasses?.split(' ').map((item) => s[item]))
@@ -39,6 +51,25 @@ const Button: React.FC<IButtonProps> = ({
     </>
   )
 
+  if (component === 'link') {
+    const { to, handleMouseEnter, handleMouseLeave, ...linkProps } = otherProps as LinkProps
+    return (
+      <Link
+        to={to}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...linkProps}
+        className={btnClasses}
+        onClick={onClick}
+        style={styleBtn}
+      >
+        {renderButtonContent()}
+        {children}
+        {name}
+      </Link>
+    )
+  }
+
   return (
     <button
       className={btnClasses}
@@ -46,8 +77,6 @@ const Button: React.FC<IButtonProps> = ({
       type={type}
       onClick={onClick}
       style={styleBtn}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {renderButtonContent()}
       {children}

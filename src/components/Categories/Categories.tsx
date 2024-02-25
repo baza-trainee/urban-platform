@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import s from './Categories.module.scss'
-import { cardsData } from '../Categories/components/CategoriesItem/categoriesData'
-import CategoriesItem from './components/CategoriesItem/CategoriesItem'
+import { cardsData } from './CategoriesItem/categoriesData.ts'
+import CategoriesItem from './CategoriesItem/CategoriesItem.tsx'
 import Button from '../Button/Button'
 import GridBlue from '../../assets/icons/hero/GridBlue'
 import GridWhite from '../../assets/icons/hero/GridWhite'
@@ -70,7 +70,6 @@ const Categories: React.FC<CategoriesProps> = ({ onClick }) => {
       <div className={s.content}>
         <h2 className={s.contentTitle}>Категорії проєктів</h2>
         <ul className={s.cards}>
-          {/* {cardsData.map((card, index) => ( */}
           {displayedCards.map((card, index) => (
             <li key={index}>
               <CategoriesItem title={card.title} image={card.image} />

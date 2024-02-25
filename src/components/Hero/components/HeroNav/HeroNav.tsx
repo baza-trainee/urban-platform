@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import s from './HeroNav.module.scss'
+// import Button from '../../../Button/Button'
 import Button from '../../../Button/Button'
 import GridBlack from '../../../../assets/icons/hero/GridBlack'
 import GridBlue from '../../../../assets/icons/hero/GridBlue'
@@ -43,6 +44,21 @@ const HeroNav: React.FC<HeroNavProps> = ({ unListClass, navClass, onClick }) => 
       setButtonStates(updatedStates)
     }
   }
+  // const handleClick = (index: number) => {
+  //   const updatedStates = [...buttonStates]
+
+  //   if (updatedStates[index] === 'hover') {
+  //     updatedStates[index] = 'active'
+  //   } else if (updatedStates[index] !== 'active') {
+  //     updatedStates[index] = 'hover'
+  //   }
+
+  //   setButtonStates(updatedStates)
+
+  //   if (onClick) {
+  //     onClick()
+  //   }
+  // }
 
   const getIcon = (index: number) => {
     switch (buttonStates[index]) {
@@ -60,9 +76,20 @@ const HeroNav: React.FC<HeroNavProps> = ({ unListClass, navClass, onClick }) => 
       <ul className={[s.list, unListClass && s[unListClass]].join(' ')}>
         {navLinks.map((link, index) => (
           <li className={s.item} key={link.name} onClick={(e) => e.stopPropagation()}>
-            <Button
+            {/* <Button
               buttonClasses={'heroNavGrid'}
               type={'button'}
+              name={link.name}
+              onClick={() => handleClick(index)}
+              handleMouseEnter={() => handleMouseEnter(index)}
+              handleMouseLeave={() => handleMouseLeave(index)}
+              startIcon={getIcon(index)}
+            /> */}
+            <Button
+              component="link"
+              buttonClasses={'heroNavGrid'}
+              // type={'button'}
+              to={'/'}
               name={link.name}
               onClick={() => handleClick(index)}
               handleMouseEnter={() => handleMouseEnter(index)}

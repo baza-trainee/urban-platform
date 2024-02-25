@@ -4,6 +4,7 @@ import s from './Home.module.scss'
 import { scrollToSection, scrollOnTop } from '../../utils/scrollToSection'
 import Hero from '../../components/Hero/Hero'
 import Categories from '../../components/Categories/Categories'
+import BeagrantGiver from '../../components/BeAGrantGiver/BeagrantGiver'
 
 const HomePage: React.FC = () => {
   const location = useLocation()
@@ -17,7 +18,7 @@ const HomePage: React.FC = () => {
     <div className={s.wrapper}>
       <Hero />
       <Categories />
-      {/* <MakeGrant /> */}
+      <BeagrantGiver />
       {/* <Counts /> */}
       {/* <Faq /> */}
       {/* <MakeVacancy /> */}

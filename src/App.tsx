@@ -22,7 +22,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-
         <Route path="/" element={<HomePage />}>
           <Route path="confirm-password" element={<ConfirmPasswordForm />} />
           <Route path="request-password" element={<RequestPasswordForm />} />

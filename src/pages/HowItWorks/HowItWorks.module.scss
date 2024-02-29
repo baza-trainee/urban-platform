@@ -1,3 +1,38 @@
 @import "../../styles/styles.scss";
 
+.section {
+    padding: 64px 120px;
+    display: flex;
+    background-color: $white;
+    height: 694px;
+    color: $black;
+}
 
+.container{
+
+}
+
+.title {
+    color: $black;
+    font-size: $fs-xl;
+    font-family: $heading-font-family;
+    font-size: $fs-xl;
+    font-weight: $font-bold;
+    line-height: $heading-line-height;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.wrapper{
+
+}
+
+.blockList{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner{
+    display: flex;
+    justify-content: space-between;
+}

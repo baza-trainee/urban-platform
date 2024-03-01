@@ -10,6 +10,7 @@ import LogOut from '../../../assets/icons/header/LogOut'
 import LogIn from '../../../assets/icons/header/LogIn'
 import NewMessage from '../../../assets/icons/header/NewMessage'
 import Message from '../../../assets/icons/header/Message'
+import Button from '../../Button/Button'
 
 interface HeaderButtonBlockProps {
   isMobile?: boolean
@@ -53,9 +54,17 @@ const HeaderButtonBlock: React.FC<HeaderButtonBlockProps> = ({
           )}
         </Link>
       </div>
-      <Link to={routs.createProject} className={s.createButton} type="button">
-        Створити проєкт
-      </Link>
+      {!isMobile && (
+        <Button
+          buttonClasses={'outlineBtn header_tablet'}
+          component={'link'}
+          name={'Створити проєкт'}
+          to={routs.createProject}
+          styleBtn={{ width: '100%' }}
+          handleMouseEnter={() => {}}
+          handleMouseLeave={() => {}}
+        />
+      )}
       <button className={s.burgerMenu} type="button" onClick={handleClickBurger}>
         {isMobile &&
           (isActive ? (

@@ -5,6 +5,7 @@ import { scrollToSection, scrollOnTop } from '../../utils/scrollToSection'
 import Hero from '../../components/Hero/Hero'
 import Categories from '../../components/Categories/Categories'
 import BeagrantGiver from '../../components/BeAGrantGiver/BeagrantGiver'
+import NumbersSection from '../../components/NumbersSection/NumbersSection'
 
 const HomePage: React.FC = () => {
   const location = useLocation()
@@ -19,7 +20,7 @@ const HomePage: React.FC = () => {
       <Hero />
       <Categories />
       <BeagrantGiver />
-      {/* <Counts /> */}
+      <NumbersSection />
       {/* <Faq /> */}
       {/* <MakeVacancy /> */}
       {/* <Partners /> */}

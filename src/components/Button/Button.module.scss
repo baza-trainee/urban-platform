@@ -79,6 +79,17 @@
     background: $color-bg-alt;
     color: $color-text-faded;
   }
+
+  &.header_tablet {
+    padding: 16px 29px;
+    @media (max-width: 1439px) {
+      height: 48px;
+      background-color: transparent;
+      text-decoration: none;
+
+      font-size: $fs-s;
+    }
+  }
 }
 
 .outlineIconLike {

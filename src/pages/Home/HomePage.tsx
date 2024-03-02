@@ -6,6 +6,7 @@ import Hero from '../../components/Hero/Hero'
 import Categories from '../../components/Categories/Categories'
 import BeagrantGiver from '../../components/BeAGrantGiver/BeagrantGiver'
 import NumbersSection from '../../components/NumbersSection/NumbersSection'
+import Faq from '../../components/FAQ/Faq'
 
 const HomePage: React.FC = () => {
   const location = useLocation()
@@ -21,7 +22,7 @@ const HomePage: React.FC = () => {
       <Categories />
       <BeagrantGiver />
       <NumbersSection />
-      {/* <Faq /> */}
+      <Faq />
       {/* <MakeVacancy /> */}
       {/* <Partners /> */}
       <Outlet />

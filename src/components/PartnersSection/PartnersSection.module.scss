@@ -1,0 +1,81 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.partnersSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff 0%, #f7f2ed 15%, #e8dfd6 100%);
+  padding: 40px 16px;
+  height: 288px;
+
+  @include tablet {
+    padding: 40px 32px;
+    height: 162px;
+  }
+
+  @include desktop {
+    padding: 64px 120px;
+    height: 288px;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 744px;
+  }
+
+  @include desktop {
+    width: 1200px;
+  }
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  @include tablet {
+    gap: 16px;
+  }
+}
+
+.count {
+  color: $blue;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 48px;
+  }
+}
+
+.text {
+  color: $blue;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 130%;
+  }
+}

@@ -1,20 +1,20 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
 
-.beagrantgiver {
+.publishvacancy {
   display: flex;
   justify-content: center;
   padding: 40px 16px;
-  height: 502px;
+  height: 546px;
 
   @include tablet {
     padding: 40px 32px;
-    height: 380px;
+    height: 386px;
   }
 
   @include desktop {
     padding: 64px 120px;
-    height: 564px;
+    height: 532px;
   }
 }
 
@@ -24,17 +24,17 @@
   justify-content: space-between;
   align-items: center;
   width: 288px;
-  height: 422px;
+  height: 466px;
 
   @include tablet {
-    flex-direction: row;
+    flex-direction: row-reverse;
     width: 680px;
-    height: 300px;
+    height: 306px;
   }
 
   @include desktop {
     width: 1200px;
-    height: 436px;
+    height: 404px;
   }
 }
 
@@ -43,16 +43,16 @@
   flex-direction: column;
   justify-content: space-between;
   width: 288px;
-  height: 342px;
+  height: 386px;
 
   @include tablet {
     width: 475px;
-    height: 300px;
+    height: 306px;
   }
 
   @include desktop {
     width: 742px;
-    height: 436px;
+    height: 404px;
   }
 }
 
@@ -91,6 +91,10 @@
 
 .boldText {
   font-weight: 700;
+
+  @include tablet {
+    margin-top: 24px;
+  }
 }
 
 .btnWrap {
@@ -98,12 +102,12 @@
   height: 56px;
 
   @include tablet {
-    width: 182px;
+    width: 212px;
     height: 48px;
   }
 
   @include desktop {
-    width: 215px;
+    width: 248px;
     height: 56px;
   }
 }

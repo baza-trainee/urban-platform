@@ -8,6 +8,7 @@ interface Block {
   title: string
   text: string
   link?: string
+  linkText?: string
 }
 
 interface BlockListProps {
@@ -17,18 +18,25 @@ interface BlockListProps {
 const BlockList: React.FC<BlockListProps> = ({ blocks }) => (
   <ul className={s.blockList}>
     {blocks.map((block) => (
-      <li key={block.id} className={s.blockListItem}>
-        <img className={s.blockList__img} src={block.imgSrc} alt="" />
-        <h3 className={s.blockList__title}>{block.title}</h3>
-        <p className={s.blockList__text}>{block.text}</p>
-        {block.link && (
-          <Link to={block.link} className={s.blockList__link}>
-            Read more
-          </Link>
-        )}
+      <li key={block.id} className={s.blockList__item}>
+        <div className={s.blockList__content}>
+          <img className={s.blockList__img} src={block.imgSrc} alt="" />
+          <h3 className={s.blockList__title}>{block.title}</h3>
+        </div>
+        <p className={s.blockList__text}>
+          {block.text} <br />
+          {block.link && (
+            <>
+              <Link to={block.link} className={s.blockList__link}>
+                {block.linkText}
+              </Link>{' '}
+              <br />
+              {block.linkText === 'сторінку реєстрації' && ' та заповни необхідні поля'}
+            </>
+          )}
+        </p>
       </li>
     ))}
   </ul>
 )
-
 export default BlockList

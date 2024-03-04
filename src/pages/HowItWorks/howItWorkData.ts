@@ -10,39 +10,43 @@ interface HowItWorksData {
   title: string
   text: string
   link?: string
+  linkText?: string
 }
 
 export const blocks1: HowItWorksData[] = [
   {
     id: 1,
     imgSrc: first,
-    title: 'Block 1 Title',
-    text: 'Some text for block 1',
-    link: '/path/to/link1'
+    title: 'Зареєструйся на платформі',
+    text: 'Перейди на ',
+    link: '/registration',
+    linkText: 'сторінку реєстрації'
   },
   {
     id: 2,
     imgSrc: second,
-    title: 'Block 2 Title',
-    text: 'Some text for block 2'
+    title: 'Маєш ідею, але немає команди?',
+    text: 'Тоді тисни на ',
+    link: '/createProject',
+    linkText: '"Створити проект"'
   },
   {
     id: 3,
     imgSrc: third,
-    title: 'Block 3 Title',
-    text: 'Some text for block 3'
+    title: 'Опиши свій проект',
+    text: 'Вкажи необхідні дані та кого або що ти шукаєш'
   },
   {
     id: 4,
     imgSrc: fourth,
-    title: 'Block 4 Title',
-    text: 'Some text for block 4'
+    title: 'Опублікуй проект',
+    text: 'Натисни кнопку “Опублікувати”'
   },
   {
     id: 5,
     imgSrc: fifth,
-    title: 'Block 5 Title',
-    text: 'Some text for block 5'
+    title: 'Вуаля !!!',
+    text: 'Тепер до твого проекту можуть долучитись інші учасники'
   }
 ]
 
@@ -50,32 +54,34 @@ export const blocks2: HowItWorksData[] = [
   {
     id: 6,
     imgSrc: first,
-    title: 'Block 6 Title',
-    text: 'Some text for block 6'
+    title: 'Зареєструйся на платформі',
+    text: 'Перейди на ',
+    link: '/registration',
+    linkText: 'сторінку реєстрації'
   },
   {
     id: 7,
     imgSrc: second,
-    title: 'Block 7 Title',
-    text: 'Some text for block 7'
+    title: 'Опиши про себе кілька слів',
+    text: 'Вкажи галузь та рівень своєї експертності'
   },
   {
     id: 8,
     imgSrc: third,
-    title: 'Block 8 Title',
-    text: 'Some text for block 8'
+    title: 'Визначся із проєктами',
+    text: 'Вкажи напрями проектів, до яких ти хочеш долучитись'
   },
   {
     id: 9,
     imgSrc: fourth,
-    title: 'Block 9 Title',
-    text: 'Some text for block 9'
+    title: 'Ким ти хочеш бути на проєкті?',
+    text: 'Обери свою роль: ментор, фахівець, волонтер, партнер-співзасновни, інвестор'
   },
   {
     id: 10,
     imgSrc: fifth,
-    title: 'Block 10 Title',
-    text: 'Some text for block 10'
+    title: 'Вуаля !!!',
+    text: 'Тепер ти можеш написати автору проекту та почати працювати над ініціативою'
   }
 ]
 
@@ -84,18 +90,18 @@ export const whoIsItFor: HowItWorksData[] = [
     id: 1,
     title: 'Волонтери, фахівці',
     text: 'Для тих, хто хоче отримати свій перший робочий досвід в громадському секторі',
-    link: '/'
+    link: '/registration'
   },
   {
     id: 2,
     title: 'Ініціатори проєктів',
     text: 'Для тих, хто має ідею важливого проєкту, але немає команди',
-    link: '/'
+    link: '/registration'
   },
   {
     id: 3,
     title: 'Консультанти, інвестори',
     text: 'Для тих, хто хоче долучитись до цікавого проекту та принести користь',
-    link: '/'
+    link: '/registration'
   }
 ]

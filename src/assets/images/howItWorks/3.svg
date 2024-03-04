@@ -1,0 +1,25 @@
+<svg width="122.000000" height="122.000000" viewBox="0 0 122 122" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_4_3784_dd" x="0.000000" y="0.000000" width="122.000000" height="122.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="3.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0.40784 0 0 0 0 0.40784 0 0 0 0 0.40784 0 0 0 0.1 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+		<radialGradient id="paint_radial_4_3782_0" cx="0.000000" cy="0.000000" r="1.000000" gradientUnits="userSpaceOnUse" gradientTransform="translate(61 57) rotate(90) scale(51 51)">
+			<stop stop-color="#81D9FF"/>
+			<stop offset="1.000000" stop-color="#0041A1"/>
+		</radialGradient>
+	</defs>
+	<g filter="url(#filter_4_3784_dd)">
+		<circle id="Ellipse 566" cx="61.000000" cy="57.000000" r="51.000000" fill="url(#paint_radial_4_3782_0)" fill-opacity="1.000000"/>
+		<path id="3" d="M56.52 69.752C57.08 69.832 57.592 69.872 58.056 69.872Q60.648 69.872 62.592 69.08C63.888 68.552 64.88 67.824 65.568 66.896Q66.096 66.212 66.354 65.438Q66.612 64.664 66.6 63.8C66.6 62.6 66.152 61.64 65.256 60.92Q65.1917 60.8674 65.1254 60.8173Q63.8319 59.84 61.8 59.84Q61.32 59.84 61.08 59.864C62.376 59.4 63.472 58.728 64.368 57.848Q65.2317 56.9997 65.5404 55.983Q65.712 55.4175 65.712 54.8Q65.712 53.5364 65.1184 52.6884Q64.7874 52.2156 64.272 51.872C63.328 51.216 62.096 50.888 60.576 50.888Q60.2732 50.888 59.9721 50.9103Q58.6501 51.0082 57.36 51.536C56.32 51.968 55.568 52.408 55.104 52.856L55.944 54.32Q56.592 53.792 57.504 53.432C58.128 53.192 58.792 53.072 59.496 53.072Q60.5978 53.072 61.3103 53.5987Q61.3273 53.6112 61.344 53.624C61.84 53.992 62.088 54.576 62.088 55.376Q62.088 55.6077 62.0527 55.8338Q61.9233 56.6619 61.32 57.416Q60.552 58.352 59.16 58.976C58.52 59.264 57.872 59.464 57.216 59.576L57.72 61.04L59.16 60.68Q60.96 60.728 61.872 61.568C62.48 62.128 62.784 62.92 62.784 63.944Q62.784 64.4788 62.6383 64.9705Q62.4768 65.5158 62.136 66.008Q61.488 66.944 60.24 67.496Q59.016 68.048 57.336 68.048Q56.184 68.048 55.176 67.736L55.176 69.512Q55.704 69.656 56.52 69.752Z" fill="#000710" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

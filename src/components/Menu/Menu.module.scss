@@ -1,0 +1,63 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins';
+
+.menu {
+  display: none;
+
+  @include tablet {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    left: 0;
+  }
+
+  @include desktop {
+    margin-top: 24px;
+    left: 0;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+
+  @include desktop {
+    gap: 32px;
+  }
+}
+
+.item {
+  position: relative;
+  padding: 4px 2px 8px 2px;
+
+  @include desktop {
+    padding: 4px 0px 8px 0px;
+  }
+
+  a {
+    font-weight: 500;
+    font-size: 16px;
+    color: $button-secondary-bg-active;
+
+    @include desktop {
+      font-size: 20px;
+    }
+
+    &::after {
+      transition: 0.2s;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $yellow;
+      height: 2px;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+      transition: transform 0.3s ease;
+    }
+  }
+}

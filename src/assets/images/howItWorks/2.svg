@@ -1,0 +1,25 @@
+<svg width="122.000000" height="122.000000" viewBox="0 0 122 122" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_4_3774_dd" x="0.000000" y="0.000000" width="122.000000" height="122.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="3.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0.40784 0 0 0 0 0.40784 0 0 0 0 0.40784 0 0 0 0.1 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+		<radialGradient id="paint_radial_4_3772_0" cx="0.000000" cy="0.000000" r="1.000000" gradientUnits="userSpaceOnUse" gradientTransform="translate(61 57) rotate(90) scale(51 51)">
+			<stop stop-color="#81D9FF"/>
+			<stop offset="1.000000" stop-color="#0041A1"/>
+		</radialGradient>
+	</defs>
+	<g filter="url(#filter_4_3774_dd)">
+		<circle id="Ellipse 566" cx="61.000000" cy="57.000000" r="51.000000" fill="url(#paint_radial_4_3772_0)" fill-opacity="1.000000"/>
+		<path id="2" d="M60.384 60.392Q58.248 62.768 54.912 64.736L55.416 66.032L67.104 66.032L67.8 61.808L66.288 61.496L65.376 63.512L58.416 64.16C60.688 62.864 62.56 61.44 64.032 59.888Q66.24 57.56 66.24 55.256C66.24 54.456 66.048 53.728 65.664 53.072C65.28 52.416 64.688 51.888 63.888 51.488Q62.712 50.888 60.96 50.888C60.144 50.888 59.336 51.032 58.536 51.32Q57.336 51.728 56.424 52.352C55.832 52.768 55.376 53.176 55.056 53.576L55.968 54.896Q56.784 54.152 57.624 53.696C58.2 53.376 58.904 53.216 59.736 53.216Q60.9262 53.216 61.6286 53.8013Q61.7052 53.8652 61.776 53.936Q61.9843 54.1308 62.1343 54.3633Q62.52 54.9612 62.52 55.808Q62.52 58.016 60.384 60.392Z" fill="#000710" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

@@ -1,0 +1,111 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.categoriesBrief,
+.categoriesFull {
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  @include tablet {
+    padding: 40px 32px;
+  }
+
+  @include desktop {
+    padding: 64px 120px;
+  }
+}
+
+.categoriesBrief {
+  height: 607px;
+
+  @include tablet {
+    height: 722px;
+  }
+
+  @include desktop {
+    height: 912px;
+  }
+}
+
+.categoriesFull {
+  height: auto;
+}
+
+.content {
+  width: 288px;
+
+  @include tablet {
+    width: 680px;
+  }
+
+  @include desktop {
+    width: 1200px;
+  }
+}
+
+.contentTitle {
+  margin-bottom: 24px;
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+  color: $black;
+  text-align: left;
+
+  @include tablet {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    font-size: 48px;
+    margin-bottom: 56px;
+  }
+}
+
+.contentText {
+  display: inline-block;
+  font-family: $body-font-family;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: $button-secondary-bg-active;
+  text-align: center;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  @include desktop {
+    font-size: 20px;
+    width: 792px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.btnWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+
+  @include tablet {
+    margin-top: 32px;
+  }
+}

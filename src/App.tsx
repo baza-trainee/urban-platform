@@ -4,7 +4,7 @@ import './App.scss'
 import MainLayout from './components/Layout/MainLayout'
 import HomePage from './pages/Home/HomePage'
 import Page404 from './pages/Page404/Page404'
-// import Contacts from './pages/Contacts/Contacts'
+import Checkmail from './pages/Checkmail/Checkmail'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
@@ -32,8 +32,9 @@ function App() {
             </React.Suspense>
           }
         />
-        <Route path="*" element={<Page404 />} />
+        <Route path="*" element={<Checkmail/>} />
       </Route>
+      <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>
         <Route path="admin" element={<AdminLayout />} />
       </Route> */}

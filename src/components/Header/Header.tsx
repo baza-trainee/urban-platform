@@ -29,8 +29,8 @@ const Header: React.FC = () => {
 
   return (
     <header className={s.header}>
-      <div className={s.headerGrad}>
-        <section className={`${s.section} ${isActive ? s.activeSection : ''}`}>
+      <div className={`${s.headerGrad} ${isActive && s.activeSection}`}>
+        <section className={s.section}>
           <div className={s.container}>
             <Link to={routs.home} className={s.logoContainer}>
               <img className={s.logo} src="./images/logo/header-logo.svg" alt="headerLogo" />

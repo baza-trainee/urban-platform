@@ -21,15 +21,25 @@
   cursor: pointer;
   height: 56px;
   display: flex;
-  padding: 16px 32px;
+  padding: 16px 30px;
   justify-content: center;
   align-items: center;
   border: 2px solid transparent;
   border-radius: 8px;
   background: $button-primary-bg;
+  font-family: $body-font-family;
   color: $color-content-text;
   font-weight: 500;
   font-size: 20px;
+  vertical-align: middle;
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
 
   &:hover {
     box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
@@ -77,6 +87,17 @@
     cursor: not-allowed;
     background: $color-bg-alt;
     color: $color-text-faded;
+  }
+
+  &.header_tablet {
+    padding: 16px 29px;
+    @media (max-width: 1439px) {
+      height: 48px;
+      background-color: transparent;
+      text-decoration: none;
+
+      font-size: $fs-s;
+    }
   }
 }
 

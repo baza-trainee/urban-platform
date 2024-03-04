@@ -4,6 +4,7 @@
 .header {
   width: 100%;
   height: auto;
+  position: relative;
   @include flex($direction: column);
   top: 0;
 
@@ -13,15 +14,32 @@
     top: 0;
     @include flex;
     background-image: $header-bg-grad;
+    @include box-shadow($color: rgba(0, 0, 0, 0.25));
     z-index: 9001;
+    @media (max-width: $mobile-max-width) {
+      &.activeSection {
+        box-shadow: none;
+      }
+    }
   }
 }
 
 .section {
   width: 1440px;
   padding: 16px 120px;
-  @include box-shadow($color: rgba(0, 0, 0, 0.25));
   z-index: 9002;
+
+  @media (max-width: 1439px) {
+    width: 744px;
+    height: 88px;
+    padding: 16px 32px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    padding: 8px 16px;
+    width: 320px;
+    height: 48px;
+  }
 }
 
 .container {
@@ -32,12 +50,28 @@
 .logo {
   width: 56px;
   height: 56px;
+
+  @media (max-width: $mobile-max-width) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .buttonBlock {
   @include flex;
   width: 327px;
   height: 56px;
+
+  @media (max-width: 1439px) {
+    @include flex;
+    width: 276px;
+    height: 48px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    width: 120px;
+    height: 32px;
+  }
 }
 
 .createButton {
@@ -70,6 +104,19 @@
     background: $color-bg-alt;
     color: $color-text-faded;
   }
+
+  @media (max-width: 1439px) {
+    @include flex;
+    height: 48px;
+    background-color: transparent;
+    text-decoration: none;
+
+    font-size: $fs-s;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    display: none;
+  }
 }
 
 .iconButtonBlock {
@@ -78,6 +125,10 @@
 
 .iconButton {
   margin-right: 16px;
+
+  @media (max-width: $mobile-max-width) {
+    margin-right: 12px;
+  }
 }
 
 .burgerMenu {
@@ -85,11 +136,16 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  @media (max-width: $mobile-max-width) {
+    display: flex;
+  }
 }
 
 .choiceBlock {
+  position: absolute;
+  top: 48px;
   padding: 16px 16px 32px 16px;
-  width: 320px;
+  width: 100%;
   height: 296px;
   z-index: 9000;
   display: none;
@@ -101,65 +157,12 @@
   transition:
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
-}
 
-@media (max-width: 1439px) {
-  .section {
-    width: 744px;
-    height: 88px;
-    padding: 16px 32px;
-  }
-  .buttonBlock {
-    @include flex;
-    width: 276px;
-    height: 48px;
-  }
-
-  .createButton {
-    @include flex;
-    height: 48px;
-    background-color: transparent;
-    text-decoration: none;
-
-    font-size: $fs-s;
-  }
-}
-
-@media (max-width: $mobile-max-width) {
-  .section {
-    padding: 8px 16px;
-    width: 320px;
-    height: 48px;
-  }
-
-  .logo {
-    width: 32px;
-    height: 32px;
-  }
-
-  .buttonBlock {
-    width: 120px;
-    height: 32px;
-  }
-
-  .iconButton {
-    margin-right: 12px;
-  }
-
-  .createButton {
-    display: none;
-  }
-
-  .burgerMenu {
-    display: flex;
-  }
-
-  .choiceBlock {
+  @media (max-width: $mobile-max-width) {
     @include flex(column, flex-start);
-    position: relative;
     .choice {
       @include flex(column, flex-start);
-      width: 100%;
+      width: 288px;
       .choiceItem {
         margin-bottom: 16px;
         font-family: $body-font-family;
@@ -177,13 +180,9 @@
       width: 288px;
       height: 56px;
     }
-  }
-
-  .active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .activeSection {
-    box-shadow: none;
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }

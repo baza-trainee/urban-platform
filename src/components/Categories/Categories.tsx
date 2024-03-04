@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import s from './Categories.module.scss'
-import { cardsData } from './CategoriesItem/categoriesData.ts'
-import CategoriesItem from './CategoriesItem/CategoriesItem.tsx'
-import Button from '../Button/Button'
+import { cardsData } from './categoriesData.ts'
 import GridBlue from '../../assets/icons/hero/GridBlue'
 import GridWhite from '../../assets/icons/hero/GridWhite'
 import GridBlack from '../../assets/icons/hero/GridBlack'
@@ -42,7 +41,6 @@ const Categories: React.FC<CategoriesProps> = ({ onClick }) => {
 
     if (onClick) {
       onClick()
-      setButtonState('hover')
     }
     setShowAllItems((prev) => !prev)
     if (showAllItems) {
@@ -72,20 +70,28 @@ const Categories: React.FC<CategoriesProps> = ({ onClick }) => {
         <ul className={s.cards}>
           {displayedCards.map((card, index) => (
             <li key={index}>
-              <CategoriesItem title={card.title} image={card.image} />
+              <Link onClick={onClick} to={card.url}>
+                <div className={s.card}>
+                  <div className={s.cardContent}>
+                    <img src={`../src/assets/icons/categories/${card.image}`} alt={card.title} />
+                    <h3 className={s.cardTitle}>{card.title}</h3>
+                  </div>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
         <div className={s.btnWrap}>
-          <Button
-            buttonClasses={'heroNavGrid'}
-            type={'button'}
-            name={showAllItems ? 'Згорнути' : 'Показати усі категорії'}
+          <button
+            className={s.button}
+            type="button"
             onClick={handleClick}
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-            startIcon={getIcon()}
-          />
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {getIcon()}
+            {showAllItems ? ' Згорнути' : ' Показати усі категорії'}
+          </button>
         </div>
       </div>
     </section>

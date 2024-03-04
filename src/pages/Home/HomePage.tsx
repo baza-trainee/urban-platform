@@ -8,6 +8,7 @@ import BeagrantGiver from '../../components/BeAGrantGiver/BeagrantGiver'
 import NumbersSection from '../../components/NumbersSection/NumbersSection'
 import Faq from '../../components/FAQ/Faq'
 import PublishVacancy from '../../components/PublishVacancy/PublishVacancy'
+import PartnersSection from '../../components/PartnersSection/PartnersSection'
 
 const HomePage: React.FC = () => {
   const location = useLocation()
@@ -25,7 +26,7 @@ const HomePage: React.FC = () => {
       <NumbersSection />
       <Faq />
       <PublishVacancy />
-      {/* <Partners /> */}
+      <PartnersSection />
       <Outlet />
     </div>
   )

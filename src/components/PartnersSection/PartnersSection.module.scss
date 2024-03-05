@@ -24,13 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // justify-content: space-between;
   gap: 32px;
   width: 100%;
 
   @include tablet {
     flex-direction: row;
-    // justify-content: space-between;
     width: 744px;
   }
 
@@ -39,65 +37,18 @@
   }
 }
 
-// .textWrap {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   gap: 8px;
-
-//   @include tablet {
-//     gap: 16px;
-//   }
-// }
-
-// .count {
-//   color: $blue;
-//   font-weight: 700;
-//   font-size: 20px;
-//   line-height: 130%;
-
-//   @include tablet {
-//     font-size: 32px;
-//   }
-
-//   @include desktop {
-//     font-size: 48px;
-//   }
-// }
-
-// .text {
-//   color: $blue;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 157%;
-
-//   @include tablet {
-//     font-size: 16px;
-//     line-height: 150%;
-//   }
-
-//   @include desktop {
-//     font-size: 20px;
-//     line-height: 130%;
-//   }
-// }
-
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  // align-items: center;
-  // width: auto;
   width: 85px;
   height: 77px;
-  // overflow: hidden;
   cursor: pointer;
   position: relative;
 
   @include tablet {
     width: 81px;
-    // height: 77px;
   }
 
   @include desktop {
@@ -118,14 +69,6 @@
   justify-content: center;
   align-items: center;
   width: 49px;
-  // width: 100%;
-  // max-height: 100%;
-
-  // @include tablet {
-  // flex-direction: row;
-  // justify-content: space-between;
-  // width: 744px;
-  // }
 
   @include desktop {
     width: 137px;
@@ -134,11 +77,6 @@
 
 .image {
   width: 100%;
-  // width: 85px;
-
-  //   @include tablet {
-  //     width: 81px;
-  //   }
 
   @include desktop {
     width: 137px;

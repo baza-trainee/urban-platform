@@ -10,19 +10,14 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 5,
-  // slidesToScroll: 1,
   cssEase: 'linear',
   swipeToSlide: true,
   focusOnSelect: true,
-  // nextArrow: <NextArrow onClick={() => {}} />,
-  // prevArrow: <PrevArrow onClick={() => {}} />,
-  // beforeChange: (current: number, next: number) => setImageIndex(next),
   responsive: [
     {
       breakpoint: 1440,
       settings: {
         slidesToShow: 5,
-        // slidesToScroll: 1,
         dots: false
       }
     },
@@ -30,7 +25,6 @@ const settings = {
       breakpoint: 744,
       settings: {
         slidesToShow: 2,
-        // slidesToScroll: 1,
         dots: false
       }
     },
@@ -38,7 +32,6 @@ const settings = {
       breakpoint: 280,
       settings: {
         slidesToShow: 2,
-        // slidesToScroll: 2,
         dots: false
       }
     }
@@ -48,8 +41,6 @@ const settings = {
 const PartnersSection: React.FC = () => {
   return (
     <section className={s.partnersSection} id="partnerssection">
-      {/* <div className={s.content}> */}
-      {/* <div className={s.slider_container}> */}
       <Slider {...settings}>
         {partnersData.map((card) => (
           <div className={s.card}>
@@ -61,14 +52,11 @@ const PartnersSection: React.FC = () => {
                   className={s.image}
                 />
               </div>
-              {/* <p className={s.cardTitle}>{card.title}</p> */}
               <div className={s.cardTitle}>{card.title}</div>
             </div>
           </div>
         ))}
       </Slider>
-      {/* </div> */}
-      {/* </div> */}
     </section>
   )
 }

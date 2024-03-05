@@ -1,142 +1,142 @@
 export const cardsData = [
   {
     title: 'Підтримка тварин та захист тваринництва',
-    image: 'animals.svg',
+    image: 'images/categories/animals.svg',
     url: '/'
   },
   {
     title: 'Мистецтво',
-    image: 'art.svg',
+    image: 'images/categories/art.svg',
     url: '/'
   },
   {
     title: 'Будівництво, відновлення житла',
-    image: 'ConstructionIcon.svg',
+    image: 'images/categories/ConstructionIcon.svg',
     url: '/'
   },
   {
     title: 'Культура',
-    image: 'culture.svg',
+    image: 'images/categories/culture.svg',
     url: '/'
   },
   {
     title: 'Екологія',
-    image: 'ecology.svg',
+    image: 'images/categories/ecology.svg',
     url: '/'
   },
   {
     title: 'Освіта',
-    image: 'education.svg',
+    image: 'images/categories/education.svg',
     url: '/'
   },
   {
     title: 'Підтримка людей похилого віку',
-    image: 'elderly.svg',
+    image: 'images/categories/elderly.svg',
     url: '/'
   },
   {
     title: 'Розвиток підприємництва',
-    image: 'EnterpreneurshipIcon.svg',
+    image: 'images/categories/EnterpreneurshipIcon.svg',
     url: '/'
   },
   {
     title: 'Розваги та відпочинок',
-    image: 'entertainment.svg',
+    image: 'images/categories/entertainment.svg',
     url: '/'
   },
   {
     title: 'Охорона здоров`я та надання соціальної допомоги',
-    image: 'stethoscope.svg',
+    image: 'images/categories/stethoscope.svg',
     url: '/'
   },
   {
     title: 'Харчування, боротьба з голодом',
-    image: 'hunger.svg',
+    image: 'images/categories/hunger.svg',
     url: '/'
   },
   {
     title: 'Інклюзія',
-    image: 'inclusion.svg',
+    image: 'images/categories/inclusion.svg',
     url: '/'
   },
   {
     title: 'Інфраструктура та розвиток громадських просторів',
-    image: 'infra.svg',
+    image: 'images/categories/infra.svg',
     url: '/'
   },
   {
     title: 'Міжнародна співпраця',
-    image: 'inter-coop.svg',
+    image: 'images/categories/inter-coop.svg',
     url: '/'
   },
   {
     title: 'IT',
-    image: 'it.svg',
+    image: 'images/categories/it.svg',
     url: '/'
   },
   {
     title: 'Юридична підтримка',
-    image: 'LegalIcon.svg',
+    image: 'images/categories/LegalIcon.svg',
     url: '/'
   },
   {
     title: 'Розвиток місцевих громад',
-    image: 'local-community.svg',
+    image: 'images/categories/local-community.svg',
     url: '/'
   },
   {
     title: 'Місцеве самоврядування',
-    image: 'local-gov.svg',
+    image: 'images/categories/local-gov.svg',
     url: '/'
   },
   {
     title: 'Медіа та інформаційна грамотність',
-    image: 'media.svg',
+    image: 'images/categories/media.svg',
     url: '/'
   },
   {
     title: 'Виробництво',
-    image: 'production.svg',
+    image: 'images/categories/production.svg',
     url: '/'
   },
   {
     title: 'Психологічна підтримка',
-    image: 'psycho.svg',
+    image: 'images/categories/psycho.svg',
     url: '/'
   },
   {
     title: 'SafetyIcon',
-    image: 'safety.svg',
+    image: 'images/categories/safety.svg',
     url: '/'
   },
   {
     title: 'Науково-технічна діяльність',
-    image: 'science.svg',
+    image: 'images/categories/science.svg',
     url: '/'
   },
   {
     title: 'Спорт',
-    image: 'sports.svg',
+    image: 'images/categories/sports.svg',
     url: '/'
   },
   {
     title: 'Торгівля',
-    image: 'trade.svg',
+    image: 'images/categories/trade.svg',
     url: '/'
   },
   {
     title: 'Транспортування, поштова та кур`єрська діяльність',
-    image: 'transport.svg',
+    image: 'images/categories/transport.svg',
     url: '/'
   },
   {
     title: 'Допомога ветеранам та військовим',
-    image: 'veterans.svg',
+    image: 'images/categories/veterans.svg',
     url: '/'
   },
   {
     title: 'Молодь та діти',
-    image: 'youth.svg',
+    image: 'images/categories/youth.svg',
     url: '/'
   }
 ]

@@ -46,11 +46,7 @@ const PartnersSection: React.FC = () => {
           <div className={s.card}>
             <div className={s.cardWrap}>
               <div className={s.cardImage}>
-                <img
-                  src={`/src/assets/icons/partners/${card.image}`}
-                  alt={card.title}
-                  className={s.image}
-                />
+                <img src={card.image} alt={card.title} className={s.image} />
               </div>
               <div className={s.cardTitle}>{card.title}</div>
             </div>

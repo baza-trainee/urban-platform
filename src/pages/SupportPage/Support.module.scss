@@ -1,0 +1,58 @@
+@import "../../styles/styles.scss";
+
+.support {
+    font-family: $body-font-family;
+    text-align: center;
+    color: $color-content-text;
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+    &__container {
+        max-width: 870px;
+        padding: 0px 15px;
+        margin: 0 auto;
+    }
+    &__title {
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 130%;
+        margin-bottom: 40px;
+    }
+    &__social {
+        margin-bottom: 40px;
+        h3 {
+            text-align: left;
+        }
+    }
+    &__text {
+        font-size: 20px;
+        line-height: 150%;
+        text-align: left;
+    }
+    &__subTitle {
+        text-align: left;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 130%;
+    }
+    &__socialLink {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+    }
+}
+@media (max-width: 475.98px) {
+    .support__social{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        margin-bottom: 30px;
+        h3{
+            font-size: 18px;
+        }
+    }
+    .support h3:last-child{
+        text-align: center;
+    }
+}

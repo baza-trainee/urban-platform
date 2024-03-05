@@ -73,8 +73,7 @@ const Categories: React.FC<CategoriesProps> = ({ onClick }) => {
               <Link onClick={onClick} to={card.url}>
                 <div className={s.card}>
                   <div className={s.cardContent}>
-                    {/* <img src={`../src/assets/icons/categories/${card.image}`} alt={card.title} /> */}
-                    <img src={`src/assets/icons/categories/${card.image}`} alt={card.title} />
+                    <img src={`/src/assets/icons/categories/${card.image}`} alt={card.title} />
                     <h3 className={s.cardTitle}>{card.title}</h3>
                   </div>
                 </div>

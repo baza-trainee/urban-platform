@@ -14,7 +14,8 @@ const routs: Routes = {
   messages: '/messages',
   userProfile: '/profile',
   createProject: '/createProject',
-  donation: '/donation'
+  donation: '/donation',
+  donationThanks: '/support'
 }
 
 export default routs

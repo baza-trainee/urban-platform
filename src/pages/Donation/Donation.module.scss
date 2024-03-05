@@ -115,15 +115,6 @@
       font-size: $fs-s;
     }
   }
-
-  &__media-container {
-    width: 100%;
-    text-align: start;
-
-    @media (max-width: $mobile-max-width) {
-      display: inline-flex;
-    }
-  }
 }
 
 .title {
@@ -132,29 +123,6 @@
   @media (max-width: $mobile-max-width) {
     line-height: $heading-line-height;
   }
-}
-
-.submit {
-  @media (max-width: $mobile-max-width) {
-    font-family: $body-font-family;
-  }
-}
-
-.thanks {
-  @media (max-width: $mobile-max-width) {
-    text-align: center;
-    font-weight: $font-bold;
-  }
-}
-
-.media-title {
-  @media (max-width: $mobile-max-width) {
-    font-weight: $font-bold;
-  }
-}
-
-.iconMargin {
-  margin-right: 8px;
 }
 
 .choice-block {

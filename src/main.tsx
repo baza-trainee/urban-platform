@@ -5,11 +5,14 @@ import App from './App.tsx'
 
 import { Provider } from 'react-redux'
 import store from './store/store.ts'
+import { ScrollProvider } from '../src/context/ScrollContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ScrollProvider>
+        <App />
+      </ScrollProvider>
     </BrowserRouter>
   </Provider>
 )

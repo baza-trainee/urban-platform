@@ -1,0 +1,58 @@
+@import "../../styles/styles.scss";
+
+.section {
+  padding: 64px 120px;
+  display: flex;
+  background-color: $white;
+  height: 694px;
+}
+
+.container {
+  width: 691px;
+  margin-right: 100px;
+  position: relative;
+
+}
+
+.title {
+  color: $black;
+  font-family: $heading-font-family;
+  font-size: $fs-xl;
+  font-weight: $font-bold;
+  line-height: $heading-line-height;
+  text-align: left;
+  padding-bottom: 64px;
+  border-bottom: 2px solid $black;
+}
+
+.subtitle {
+  color: $black;
+  font-family: $body-font-family;
+  font-size: $fs-m;
+  font-weight: $font-regular;
+  line-height: $text-line-height;
+  text-align: left;
+}
+
+.howItWorksBtn {
+  width: 186px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 480px;
+  right: -10px;
+  a {
+    color: $black;
+    font-family: $body-font-family;
+    font-size: $fs-m;
+    font-weight: $font-regular;
+    line-height: $text-line-height;
+    text-align: left;
+  }
+  img {
+    width: 19px;
+    height: 19px;
+  }
+}

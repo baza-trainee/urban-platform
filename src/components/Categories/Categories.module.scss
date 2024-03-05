@@ -1,0 +1,210 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.categoriesBrief,
+.categoriesFull {
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  @include tablet {
+    padding: 40px 32px;
+  }
+
+  @include desktop {
+    padding: 64px 120px;
+  }
+}
+
+.categoriesBrief {
+  height: 607px;
+
+  @include tablet {
+    height: 722px;
+  }
+
+  @include desktop {
+    height: 912px;
+  }
+}
+
+.categoriesFull {
+  height: auto;
+}
+
+.content {
+  width: 288px;
+
+  @include tablet {
+    width: 680px;
+  }
+
+  @include desktop {
+    width: 1200px;
+  }
+}
+
+.contentTitle {
+  margin-bottom: 24px;
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+  color: $black;
+  text-align: left;
+
+  @include tablet {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    font-size: 48px;
+    margin-bottom: 56px;
+  }
+}
+
+.contentText {
+  display: inline-block;
+  font-family: $body-font-family;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: $button-secondary-bg-active;
+  text-align: center;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  @include desktop {
+    font-size: 20px;
+    width: 792px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.btnWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+
+  @include tablet {
+    margin-top: 32px;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $blue;
+  border-radius: 12px;
+  padding: 16px;
+  width: 136px;
+  height: 132px;
+  cursor: pointer;
+
+  @include tablet {
+    width: 332px;
+    height: 114px;
+  }
+
+  @include desktop {
+    width: 384px;
+    height: 180px;
+    padding: 32px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow:
+      0 4px 10px 0 rgba(0, 65, 161, 0.2),
+      0 4px 20px 0 rgba(129, 217, 255, 0.3);
+    transition: box-shadow 0.2s linear;
+  }
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 320px;
+  height: 64px;
+}
+
+.cardTitle {
+  font-family: $body-font-family;
+  color: $color-content-text;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: left;
+}
+
+.button {
+  cursor: pointer;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  color: $black;
+  font-weight: 400;
+  line-height: 157%;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  white-space: pre;
+
+  @include tablet {
+    height: 46px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  @include desktop {
+    font-size: 20px;
+    letter-spacing: normal;
+  }
+
+  &:hover {
+    border: 2px solid $blue;
+    color: $blue;
+  }
+  &:active {
+    color: $button-secondary-bg-active;
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border: 2px solid $color-text-faded;
+    color: $color-text-faded;
+  }
+}
+
+.button svg {
+  @include desktop {
+    position: relative;
+    top: 2px;
+  }
+}

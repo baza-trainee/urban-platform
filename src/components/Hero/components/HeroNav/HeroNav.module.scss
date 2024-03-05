@@ -1,0 +1,32 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.menu {
+  margin-top: 32px;
+
+  @include tablet {
+    width: 340px;
+    margin-top: 0px;
+  }
+
+  @include desktop {
+    width: 100%;
+    gap: 80px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  @include tablet {
+    gap: 22px;
+  }
+
+  @include desktop {
+    gap: 80px;
+    justify-content: center;
+  }
+}

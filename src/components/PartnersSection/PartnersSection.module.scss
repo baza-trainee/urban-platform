@@ -1,0 +1,84 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.partnersSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff 0%, #f7f2ed 15%, #e8dfd6 100%);
+  padding: 40px 16px;
+  height: 203px;
+
+  @include tablet {
+    padding: 40px 32px;
+    height: 162px;
+  }
+
+  @include desktop {
+    padding: 64px 120px;
+    height: 288px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    width: 744px;
+  }
+
+  @include desktop {
+    width: 1200px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 85px;
+  height: 77px;
+  cursor: pointer;
+  position: relative;
+
+  @include tablet {
+    width: 81px;
+  }
+
+  @include desktop {
+    width: 137px;
+    height: 160px;
+  }
+}
+
+.cardWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cardImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 49px;
+
+  @include desktop {
+    width: 137px;
+  }
+}
+
+.image {
+  width: 100%;
+
+  @include desktop {
+    width: 137px;
+  }
+}

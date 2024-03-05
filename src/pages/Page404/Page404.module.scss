@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 64px;
 }
 
 .title {
@@ -33,30 +34,13 @@
 }
 
 .errorWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 588px;
-  height: 274px;
-  background: rgb(217, 217, 217);
-
   margin-bottom: 40px;
-}
-
-.error {
-  color: $black;
-  font-family: $heading-font-family;
-  font-size: $fs-xxl;
-  font-weight: $font-bold;
-  line-height: $heading-line-height;
-  letter-spacing: 0%;
 }
 
 .errorBtn {
   padding: 16px 32px 16px 32px;
   border-radius: 5px;
   background: $button-primary-bg;
-  width: 294px;
 }
 
 .link {
@@ -66,5 +50,3 @@
   font-weight: $font-medium;
   line-height: 23px;
 }
-
-

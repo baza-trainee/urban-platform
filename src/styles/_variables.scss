@@ -1,7 +1,7 @@
 $content-max-width: 1200px;
 $desktop-min-width: 1280px;
 $tablet-max-width: 1279px;
-$mobile-max-width: 767px;
+$mobile-max-width: 743px;
 
 $heading-font-family: 'Merriweather', serif;
 $body-font-family: 'Roboto', sans-serif;
@@ -26,24 +26,24 @@ $text-line-height: 1.5;
 
 $white: #ffffff;
 $black: #000000;
-$yellow: #FFC700;
-$blue: #0041A1;
-$light-blue: #81D9FF;
+$yellow: #ffc700;
+$blue: #0041a1;
+$light-blue: #81d9ff;
 
 $color-content-text: #000710;
 $color-text-faded: #686868;
-$color-bg-alt: #D9D9D9;
+$color-bg-alt: #d9d9d9;
 
-$header-bg-grad: linear-gradient(180deg, #0041A1 0%, #165AB0 100%);
+$header-bg-grad: linear-gradient(180deg, #0041a1 0%, #2268c0 100%);
 
-$color-box-shadow:rgba(0, 0, 0, 0.25);
+$color-box-shadow: rgba(0, 0, 0, 0.25);
 $color-button-box-shadow: rgba(0, 0, 0, 0.3);
 $color-input-box-shadow: rgba(0, 0, 0, 0.1);
 
-$button-primary-bg: linear-gradient(180deg, #FFE589 0%, #FFE99A 11.5%, #FFC700 45.8%);
-$button-primary-bg-hover: linear-gradient(180deg, #FFC700 21.5%, #FFEBA3 80.5%, #FFE589 100%);
-$button-secondary-bg-hover: rgba(247, 242, 237, 0.20);
-$button-secondary-bg-active: #F7F2ED;
-$input-bg: rgba(247, 242, 237, 0.40);
+$button-primary-bg: linear-gradient(180deg, #ffe589 0%, #ffe99a 11.5%, #ffc700 45.8%);
+$button-primary-bg-hover: linear-gradient(180deg, #ffc700 21.5%, #ffeba3 80.5%, #ffe589 100%);
+$button-secondary-bg-hover: rgba(247, 242, 237, 0.2);
+$button-secondary-bg-active: #f7f2ed;
+$input-bg: rgba(247, 242, 237, 0.4);
 
 $border-radius-cards: 12px;

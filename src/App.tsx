@@ -11,6 +11,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
+import Donation from './pages/Donation/Donation'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -39,6 +40,7 @@ function App() {
         <Route path="*" element={<Page404 />} />
         <Route path="/about" element={<About />} />
         <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/donation" element={<Donation />} />
       </Route>
       {/* <Route element={<ProtectedRoute page="admin" />}>
         <Route path="admin" element={<AdminLayout />} />

@@ -1,0 +1,85 @@
+@import "../../styles/styles.scss";
+
+.checkmail {
+    font-family: $body-font-family;
+    text-align: center;
+    color: $color-content-text;
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+    &__container {
+        max-width: 600px;
+        padding: 0px 15px;
+        margin: 0 auto;
+    }
+    &__title {
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 130%;
+        margin-bottom: 40px;
+    }
+    &__text {
+        font-size: 20px;
+        line-height: 150%;
+        text-align: left;
+    }
+    &__spam {
+        padding: 20px 0;
+        font-size: 16px;
+    }
+    &__button {
+        display: flex;
+        row-gap: 24px;
+        flex-direction: column;
+    }
+    &__link {
+        padding: 16px 0;
+        color: #000710;
+        background: $button-primary-bg;
+        font-size: 20px;
+        font-weight: 500;
+        border: 2px solid #ffc700;
+        transition: background 0.3s ease 1s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: #000710;
+                background: $button-primary-bg-hover;
+            }
+        }
+        &:nth-child(2) {
+            color: #ffc700;
+            background: transparent;
+            transition: background 0.3s ease 1s;
+            &:hover {
+                color: #000710;
+                background: $button-primary-bg-hover;
+            }
+        }
+    }
+}
+@media (max-width: 767.98px) {
+    .checkmail__title {
+        font-size: 20px;
+    }
+    .checkmail__text{
+        font-size: 16px;
+    }
+
+    .checkmail__spam {
+        font-size: 14px;
+    }
+}
+@media (max-width: 435.98px) {
+    .checkmail__title{
+        margin-bottom: 24px;
+    }
+    .checkmail__text{
+        font-size: 14px;
+    }
+
+    .checkmail__spam {
+        font-size: 12px;
+        padding: 24px 0;
+    }
+}

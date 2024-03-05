@@ -109,3 +109,102 @@
     margin-top: 32px;
   }
 }
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $blue;
+  border-radius: 12px;
+  padding: 16px;
+  width: 136px;
+  height: 132px;
+  cursor: pointer;
+
+  @include tablet {
+    width: 332px;
+    height: 114px;
+  }
+
+  @include desktop {
+    width: 384px;
+    height: 180px;
+    padding: 32px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow:
+      0 4px 10px 0 rgba(0, 65, 161, 0.2),
+      0 4px 20px 0 rgba(129, 217, 255, 0.3);
+    transition: box-shadow 0.2s linear;
+  }
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 320px;
+  height: 64px;
+}
+
+.cardTitle {
+  font-family: $body-font-family;
+  color: $color-content-text;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: left;
+}
+
+.button {
+  cursor: pointer;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  color: $black;
+  font-weight: 400;
+  line-height: 157%;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  white-space: pre;
+
+  @include tablet {
+    height: 46px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  @include desktop {
+    font-size: 20px;
+    letter-spacing: normal;
+  }
+
+  &:hover {
+    border: 2px solid $blue;
+    color: $blue;
+  }
+  &:active {
+    color: $button-secondary-bg-active;
+    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+    background: $blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border: 2px solid $color-text-faded;
+    color: $color-text-faded;
+  }
+}
+
+.button svg {
+  @include desktop {
+    position: relative;
+    top: 2px;
+  }
+}

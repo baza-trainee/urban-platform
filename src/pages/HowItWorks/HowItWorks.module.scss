@@ -1,3 +1,181 @@
 @import "../../styles/styles.scss";
 
+.section {
+    padding: 64px 120px;
+    display: flex;
+    background-color: $white;
+    height: 694px;
+    color: $black;
+    width: 1441px;
+    height: 1131px;
+}
 
+.title {
+    color: $black;
+    font-size: $fs-xl;
+    font-family: $heading-font-family;
+    font-size: $fs-xl;
+    font-weight: $font-bold;
+    line-height: $heading-line-height;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.text {
+    color: $black;
+    font-family: $body-font-family;
+    font-size: $fs-m;
+    font-weight: $font-regular;
+    line-height: $text-line-height;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.blockList {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    &__img {
+        margin-top: -5px;
+    }
+
+    &__item {
+        width: 221px;
+        height: 258px;
+    }
+    &__content {
+        height: 186px;
+    }
+    &__title {
+        color: $black;
+        font-family: $heading-font-family;
+        font-size: $fs-m;
+        font-weight: $font-regular;
+        line-height: $heading-line-height;
+        text-align: center;
+    }
+    &__text {
+        color: $black;
+        font-family: $body-font-family;
+        font-size: $fs-s;
+        font-weight: $font-regular;
+        line-height: $fs-l-mob;
+        text-align: center;
+    }
+    &__link {
+        color: $blue;
+        font-family: $body-font-family;
+        font-size: $fs-s;
+        font-weight: $font-regular;
+        line-height: $fs-l-mob;
+        text-align: center;
+        border-bottom: 1px solid $blue;
+        
+    }
+}
+
+.buttonBlock {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.button {
+    border-radius: 5px;
+    border-color: $blue;
+    background: $white;
+    color: $blue;
+    width: 600px;
+    height: 66px;
+    padding: 10px 16px 10px 16px;
+    font-family: $body-font-family;
+    font-size: $fs-m;
+    font-weight: $font-medium;
+    line-height: 23px;
+    text-align: center;
+    h4 {
+        margin: 0 auto;
+        width: 350px;
+    }
+}
+
+.buttonActive {
+    border-radius: 5px;
+    border-color: $blue;
+    background: $blue;
+    color: $white;
+    width: 600px;
+    height: 66px;
+    padding: 10px 16px 10px 16px;
+    font-family: $body-font-family;
+    font-size: $fs-m;
+    font-weight: $font-medium;
+    line-height: 23px;
+    text-align: center;
+    h4 {
+        margin: 0 auto;
+        width: 350px;
+    }
+}
+
+.subtitle {
+    color: $black;
+    font-family: $heading-font-family;
+    font-size: $fs-l-mob;
+    font-weight: $font-bold;
+    line-height: $heading-line-height;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    &__block {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 8px 8px 8px;
+        width: 384px;
+        height: 220px;
+        margin-right: 24px;
+        text-align: left;
+        border-top: 2px solid $black;
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+    &__content {
+        flex-grow: 1;
+    }
+    &__title {
+        color: $black;
+        font-family: $heading-font-family;
+        font-size: $fs-m;
+        font-weight: $font-regular;
+        line-height: $heading-line-height;
+        text-align: left;
+        margin-bottom: 16px;
+    }
+    &__text {
+        color: $black;
+        font-family: $body-font-family;
+        font-size: $fs-m;
+        font-weight: $font-regular;
+        line-height: $text-line-height;
+        text-align: left;
+        margin-bottom: 32px;
+    }
+    &__link {
+        margin-top: auto;
+        color: $blue;
+        font-family: $body-font-family;
+        font-size: $fs-s;
+        font-weight: $font-regular;
+        line-height: $fs-l-mob;
+        text-align: left;
+        border-bottom: 1px solid $blue;
+
+    }
+    &__linkArrow{
+        margin-left: 14px;
+    }
+}

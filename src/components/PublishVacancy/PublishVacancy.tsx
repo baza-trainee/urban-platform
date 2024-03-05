@@ -8,9 +8,6 @@ const PublishVacancy: React.FC = () => {
   return (
     <section className={s.publishvacancy} id="publishvacancy">
       <div className={s.contentWrapper}>
-        {/* <div className={s.iconWrap}>
-          <CalltoActionIcon />
-        </div> */}
         <div className={s.content}>
           <h2 className={s.contentTitle}>{publishVacancyTextData[0]}</h2>
           <div className={s.textWrap}>

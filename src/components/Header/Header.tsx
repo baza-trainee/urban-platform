@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         <section className={s.section}>
           <div className={s.container}>
             <Link to={routs.home} className={s.logoContainer}>
-              <img className={s.logo} src="./images/logo/header-logo.svg" alt="headerLogo" />
+              <img className={s.logo} src="/images/logo/header-logo.svg" alt="headerLogo" />
             </Link>
             <HeaderButtonBlock
               isMobile={isMobile}

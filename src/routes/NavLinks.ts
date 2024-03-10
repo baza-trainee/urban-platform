@@ -11,7 +11,8 @@ const routs: Routes = {
   vacancies: '/vacancies',
   messages: '/messages',
   userProfile: '/profile',
-  createProject: '/createProject'
+  createProject: '/createProject',
+  createGrant: '/createGrant'
 }
 
 export default routs

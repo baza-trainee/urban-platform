@@ -3,6 +3,8 @@ interface Routes {
 }
 
 const routs: Routes = {
+  linkedIn: '/',
+  facebook: '/',
   home: '/',
   projects: '/projects',
   members: '/parties',
@@ -11,7 +13,9 @@ const routs: Routes = {
   vacancies: '/vacancies',
   messages: '/messages',
   userProfile: '/profile',
-  createProject: '/createProject'
+  createProject: '/createProject',
+  donation: '/donation',
+  donationThanks: '/support'
 }
 
 export default routs

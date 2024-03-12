@@ -22,8 +22,6 @@ const CreateGrant: React.FC = () => {
 
   const location = useLocation().pathname
 
-  console.log(location)
-
   const handleInputName = (e: { target: { value: React.SetStateAction<string> } }): void => {
     setInputName(e.target.value)
   }

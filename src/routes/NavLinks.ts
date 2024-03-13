@@ -15,7 +15,10 @@ const routs: Routes = {
   userProfile: '/profile',
   createProject: '/createProject',
   donation: '/donation',
-  donationThanks: '/support'
+  donationThanks: '/support',
+  createGrant: '/createGrant',
+  editGrant: '/editGrant/:id',
+  organizationPage: '/org/:id'
 }
 
 export default routs

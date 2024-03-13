@@ -5,7 +5,7 @@ export interface IDataFromServer {
   [key: string]: string
 }
 
-export const dataDefault = {
+export const dataDefault: IDataDefault = {
   btnTitle: 'Заповнити форму',
   editBtnTitle: 'Редагувати',
   grantor: 'Грантодавець:',

@@ -13,6 +13,7 @@ import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
 import Donation from './pages/Donation/Donation'
+import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -38,12 +39,14 @@ function App() {
             </React.Suspense>
           }
         />
-        <Route path="/checkMail" element={<Checkmail/>} />
-        <Route path="/support" element={<Support/>} />
+        <Route path="/checkMail" element={<Checkmail />} />
+        <Route path="/support" element={<Support />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/about" element={<About />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/donation" element={<Donation />} />
+        <Route path="/donation" element={<Donation />} />
+        <Route path="vacancy/:id" element={<CheckVacancy />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>

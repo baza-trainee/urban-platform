@@ -28,6 +28,7 @@ function App() {
           <Route path="confirm-password" element={<ConfirmPasswordForm />} />
           <Route path="request-password" element={<RequestPasswordForm />} />
         </Route>
+        <Route path="registration" element={<RegPage />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"
@@ -37,8 +38,8 @@ function App() {
             </React.Suspense>
           }
         />
-        <Route path="/checkMail" element={<Checkmail/>} />
-        <Route path="/support" element={<Support/>} />
+        <Route path="/checkMail" element={<Checkmail />} />
+        <Route path="/support" element={<Support />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/about" element={<About />} />
         <Route path="/howitworks" element={<HowItWorks />} />
@@ -47,8 +48,7 @@ function App() {
       {/* <Route element={<ProtectedRoute page="admin" />}>
         <Route path="admin" element={<AdminLayout />} />
       </Route> */}
-      {/* <Route path="log-in" element={<LoginAdmin />} /> */}
-      <Route path="registration" element={<RegPage />} />
+      {/* <Routes path="log-in" element={<LoginAdmin />} /> */}
     </Routes>
   )
 }

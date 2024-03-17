@@ -172,3 +172,37 @@
     color: $color-text-faded;
   }
 }
+
+.link {
+  border: none;
+  border-bottom: 1px solid $blue;
+  font-family: $body-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $blue;
+  // width: 100%;
+  height: 24px;
+  cursor: pointer;
+
+  @include desktop {
+    font-size: 20px;
+    height: 30px;
+  }
+
+  &:hover {
+    border-bottom: 1px solid #001a40;
+    color: #001a40;
+  }
+
+  // &:active {
+  //   border: 2px solid $blue;
+  //   color: $blue;
+  // }
+
+  &:disabled {
+    cursor: not-allowed;
+    border-bottom: 1px solid $color-text-faded;
+    color: $color-text-faded;
+  }
+}

@@ -6,6 +6,7 @@ import HomePage from './pages/Home/HomePage'
 import Page404 from './pages/Page404/Page404'
 import Checkmail from './pages/Checkmail/Checkmail'
 import Support from './pages/SupportPage/Support'
+import Organization from './pages/Organization/Organization'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="/checkMail" element={<Checkmail/>} />
+        <Route path="/organization" element={<Organization/>} />
         <Route path="/support" element={<Support/>} />
       </Route>
       <Route path="*" element={<Page404 />} />

@@ -46,7 +46,7 @@ const HeaderButtonBlock: React.FC<HeaderButtonBlockProps> = ({
             <Message width={iconSize.width} height={iconSize.height} />
           )}
         </Link>
-        <Link to={routs.userProfile} className={s.iconButton} onMouseEnter={handleClickLogIn}>
+        <Link to={routs.registration} className={s.iconButton} onMouseEnter={handleClickLogIn}>
           {isLogIn ? (
             <LogOut width={iconSize.width} height={iconSize.height} />
           ) : (

@@ -14,6 +14,7 @@ const routs: Routes = {
   messages: '/messages',
   userProfile: '/profile',
   createProject: '/createProject',
+  registration: '/registration',
   donation: '/donation',
   donationThanks: '/support',
   checkVacancy: '/vacancy/:id'

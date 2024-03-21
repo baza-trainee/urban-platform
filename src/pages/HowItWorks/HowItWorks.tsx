@@ -25,8 +25,8 @@ const HowItWorks: React.FC = () => {
               id="button1"
               onClick={() => handleButtonClick('button1')}
             >
-              <h4>
-                Хочу створити проект <br /> та знайти партнерів для реалізації
+              <h4 className={s.shortText}>
+                <span>Хочу створити проект та знайти партнерів для реалізації</span>
               </h4>
             </button>
             <button
@@ -34,7 +34,7 @@ const HowItWorks: React.FC = () => {
               id="button2"
               onClick={() => handleButtonClick('button2')}
             >
-              Хочу приєднатися до існуючого проекту
+              <h4>Хочу долучитись до проекту</h4>
             </button>
           </div>
           <BlockList blocks={blocks} />

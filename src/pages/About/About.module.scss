@@ -1,17 +1,33 @@
 @import "../../styles/styles.scss";
 
 .section {
-  padding: 64px 120px;
+  padding: 24px 120px 64px 120px;
   display: flex;
+  justify-content: center;
   background-color: $white;
   height: 694px;
+  width: 100%;
+  position: relative;
+  @media (max-width: $tablet-max-width) {
+    padding: 24px 32px 48px 32px;
+    height: 509px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    padding: 40px 16px 40px 16px;
+    height: auto;
+  }
 }
 
 .container {
-  width: 691px;
-  margin-right: 100px;
-  position: relative;
+  width: 792px;
+  @media (max-width: $tablet-max-width) {
+    width: 406px;
+  }
 
+  @media (max-width: $mobile-max-width) {
+    padding-bottom: 80px;
+  }
 }
 
 .title {
@@ -21,17 +37,45 @@
   font-weight: $font-bold;
   line-height: $heading-line-height;
   text-align: left;
-  padding-bottom: 64px;
-  border-bottom: 2px solid $black;
+  margin-bottom: 64px;
+
+  @media (max-width: $tablet-max-width) {
+    font-size: $fs-l-mob;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    font-size: $fs-m;
+    margin-bottom: 23px;
+    text-align: center;
+  }
 }
 
-.subtitle {
+.subtitle1,
+.subtitle2 {
   color: $black;
   font-family: $body-font-family;
   font-size: $fs-m;
   font-weight: $font-regular;
   line-height: $text-line-height;
   text-align: left;
+  width: 691px;
+  @media (max-width: $tablet-max-width) {
+    font-size: $fs-s;
+    width: 390px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    width: 288px;
+    margin: 0 auto;
+  }
+}
+.subtitle1 {
+  border-top: 2px solid $black;
+  padding-top: 32px;
+  @media (max-width: $mobile-max-width) {
+    padding-top: 133px;
+  }
 }
 
 .howItWorksBtn {
@@ -41,8 +85,18 @@
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 480px;
-  right: -10px;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (max-width: $tablet-max-width) {
+    bottom: 48px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    font-size: $fs-m;
+    bottom: 38px;
+  }
   a {
     color: $black;
     font-family: $body-font-family;
@@ -54,5 +108,22 @@
   img {
     width: 19px;
     height: 19px;
+  }
+}
+
+.icon {
+  @media (max-width: $tablet-max-width) {
+    width: 274px;
+    height: 274px;
+  }
+
+  @media (max-width: $mobile-max-width) {
+    font-size: $fs-m;
+    position: absolute;
+    top: 144px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
   }
 }

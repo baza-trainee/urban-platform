@@ -13,6 +13,8 @@ import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
 import CreateGrant from './pages/Grant/CreateGrant/CreateGrant'
+import Donation from './pages/Donation/Donation'
+import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -29,6 +31,7 @@ function App() {
           <Route path="confirm-password" element={<ConfirmPasswordForm />} />
           <Route path="request-password" element={<RequestPasswordForm />} />
         </Route>
+        <Route path="registration" element={<RegPage />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"
@@ -45,13 +48,15 @@ function App() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="createGrant" element={<CreateGrant />} />
         <Route path="editGrant/:id" element={<CreateGrant />} />
+        <Route path="/donation" element={<Donation />} />
+        <Route path="/donation" element={<Donation />} />
+        <Route path="vacancy/:id" element={<CheckVacancy />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>
         <Route path="admin" element={<AdminLayout />} />
       </Route> */}
-      {/* <Route path="log-in" element={<LoginAdmin />} /> */}
-      <Route path="registration" element={<RegPage />} />
+      {/* <Routes path="log-in" element={<LoginAdmin />} /> */}
     </Routes>
   )
 }

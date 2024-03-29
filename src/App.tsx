@@ -13,6 +13,7 @@ import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
 import Donation from './pages/Donation/Donation'
+import CheckGrant from './pages/CheckGrant/CheckGrant'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 
 // import Footer from './components/Footer/Footer'
@@ -46,7 +47,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/donation" element={<Donation />} />
-        <Route path="/donation" element={<Donation />} />
+        <Route path="grant/:id" element={<CheckGrant />} />
         <Route path="vacancy/:id" element={<CheckVacancy />} />
       </Route>
       <Route path="*" element={<Page404 />} />

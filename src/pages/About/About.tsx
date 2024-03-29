@@ -8,11 +8,12 @@ const About: React.FC = () => {
     <section className={s.section}>
       <div className={s.container}>
         <h1 className={s.title}>Місто активних людей це</h1>
-        <p className={s.subtitle}>
+        <p className={s.subtitle1}>
           На платформі Ви можете сформувати команду та виконати спільний проєкт, знайти однодумців,
           інвесторів, долучитись до існуючого проєкту.
         </p>
-        <p className={s.subtitle}>
+        <br/>
+        <p className={s.subtitle2}>
           На платформі “Місто активних людей” Ви можете сформувати команду та виконати спільний
           проєкт, знайти однодумців, інвесторів, долучитись до існуючого проєкту.
         </p>

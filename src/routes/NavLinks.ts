@@ -19,7 +19,7 @@ const routs: Routes = {
   donationThanks: '/support',
   createGrant: '/createGrant',
   editGrant: '/editGrant/:id',
-  organizationPage: '/org/:id'
+  organizationPage: '/org/:id',
   checkVacancy: '/vacancy/:id'
 }
 

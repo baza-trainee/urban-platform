@@ -12,6 +12,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
+import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
@@ -46,6 +47,8 @@ function App() {
         <Route path="*" element={<Page404 />} />
         <Route path="/about" element={<About />} />
         <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="createGrant" element={<CreateGrant />} />
+        <Route path="editGrant/:id" element={<CreateGrant />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="grant/:id" element={<CheckGrant />} />
         <Route path="vacancy/:id" element={<CheckVacancy />} />

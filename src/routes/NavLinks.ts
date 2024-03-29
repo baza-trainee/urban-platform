@@ -14,11 +14,13 @@ const routs: Routes = {
   messages: '/messages',
   userProfile: '/profile',
   createProject: '/createProject',
+  registration: '/registration',
   donation: '/donation',
   donationThanks: '/support',
   createGrant: '/createGrant',
   editGrant: '/editGrant/:id',
   organizationPage: '/org/:id'
+  checkVacancy: '/vacancy/:id'
 }
 
 export default routs

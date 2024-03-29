@@ -12,7 +12,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
-import CreateGrant from './pages/Grant/CreateGrant/CreateGrant'
+import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 

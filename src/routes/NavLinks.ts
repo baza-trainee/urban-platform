@@ -18,7 +18,6 @@ const routs: Routes = {
   registration: '/registration',
   donation: '/donation',
   donationThanks: '/support',
-  createGrant: '/createGrant',
   editGrant: '/editGrant/:id',
   organizationPage: '/org/:id',
   checkVacancy: '/vacancy/:id'

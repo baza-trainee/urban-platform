@@ -190,18 +190,31 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
       <div className={s['input-block__radio-container']}>{radio}</div>
     ) : blockTypes === 'input&checkbox' ? (
       <>
-        <Field
-          as={InputMask}
-          mask={mask}
-          className={inputClassName}
-          placeholder={placeholder}
-          name={name}
-          id={name}
-          required
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-        />
+        {mask ? (
+          <Field
+            as={InputMask}
+            mask={mask}
+            className={inputClassName}
+            placeholder={placeholder}
+            name={name}
+            id={name}
+            required
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+          />
+        ) : (
+          <Field
+            className={inputClassName}
+            placeholder={placeholder}
+            name={name}
+            id={name}
+            required
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+          />
+        )}
         <div className={`${s['input-block__checkbox-block']}`}>
           <Field
             type="checkbox"

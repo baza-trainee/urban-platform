@@ -88,6 +88,19 @@
   border-radius: 5px;
   border: 2px solid #0041a1;
   padding: 2px 3px;
+  @media (max-width: $tablet-max-width) {
+    width: 632px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 240px;
+  }
+
+  ul li {
+    @media (max-width: $mobile-max-width) {
+      white-space: normal;
+      border-bottom: 1px solid $color-content-text;
+    }
+  }
 }
 
 .input-block {

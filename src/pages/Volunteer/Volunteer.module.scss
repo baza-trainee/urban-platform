@@ -1,0 +1,506 @@
+@import '../../styles/styles.scss';
+
+.img-body {
+  width: 400px;
+  aspect-ratio: 1/1;
+  outline-color: red;
+  display: inline-block;
+  border: 2px solid black;
+}
+
+.padding {
+  padding: 30px;
+}
+
+.conte {
+  display: block;
+  width: 288px;
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  color: $color-content-text;
+  @media (max-width: $tablet-max-width) {
+    display: flex;
+  }
+  @media (max-width: $mobile-max-width) {
+    display: flex;
+  }
+}
+
+.container {
+  max-width: $content-max-width;
+  margin: 64px auto;
+  @include flex($align: start);
+  gap: 24px;
+  @media (max-width: $tablet-max-width) {
+    margin: 32px auto;
+    gap: 16px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 320px;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.text {
+  white-space: pre-wrap;
+  ul,
+  li {
+    white-space: normal;
+  }
+}
+
+.img-block {
+  width: 282px;
+  @include flex(column, start, center);
+  gap: 32px;
+  @media (max-width: $tablet-max-width) {
+    width: 216px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 100%;
+    gap: 24px;
+  }
+  &__img-container {
+    width: 282px;
+    height: 282px;
+    border-radius: 50%;
+    overflow: hidden;
+    @media (max-width: $tablet-max-width) {
+      width: 216px;
+      height: 216px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 186px;
+      height: 186px;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__url-icons {
+    width: 234px;
+    @include flex($justify: space-between);
+    @media (max-width: $tablet-max-width) {
+      width: 216px;
+      padding: 0 16px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 288px;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+  &__btn-container {
+    @media (max-width: $mobile-max-width) {
+      width: 288px;
+      @include flex(column);
+      gap: 8px;
+    }
+  }
+}
+
+.content-block {
+  width: 894px;
+  @include flex(column);
+  gap: 40px;
+  @media (max-width: $tablet-max-width) {
+    width: 448px;
+    gap: 32px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 288px;
+    gap: 24px;
+  }
+  &__title-block {
+    width: 100%;
+    @include flex(row, space-between, center);
+    @media (max-width: $tablet-max-width) {
+      height: 40px;
+    }
+    @media (max-width: $mobile-max-width) {
+      justify-content: center;
+    }
+  }
+  &__title {
+    font-family: $heading-font-family;
+    font-weight: $font-bold;
+    font-size: $fs-xl;
+    line-height: $heading-line-height;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-l-mob;
+    }
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-m;
+    }
+  }
+  &__description {
+    width: 100%;
+    text-align: left;
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    color: $black;
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+    }
+    ul > li {
+      list-style: inside;
+    }
+  }
+  &__info-block {
+    padding: 16px 0;
+    border-top: 2px solid $black;
+    @include flex;
+    text-align: left;
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    color: $black;
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s-mob;
+    }
+  }
+  &__info-list {
+    width: 100%;
+    @include flex(column);
+    gap: 16px;
+  }
+  &__info {
+    @include flex(row, start, start);
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      gap: 16px;
+    }
+  }
+  &__info-keys {
+    width: 181px;
+    display: block;
+    text-align: start;
+    @media (max-width: $tablet-max-width) {
+      width: 158px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 85px;
+    }
+  }
+  &__info-value {
+    width: 690px;
+    display: block;
+    @media (max-width: $tablet-max-width) {
+      width: 274px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 187px;
+    }
+  }
+}
+
+.projects-block__list-container {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 16px !important;
+  .slick-list {
+    @media screen and (min-width: 280px) {
+      height: 458px !important;
+    }
+  }
+}
+
+.projects-block {
+  @include flex(column);
+  gap: 24px;
+  width: 100%;
+  @media (max-width: $mobile-max-width) {
+    gap: 16px;
+  }
+  &__button-block {
+    width: 100%;
+  }
+  &__btn {
+    padding: 10px 16px;
+    width: 50%;
+    height: 48px;
+
+    border: 2px solid $blue;
+    color: $blue;
+    background-color: $white;
+
+    cursor: pointer;
+
+    font-family: $body-font-family;
+    font-weight: $font-medium;
+    font-size: $fs-m;
+    line-height: $heading-line-height;
+
+    @media (max-width: $tablet-max-width) {
+      padding: 10px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-s;
+      font-weight: $font-bold;
+      line-height: $text-line-height;
+      height: auto;
+    }
+
+    &_left {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &_right {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &_active {
+      background-color: $blue;
+      color: $button-secondary-bg-active;
+    }
+  }
+  &__container {
+    width: 100%;
+    @include flex;
+    gap: 16px;
+    border-radius: 10px;
+    border: 1px solid $color-content-text;
+    padding: 16px;
+    position: relative;
+    @media (max-width: $tablet-max-width) {
+      @include flex(column);
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 237px;
+      padding: 12px;
+      gap: 8px;
+    }
+  }
+  &__list-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    .slick-list {
+      @media screen and (min-width: 280px) {
+        height: 458px !important;
+      }
+    }
+  }
+  &__list {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    .slick-list {
+      height: 560px;
+    }
+  }
+  &__img-block {
+    width: 189px;
+    height: 242px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: $tablet-max-width) {
+      width: 416px;
+      height: 120px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 213px;
+      height: 120px;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__city-name {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    border-radius: 8px;
+    background-color: rgba($color: $white, $alpha: 0.6);
+    padding: 4px 16px;
+
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    color: $color-content-text;
+    z-index: 1;
+  }
+  &__info-block {
+    width: 657px;
+    @include flex(column);
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      width: 416px;
+      gap: 12px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 213px;
+      gap: 8px;
+    }
+  }
+  &__title-block {
+    width: 100%;
+    @include flex(column, start, start);
+  }
+  &__title {
+    font-family: $heading-font-family;
+    font-weight: $font-bold;
+    font-size: $fs-l-mob;
+    line-height: $heading-line-height;
+    color: $blue;
+    border-bottom: 1px solid $blue;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s;
+    }
+  }
+  &__time {
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    color: $color-text-faded;
+    @media (max-width: $tablet-max-width) {
+      font-family: $secondary-font-family;
+      font-size: $fs-xs;
+      line-height: 1.2;
+    }
+  }
+  &__description-block {
+    text-align: left;
+    padding: 0 2px;
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-m;
+    line-height: $text-line-height;
+    color: $color-content-text;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s-mob;
+    }
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-xs;
+    }
+  }
+  &__btn-block {
+    width: 100%;
+    @include flex(row, space-between);
+    gap: 16px;
+    @media (max-width: $tablet-max-width) {
+      flex-direction: column;
+      align-items: normal;
+    }
+  }
+  &__org-container {
+    width: 284px;
+    @include flex(row, start);
+    gap: 8px;
+    @media (max-width: $tablet-max-width) {
+      width: 178px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 213px;
+    }
+  }
+  &__org {
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    color: $blue;
+
+    border-bottom: 1px solid $blue;
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+    }
+  }
+  &__img-container {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__btns {
+    @include flex(row);
+    gap: 16px;
+    @media (max-width: $tablet-max-width) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+    @media (max-width: $mobile-max-width) {
+      @include flex(column-reverse);
+      gap: 8px;
+    }
+  }
+}
+
+.btn-like {
+  @include flex;
+  gap: 8px;
+  padding: 8px 16px;
+
+  border-radius: 8px;
+  border: 2px solid $blue;
+
+  color: $blue;
+  background-color: $white;
+
+  cursor: pointer;
+
+  font-family: $body-font-family;
+  font-weight: $font-regular;
+  font-size: $fs-s;
+  line-height: $text-line-height;
+  @media (max-width: $tablet-max-width) {
+    width: 75px;
+    height: 40px;
+    padding: 4px 8px;
+  }
+  &_project {
+    width: 91px;
+    height: 56px;
+  }
+  &_mobile {
+    @media (max-width: $mobile-max-width) {
+      width: 100%;
+      height: 56px;
+      padding: 16px 24px;
+    }
+  }
+  &:hover {
+    background-color: rgba($color: $blue, $alpha: 0.1);
+  }
+  &:active {
+    background-color: $blue;
+    color: $button-secondary-bg-active;
+  }
+  &:active svg path {
+    fill: $button-secondary-bg-active;
+    stroke: $button-secondary-bg-active;
+  }
+  &:disabled {
+    border: 2px solid $button-secondary-bg-hover;
+    color: $button-secondary-bg-hover;
+  }
+  &:disabled svg path {
+    fill: 2px solid $button-secondary-bg-hover;
+    stroke: $button-secondary-bg-hover;
+  }
+}

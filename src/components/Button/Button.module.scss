@@ -111,32 +111,89 @@
   }
 }
 
+// .outlineIconLike {
+//   cursor: pointer;
+//   border: 2px solid $blue;
+//   border-radius: 8px;
+//   padding: 16px 24px;
+//   display: flex;
+//   flex-direction: row;
+//   color: $blue;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 150%;
+
+//   &:hover {
+//     box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+//     background: rgba(0, 65, 161, 0.1);
+//   }
+//   &:active {
+//     color: $button-secondary-bg-active;
+//     box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
+//     background: $blue;
+//   }
+
+//   &:disabled {
+//     cursor: not-allowed;
+//     border: 2px solid $color-text-faded;
+//     color: $color-text-faded;
+//   }
+// }
+
 .outlineIconLike {
-  cursor: pointer;
-  border: 2px solid $blue;
+  @include flex;
+  gap: 8px;
+  padding: 8px 16px;
+
   border-radius: 8px;
-  padding: 16px 24px;
-  display: flex;
-  flex-direction: row;
+  border: 2px solid $blue;
+
   color: $blue;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
+  background-color: $white;
 
-  &:hover {
-    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
-    background: rgba(0, 65, 161, 0.1);
+  cursor: pointer;
+
+  font-family: $body-font-family;
+  font-weight: $font-regular;
+  font-size: $fs-s;
+  line-height: $text-line-height;
+  @media (max-width: $tablet-max-width) {
+    width: 75px;
+    height: 40px;
+    padding: 4px 8px;
   }
+  &_project {
+    width: 91px;
+    height: 56px;
+  }
+  &_mobile {
+    @media (max-width: $mobile-max-width) {
+      width: 100%;
+      height: 56px;
+      padding: 16px 24px;
+    }
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba($color: $blue, $alpha: 0.1);
+    }
+  }
+
   &:active {
+    background-color: $blue;
     color: $button-secondary-bg-active;
-    box-shadow: 0 4px 10px 0 rgba(104, 104, 104, 0.3);
-    background: $blue;
   }
-
+  &:active svg path {
+    fill: $button-secondary-bg-active;
+    stroke: $button-secondary-bg-active;
+  }
   &:disabled {
-    cursor: not-allowed;
-    border: 2px solid $color-text-faded;
-    color: $color-text-faded;
+    border: 2px solid $button-secondary-bg-hover;
+    color: $button-secondary-bg-hover;
+  }
+  &:disabled svg path {
+    fill: 2px solid $button-secondary-bg-hover;
+    stroke: $button-secondary-bg-hover;
   }
 }
 

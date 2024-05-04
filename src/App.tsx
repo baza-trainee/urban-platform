@@ -16,6 +16,7 @@ import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
+import Volunteer from './pages/Volunteer/Volunteer'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -52,6 +53,7 @@ function App() {
         <Route path="/donation" element={<Donation />} />
         <Route path="grant/:id" element={<CheckGrant />} />
         <Route path="vacancy/:id" element={<CheckVacancy />} />
+        <Route path="volunteer/:id" element={<Volunteer />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>

@@ -98,7 +98,7 @@
   ul li {
     @media (max-width: $mobile-max-width) {
       white-space: normal;
-      border-bottom: 1px solid $color-content-text;
+      border-bottom: 2px solid $color-text-faded;
     }
   }
 }

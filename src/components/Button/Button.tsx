@@ -41,7 +41,10 @@ const Button: React.FC<Props> = ({
   ...otherProps
 }) => {
   const btnClasses = buttonClasses
-    ? clsx(s.button, buttonClasses?.split(' ').map((item) => s[item]))
+    ? clsx(
+        s.button,
+        buttonClasses?.split(' ').map((item) => s[item])
+      )
     : s.button
 
   const renderButtonContent = () => (

@@ -17,6 +17,7 @@ import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 import CreateVacancy from './pages/CreateVacancy/CreateVacancy'
+import Volunteer from './pages/Volunteer/Volunteer'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -55,6 +56,7 @@ function App() {
         <Route path="vacancy/:id" element={<CheckVacancy />} />
         <Route path="createVacancy" element={<CreateVacancy />} />
         <Route path="editVacancy/:id" element={<CreateVacancy />} />
+        <Route path="volunteer/:id" element={<Volunteer />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>

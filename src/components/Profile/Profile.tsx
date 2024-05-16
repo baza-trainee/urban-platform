@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import s from './Profile.module.scss'
 import useMediaQuery from '../../hooks/useMediaQuery'
@@ -7,17 +7,37 @@ import IconLike from '../../assets/icons/IconLike'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import { IProjectData } from '../../pages/Volunteer/volunteerData'
+import routs from '../../routes/NavLinks'
 
 interface IProps {
   profileMap: IProjectData[]
-  leftBtn: string
-  rightBtn: string
-  button: boolean
+  leftBtn?: string
+  rightBtn?: string
+  centralBtnTitle?: string
+  button?: boolean
+  centralBtn?: boolean
+  toggle?: string
+  type: 'project' | 'vacancy' | 'grant'
 }
 
-const Profile: React.FC<IProps> = ({ profileMap, leftBtn, rightBtn, button }) => {
-  const [active, setActive] = useState('left')
+const Profile: React.FC<IProps> = ({
+  type,
+  profileMap,
+  leftBtn,
+  rightBtn,
+  centralBtnTitle,
+  button,
+  centralBtn,
+  toggle
+}) => {
+  const [active, setActive] = useState(leftBtn)
+  console.log(toggle)
+
   const { isDesktop, isTablet, isMobile } = useMediaQuery()
+
+  const navLink = (link: string, id: string): string => {
+    return link.split(':')[0] + id
+  }
 
   const settings = {
     dots: true,
@@ -31,8 +51,8 @@ const Profile: React.FC<IProps> = ({ profileMap, leftBtn, rightBtn, button }) =>
   const projectBtnStyle = isDesktop
     ? { width: '250px' }
     : isTablet
-      ? { width: '164px', height: '48px' }
-      : { width: '213px', height: '55px' }
+    ? { width: '164px', height: '48px' }
+    : { width: '213px', height: '55px' }
   const likeBtnClass = isTablet
     ? 'outlineIconLike'
     : 'outlineIconLike outlineIconLike_project outlineIconLike_mobile'
@@ -41,27 +61,88 @@ const Profile: React.FC<IProps> = ({ profileMap, leftBtn, rightBtn, button }) =>
     setActive(value)
   }
 
+  useEffect(() => {
+    setActive(leftBtn)
+  }, [toggle])
+
+  const mapLi = (keys: IProjectData) => {
+    if ('keys' in keys && Array.isArray(keys.keys)) {
+      const keysArray = keys.keys[0]
+      const valuesArray = keys.keys[1]
+      const mapArr = Object.keys(keysArray)
+      return mapArr.map((key, index) => (
+        <li key={index} className={s['profile-block__info']}>
+          <span className={s['profile-block__info-keys']}>{keysArray[key]}</span>
+          <span className={s['profile-block__info-value']}>{valuesArray[key]}</span>
+        </li>
+      ))
+    }
+    return null
+  }
+
   const mapProjects: React.ReactNode[] = profileMap.map((it) => {
     return (
-      <div key={it.projectUrl} className={s['profile-block__container']}>
-        <div className={s['profile-block__img-block']}>
-          <img
-            src="/images/default_project_img.png"
-            alt="Project img"
-            className={s['profile-block__img']}
-          />
-          <p className={s['profile-block__city-name']}>{it.city}</p>
-        </div>
-        <div className={s['profile-block__info-block']}>
-          <div className={s['profile-block__title-block']}>
-            <h2 className={s['profile-block__title']}>{it.title}</h2>
-            <p className={s['profile-block__time']}>{`${it.timeFrom} - ${it.timeTo}`}</p>
+      <div
+        key={it.titleUrl}
+        className={`${s['profile-block__container']} ${
+          toggle && toggle !== 'project' && s['profile-block__container_vacancy-grant']
+        }`}
+      >
+        {type === 'project' && (
+          <div className={s['profile-block__img-block']}>
+            <img
+              src="/images/default_project_img.png"
+              alt="Project img"
+              className={s['profile-block__img']}
+            />
+            <p className={s['profile-block__city-name']}>{it.city}</p>
           </div>
-          <div className={s['profile-block__description-block']}>
+        )}
+        <div
+          className={`${s['profile-block__info-block']} ${
+            toggle && toggle !== 'project' && s['profile-block__info-block_vacancy-grant']
+          }`}
+        >
+          <div className={s['profile-block__title-block']}>
+            <Link
+              to={
+                active === 'Чернетки'
+                  ? navLink(
+                      type === 'vacancy'
+                        ? routs.editVacancy
+                        : type === 'grant'
+                        ? routs.editGrant
+                        : routs.editProject,
+                      it.id
+                    )
+                  : it.titleUrl
+              }
+              className={s['profile-block__title']}
+            >
+              {it.title}
+            </Link>
+            {type !== 'vacancy' && (
+              <p className={s['profile-block__time']}>{`${it.timeFrom} - ${it.timeTo}`}</p>
+            )}
+          </div>
+          {type !== 'project' && <ul className={s['profile-block__info-list']}>{mapLi(it)}</ul>}
+          <div
+            className={`${s['profile-block__description-block']} ${
+              toggle && toggle !== 'project' && s['profile-block__description-block_vacancy-grant']
+            }`}
+          >
             <p className={s['profile-block__description']}>{it.description}</p>
           </div>
-          <div className={s['profile-block__btn-block']}>
-            <div className={s['profile-block__org-container']}>
+          <div
+            className={`${s['profile-block__btn-block']} ${
+              toggle && toggle !== 'project' && s['profile-block__btn-block_vacancy-grant']
+            }`}
+          >
+            <div
+              className={`${s['profile-block__org-container']} ${
+                toggle && toggle !== 'project' && s['profile-block__org-container_vacancy-grant']
+              }`}
+            >
               <div className={s['profile-block__img-container']}>
                 <img
                   src="/images/default_org_icon.svg"
@@ -73,9 +154,36 @@ const Profile: React.FC<IProps> = ({ profileMap, leftBtn, rightBtn, button }) =>
                 {it.org}
               </Link>
             </div>
-            <div className={s['profile-block__btns']}>
-              <Button name="Приєднатись" buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
-              <Button buttonClasses={likeBtnClass} name={it.likes} startIcon={<IconLike />} />
+            <div className={s['profile-block__btns']} style={toggle ? { width: '100%' } : {}}>
+              {type === 'project' && !button ? (
+                <Button name="Переглянути" buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
+              ) : (type === 'vacancy' || type === 'grant') && active === 'Чернетки' ? (
+                <Button
+                  component="link"
+                  to={navLink(type === 'vacancy' ? routs.editVacancy : routs.editGrant, it.id)}
+                  handleMouseEnter={() => null}
+                  handleMouseLeave={() => null}
+                  name="Редагувати"
+                  buttonClasses="filledBtn"
+                  styleBtn={{ width: '100%' }}
+                />
+              ) : (
+                false
+              )}
+              {(!button || active !== rightBtn) && (
+                <Button
+                  buttonClasses={likeBtnClass}
+                  name={it.likes}
+                  startIcon={<IconLike />}
+                  styleBtn={
+                    toggle && isTablet
+                      ? { width: '100%', height: '40px' }
+                      : toggle
+                      ? { width: '100%' }
+                      : {}
+                  }
+                />
+              )}
             </div>
           </div>
         </div>
@@ -89,23 +197,40 @@ const Profile: React.FC<IProps> = ({ profileMap, leftBtn, rightBtn, button }) =>
         <div className={s['profile-block__button-block']}>
           <button
             className={`${s['profile-block__btn']} ${s['profile-block__btn_left']} ${
-              active === 'left' && s['profile-block__btn_active']
-            }`}
-            onClick={() => handleCLickChoiceBtn('left')}
+              active === leftBtn && s['profile-block__btn_active']
+            } ${centralBtn && s['profile-block__btn_size']}`}
+            onClick={() => handleCLickChoiceBtn(leftBtn!)}
           >
             {leftBtn}
           </button>
+          {centralBtn && (
+            <button
+              className={`${s['profile-block__btn']} ${s['profile-block__btn_central']} ${
+                active === centralBtnTitle && s['profile-block__btn_active']
+              } ${centralBtn && s['profile-block__btn_size']}`}
+              onClick={() => handleCLickChoiceBtn(centralBtnTitle!)}
+            >
+              {centralBtnTitle}
+            </button>
+          )}
           <button
             className={`${s['profile-block__btn']} ${s['profile-block__btn_right']} ${
-              active === 'right' && s['profile-block__btn_active']
-            }`}
-            onClick={() => handleCLickChoiceBtn('right')}
+              active === rightBtn && s['profile-block__btn_active']
+            } ${centralBtn && s['profile-block__btn_size']}`}
+            onClick={() => handleCLickChoiceBtn(rightBtn!)}
           >
             {rightBtn}
           </button>
         </div>
       )}
-      {isMobile ? <Slider {...settings}>{mapProjects}</Slider> : mapProjects}
+
+      {isMobile ? (
+        <Slider {...settings}>{mapProjects}</Slider>
+      ) : toggle && toggle !== 'project' ? (
+        <div className={s['profile-block_container']}>{mapProjects}</div>
+      ) : (
+        mapProjects
+      )}
     </div>
   )
 }

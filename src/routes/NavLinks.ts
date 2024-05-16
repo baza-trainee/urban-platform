@@ -20,7 +20,10 @@ const routs: Routes = {
   donationThanks: '/support',
   editGrant: '/editGrant/:id',
   organizationPage: '/org/:id',
-  checkVacancy: '/vacancy/:id'
+  checkVacancy: '/vacancy/:id',
+  volunteerProfileEdit: '/volunteerProfile/edit/:id',
+  editVacancy: '/editVacancy/:id',
+  editProject: '/editProject/:id'
 }
 
 export default routs

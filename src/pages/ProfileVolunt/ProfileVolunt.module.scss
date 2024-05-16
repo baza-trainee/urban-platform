@@ -1,0 +1,346 @@
+@import '../../styles/styles.scss';
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animation {
+  transition: width 0.3s ease-out;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.text {
+  white-space: pre-wrap;
+  ul,
+  li {
+    white-space: normal;
+  }
+}
+
+.align-start {
+  @include flex($justify: flex-start);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.column {
+  @include flex(column);
+  gap: 24px;
+  width: 894px;
+  @media (max-width: $tablet-max-width) {
+    width: 448px;
+  }
+}
+
+.vacancy {
+  width: 894px;
+  @media (max-width: $tablet-max-width) {
+    width: 448px;
+  }
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  color: $color-content-text;
+  @media (max-width: $tablet-max-width) {
+    display: flex;
+  }
+  @media (max-width: $mobile-max-width) {
+    display: flex;
+  }
+}
+
+.container {
+  max-width: $content-max-width;
+  margin: 64px auto;
+  @include flex(column, $align: start);
+  gap: 40px;
+  @media (max-width: $tablet-max-width) {
+    width: 680px;
+    margin: 32px auto 48px auto;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 320px;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.title-block {
+  width: 100%;
+
+  @include flex(row, space-between);
+  &__title {
+    font-family: $heading-font-family;
+    font-size: $fs-xl;
+    font-weight: $font-bold;
+    line-height: $heading-line-height;
+
+    color: $color-content-text;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-l-mob;
+    }
+  }
+}
+
+.content-block {
+  width: 100%;
+  @include flex(column, start, start);
+  gap: 40px;
+  @media (max-width: $tablet-max-width) {
+    gap: 32px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 288px;
+    gap: 24px;
+  }
+  &__user-info {
+    width: 100%;
+    @include flex(row, start, start);
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      gap: 16px;
+    }
+    @media (max-width: $mobile-max-width) {
+      gap: 24px;
+    }
+  }
+
+  &__toggle-block {
+    width: 282px;
+    padding: 16px;
+    @include flex(column, start, start);
+    gap: 24px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 0px #6868684d;
+    @media (max-width: $tablet-max-width) {
+      width: 216px;
+      height: 188px;
+    }
+  }
+  &__toggle {
+    cursor: pointer;
+    background-color: transparent;
+    color: $color-content-text;
+    border: none;
+
+    font-family: $heading-font-family;
+    font-size: $fs-m;
+    font-weight: $font-regular;
+    line-height: $heading-line-height;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s;
+    }
+    &_selected {
+      border-bottom: 2px solid $color-content-text;
+    }
+  }
+
+  &__top {
+    @include flex(row, start, start);
+    @media (max-width: $tablet-max-width) {
+      @include flex(column-reverse, start, start);
+      gap: 32px;
+    }
+  }
+
+  &__info-block {
+    width: 689px;
+    @include flex(column);
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      width: 447px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 288px;
+      padding: 16px 0;
+      border-top: 2px solid $color-content-text;
+    }
+  }
+  &__info {
+    width: 100%;
+    @include flex(row, start, start);
+    gap: 24px;
+
+    font-family: $body-font-family;
+    font-size: $fs-s;
+    font-weight: $font-regular;
+    line-height: $text-line-height;
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+      text-align: left;
+      span {
+        align-self: flex-start;
+      }
+    }
+  }
+  &__info-keys {
+    width: 181px;
+    display: block;
+    text-align: start;
+    @media (max-width: $tablet-max-width) {
+      width: 158px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 85px;
+    }
+  }
+  &__info-value {
+    width: 485px;
+    display: block;
+    text-align: start;
+    @media (max-width: $tablet-max-width) {
+      width: 274px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 187px;
+    }
+  }
+
+  &__description-block {
+    width: 894px;
+
+    @include flex(column);
+    gap: 21px;
+    margin-left: 306px;
+    @media (max-width: $tablet-max-width) {
+      width: 447px;
+      margin-left: 232px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 288px;
+      margin-left: auto;
+    }
+  }
+  &__description-title {
+    width: 100%;
+    font-family: $heading-font-family;
+    font-size: $fs-l-mob;
+    font-weight: $font-bold;
+    line-height: $heading-line-height;
+    text-align: left;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s;
+    }
+    @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+    }
+  }
+  &__description {
+    width: 100%;
+    text-align: left;
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    word-wrap: break-word;
+    color: $black;
+    @media (max-width: $mobile-max-width) {
+      width: 288px;
+      font-size: $fs-s-mob;
+    }
+    ul > li {
+      list-style: inside;
+    }
+  }
+  &__checkbox-block {
+    @include flex($justify: flex-start);
+  }
+  &__checkbox-info {
+    @include flex(column, start, start);
+  }
+  &__checkbox-text {
+    font-family: $body-font-family;
+    font-weight: $font-regular;
+    font-size: $fs-s;
+    line-height: $text-line-height;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s-mob;
+    }
+    @media (max-width: $mobile-max-width) {
+      font-family: $secondary-font-family;
+      font-size: $fs-xs;
+    }
+  }
+  &__checkbox {
+    color-scheme: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1.5px solid $color-content-text;
+    margin-right: 4px;
+    background-color: white;
+  }
+}
+.img-block {
+  width: 180px;
+  height: 228px;
+  @include flex(column);
+  gap: 16px;
+  @media (max-width: $tablet-max-width) {
+    width: 100%;
+    height: auto;
+    @include flex(row, start, start);
+    gap: 8px;
+  }
+  @media (max-width: $mobile-max-width) {
+    width: 288px;
+    @include flex(column);
+    gap: 24px;
+  }
+  &__img-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    @media (max-width: $tablet-max-width) {
+      width: 158px;
+      height: 158px;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__url-icons {
+    width: 100%;
+    @include flex($justify: space-between);
+    @media (max-width: $tablet-max-width) {
+      width: 274px;
+      padding: 0px 16px;
+    }
+    @media (max-width: $mobile-max-width) {
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    // @media (hover: hover) {
+    //   &:hover {
+    //     box-shadow: 0px 4px 10px 0px #6868684d;
+    //   }
+    // }
+    @media (max-width: $tablet-max-width) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

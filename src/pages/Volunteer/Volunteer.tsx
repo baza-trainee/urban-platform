@@ -106,6 +106,7 @@ const Volunteer = () => {
             leftBtn={dVolunteerData.firstBlueBtn}
             rightBtn={dVolunteerData.secondBlueBtn}
             button={false}
+            type={'project'}
           />
         </div>
       </div>

@@ -59,21 +59,24 @@ export const sVolunteerData: { [key: string]: string } = {
 }
 
 export interface IProjectData {
+  id: string
   title: string
-  projectUrl: string
-  timeFrom: string
-  timeTo: string
+  titleUrl: string
+  timeFrom?: string
+  timeTo?: string
   description: string
   org: string
   orgUrl: string
   likes: string
-  city: string
+  city?: string
+  keys?: { [key: string]: string }[]
 }
 
 export const projectData: IProjectData[] = [
   {
+    id: '1',
     title: 'Найкращий проєкт',
-    projectUrl: 'sdasd',
+    titleUrl: 'sdasd',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:
@@ -84,8 +87,9 @@ export const projectData: IProjectData[] = [
     city: 'Київ'
   },
   {
+    id: '2',
     title: 'Найкращий проєкт',
-    projectUrl: 'dwrqwe',
+    titleUrl: 'dwrqwe',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:

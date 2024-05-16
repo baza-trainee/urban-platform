@@ -4,8 +4,17 @@
   @include flex(column);
   gap: 24px;
   width: 100%;
+  &_container {
+    @include flex(row, start, start);
+    gap: 24px;
+    flex-wrap: wrap;
+    @media (max-width: $tablet-max-width) {
+      gap: 16px;
+    }
+  }
   &__button-block {
     width: 100%;
+    @include flex;
   }
   &__btn {
     padding: 10px 16px;
@@ -18,10 +27,11 @@
 
     cursor: pointer;
 
-    font-family: $body-font-family;
+    font-family: $heading-font-family;
     font-weight: $font-medium;
     font-size: $fs-m;
     line-height: $heading-line-height;
+    overflow-wrap: break-word;
 
     @media (max-width: $tablet-max-width) {
       padding: 10px;
@@ -40,6 +50,22 @@
 
     &_right {
       border-radius: 0 5px 5px 0;
+    }
+
+    &_central {
+      border-radius: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    &_size {
+      width: 33%;
+      @media (max-width: $tablet-max-width) {
+        width: 149px;
+        padding: 0;
+        font-family: $body-font-family;
+        line-height: 1.1;
+      }
     }
 
     &_active {
@@ -62,6 +88,12 @@
       width: 237px !important;
       padding: 12px;
       gap: 8px;
+    }
+    &_vacancy-grant {
+      width: 282px;
+      @media (max-width: $tablet-max-width) {
+        width: 216px;
+      }
     }
   }
   &__list-container {
@@ -121,12 +153,21 @@
       width: 213px;
       gap: 8px;
     }
+    &_vacancy-grant {
+      width: 250px;
+      gap: 16px;
+      @media (max-width: $tablet-max-width) {
+        width: 184px;
+        gap: 8px;
+      }
+    }
   }
   &__title-block {
     width: 100%;
     @include flex(column, start, start);
   }
   &__title {
+    cursor: pointer;
     font-family: $heading-font-family;
     font-weight: $font-bold;
     font-size: $fs-l-mob;
@@ -163,6 +204,18 @@
     @media (max-width: $mobile-max-width) {
       font-size: $fs-xs;
     }
+    &_vacancy-grant {
+      font-family: $secondary-font-family;
+      font-size: $fs-xs;
+      font-weight: $font-regular;
+      line-height: 1.2;
+    }
+  }
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   &__btn-block {
     width: 100%;
@@ -171,6 +224,10 @@
     @media (max-width: $tablet-max-width) {
       flex-direction: column;
       align-items: normal;
+    }
+    &_vacancy-grant {
+      @include flex(column);
+      gap: 16px;
     }
   }
   &__org-container {
@@ -183,6 +240,9 @@
     @media (max-width: $mobile-max-width) {
       width: 213px;
     }
+    &_vacancy-grant {
+      width: 100%;
+    }
   }
   &__org {
     font-family: $body-font-family;
@@ -192,6 +252,9 @@
     color: $blue;
 
     border-bottom: 1px solid $blue;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-s-mob;
+    }
     @media (max-width: $mobile-max-width) {
       font-size: $fs-s-mob;
     }
@@ -218,5 +281,48 @@
       @include flex(column-reverse);
       gap: 8px;
     }
+  }
+  &__info-list {
+    @include flex(column);
+    gap: 4px;
+    font-family: $secondary-font-family;
+    font-weight: $font-regular;
+    line-height: 1.2;
+    color: $color-content-text;
+    font-size: $fs-xs;
+    @media (max-width: $tablet-max-width) {
+      font-size: $fs-xs-mob;
+    }
+  }
+  &__info {
+    @include flex(row, start, start);
+    gap: 16px;
+  }
+  &__info-keys {
+    text-align: left;
+    width: 120px;
+    @media (max-width: $tablet-max-width) {
+      width: 80px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 85px;
+    }
+  }
+  &__info-value {
+    text-align: left;
+    width: 114px;
+    @media (max-width: $tablet-max-width) {
+      width: 80px;
+    }
+    @media (max-width: $mobile-max-width) {
+      width: 104px;
+    }
+  }
+
+  &__vacancy {
+    @include flex(row, start, start);
+    display: inline-block;
+    width: 100%;
+    gap: 24px;
   }
 }

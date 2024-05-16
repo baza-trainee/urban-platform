@@ -18,6 +18,7 @@ import CheckGrant from './pages/CheckGrant/CheckGrant'
 import CheckVacancy from './pages/CheckVacancy/CheckVacancy'
 import CreateVacancy from './pages/CreateVacancy/CreateVacancy'
 import Volunteer from './pages/Volunteer/Volunteer'
+import ProfileVolunt from './pages/ProfileVolunt/ProfileVolunt'
 
 // import Footer from './components/Footer/Footer'
 // import AdminLayout from './components/Layout/AdminLayout/AdminLayout.tsx'
@@ -57,6 +58,7 @@ function App() {
         <Route path="createVacancy" element={<CreateVacancy />} />
         <Route path="editVacancy/:id" element={<CreateVacancy />} />
         <Route path="volunteer/:id" element={<Volunteer />} />
+        <Route path="volunteerProfile/:id" element={<ProfileVolunt />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>

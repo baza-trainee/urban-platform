@@ -107,6 +107,8 @@ const Volunteer = () => {
             rightBtn={dVolunteerData.secondBlueBtn}
             button={false}
             type={'project'}
+            infoMsgBtnL="На даний момент немає участі у проєктах."
+            infoMsgBtnR="На даний момент проєктів не було організовано."
           />
         </div>
       </div>

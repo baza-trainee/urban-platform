@@ -59,6 +59,7 @@ function App() {
         <Route path="editVacancy/:id" element={<CreateVacancy />} />
         <Route path="volunteer/:id" element={<Volunteer />} />
         <Route path="volunteerProfile/:id" element={<ProfileVolunt />} />
+        <Route path="orgProfile/:id" element={<ProfileVolunt />} />
       </Route>
       <Route path="*" element={<Page404 />} />
       {/* <Route element={<ProtectedRoute page="admin" />}>

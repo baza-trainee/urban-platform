@@ -34,7 +34,7 @@
     overflow-wrap: break-word;
 
     @media (max-width: $tablet-max-width) {
-      padding: 10px;
+      padding: 9px;
     }
 
     @media (max-width: $mobile-max-width) {
@@ -324,5 +324,12 @@
     display: inline-block;
     width: 100%;
     gap: 24px;
+  }
+  &__info-msg {
+    font-family: $body-font-family;
+    font-size: $fs-m;
+    font-family: $font-regular;
+    line-height: $text-line-height;
+    color: $color-content-text;
   }
 }

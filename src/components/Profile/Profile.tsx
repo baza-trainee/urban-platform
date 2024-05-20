@@ -16,8 +16,18 @@ interface IProps {
   centralBtnTitle?: string
   button?: boolean
   centralBtn?: boolean
+  buttonCheck?: boolean
   toggle?: string
   type: 'project' | 'vacancy' | 'grant'
+  checkBtnTitle?: string
+  infoMsg?: string
+  infoMsgBtnL?: string
+  infoMsgBtnC?: string
+  infoMsgBtnR?: string
+  createBtnTitle?: string
+  createBtnLink?: string
+  createBtn?: boolean
+  createBtnNon?: boolean
 }
 
 const Profile: React.FC<IProps> = ({
@@ -28,10 +38,19 @@ const Profile: React.FC<IProps> = ({
   centralBtnTitle,
   button,
   centralBtn,
-  toggle
+  toggle,
+  buttonCheck,
+  checkBtnTitle,
+  infoMsg,
+  infoMsgBtnL,
+  infoMsgBtnC,
+  infoMsgBtnR,
+  createBtnTitle,
+  createBtnLink,
+  createBtn,
+  createBtnNon
 }) => {
   const [active, setActive] = useState(leftBtn)
-  console.log(toggle)
 
   const { isDesktop, isTablet, isMobile } = useMediaQuery()
 
@@ -52,7 +71,7 @@ const Profile: React.FC<IProps> = ({
     ? { width: '250px' }
     : isTablet
     ? { width: '164px', height: '48px' }
-    : { width: '213px', height: '55px' }
+    : { width: '213px', height: '55px', 'line-height': '1.3' }
   const likeBtnClass = isTablet
     ? 'outlineIconLike'
     : 'outlineIconLike outlineIconLike_project outlineIconLike_mobile'
@@ -79,6 +98,7 @@ const Profile: React.FC<IProps> = ({
     }
     return null
   }
+  console.log(profileMap.length > 0)
 
   const mapProjects: React.ReactNode[] = profileMap.map((it) => {
     return (
@@ -155,8 +175,8 @@ const Profile: React.FC<IProps> = ({
               </Link>
             </div>
             <div className={s['profile-block__btns']} style={toggle ? { width: '100%' } : {}}>
-              {type === 'project' && !button ? (
-                <Button name="Переглянути" buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
+              {type === 'project' && buttonCheck && active !== 'Чернетки' ? (
+                <Button name={checkBtnTitle} buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
               ) : (type === 'vacancy' || type === 'grant') && active === 'Чернетки' ? (
                 <Button
                   component="link"
@@ -224,12 +244,74 @@ const Profile: React.FC<IProps> = ({
         </div>
       )}
 
-      {isMobile ? (
-        <Slider {...settings}>{mapProjects}</Slider>
-      ) : toggle && toggle !== 'project' ? (
-        <div className={s['profile-block_container']}>{mapProjects}</div>
+      {profileMap.length > 0 ? (
+        isMobile ? (
+          <>
+            <Slider {...settings}>{mapProjects}</Slider>
+            {createBtn && (
+              <Button
+                component="link"
+                to={createBtnLink!}
+                handleMouseEnter={() => null}
+                handleMouseLeave={() => null}
+                name={createBtnTitle}
+                buttonClasses="filledBtn"
+                styleBtn={isMobile ? { width: '100%' } : {}}
+              />
+            )}
+          </>
+        ) : toggle && toggle !== 'project' ? (
+          <>
+            <div className={s['profile-block_container']}>{mapProjects}</div>
+            {createBtn && (
+              <Button
+                component="link"
+                to={createBtnLink!}
+                handleMouseEnter={() => null}
+                handleMouseLeave={() => null}
+                name={createBtnTitle}
+                buttonClasses="filledBtn"
+                styleBtn={isMobile ? { width: '100%' } : {}}
+              />
+            )}
+          </>
+        ) : (
+          <>
+            {mapProjects}
+            {createBtn && (
+              <Button
+                component="link"
+                to={createBtnLink!}
+                handleMouseEnter={() => null}
+                handleMouseLeave={() => null}
+                name={createBtnTitle}
+                buttonClasses="filledBtn"
+                styleBtn={isMobile ? { width: '100%' } : {}}
+              />
+            )}
+          </>
+        )
       ) : (
-        mapProjects
+        <>
+          <div className={s['profile-block__info-msg']}>
+            {infoMsg && <h3>{infoMsg}</h3>}
+            {active === leftBtn && <h3>{infoMsgBtnL}</h3>}
+            {active === rightBtn && <h3>{infoMsgBtnR}</h3>}
+            {active === centralBtnTitle && <h3>{infoMsgBtnC}</h3>}
+          </div>
+          {(createBtn || createBtnNon) && (
+            <Button
+              component="link"
+              to={createBtnLink!}
+              handleMouseEnter={() => null}
+              handleMouseLeave={() => null}
+              name={createBtnTitle}
+              buttonClasses="filledBtn"
+              styleBtn={isMobile ? { width: '100%' } : {}}
+            />
+          )}
+          {centralBtn && (active === rightBtn || active === centralBtnTitle)}
+        </>
       )}
     </div>
   )

@@ -93,6 +93,11 @@
     @media (max-width: $tablet-max-width) {
       font-size: $fs-l-mob;
     }
+    &_mobile {
+      width: 100%;
+      @include flex;
+      font-size: $fs-m;
+    }
   }
 }
 
@@ -317,6 +322,17 @@
     height: 100%;
     object-fit: cover;
   }
+  &__img-info {
+    width: 100%;
+    @include flex;
+
+    color: #7c7c7c;
+
+    font-family: $body-font-family;
+    font-size: $fs-s;
+    font-weight: $font-regular;
+    line-height: $text-line-height;
+  }
   &__url-icons {
     width: 100%;
     @include flex($justify: space-between);
@@ -327,6 +343,9 @@
     @media (max-width: $mobile-max-width) {
       justify-content: center;
       gap: 8px;
+    }
+    &_org {
+      @include flex($justify: space-between);
     }
   }
   &__icon {

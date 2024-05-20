@@ -23,7 +23,10 @@ const routs: Routes = {
   checkVacancy: '/vacancy/:id',
   volunteerProfileEdit: '/volunteerProfile/edit/:id',
   editVacancy: '/editVacancy/:id',
-  editProject: '/editProject/:id'
+  editProject: '/editProject/:id',
+  volunteerProfile: '/volunteerProfile/:id',
+  orgProfileEdit: '/orgProfile/edit/:id',
+  createVacancy: '/createVacancy'
 }
 
 export default routs

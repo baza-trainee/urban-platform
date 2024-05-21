@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
-import s from './Profile.module.scss'
+import s from './ProfileCards.module.scss'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import Slider from 'react-slick'
 import IconLike from '../../assets/icons/IconLike'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
-import { IProjectData } from '../../pages/Volunteer/volunteerData'
+import { IProjectData } from '../../pages/VolunteerOrgPage/volunteerData'
 import routs from '../../routes/NavLinks'
 
 interface IProps {
@@ -30,7 +30,7 @@ interface IProps {
   createBtnNon?: boolean
 }
 
-const Profile: React.FC<IProps> = ({
+const ProfileCards: React.FC<IProps> = ({
   type,
   profileMap,
   leftBtn,
@@ -98,7 +98,6 @@ const Profile: React.FC<IProps> = ({
     }
     return null
   }
-  console.log(profileMap.length > 0)
 
   const mapProjects: React.ReactNode[] = profileMap.map((it) => {
     return (
@@ -317,4 +316,4 @@ const Profile: React.FC<IProps> = ({
   )
 }
 
-export default Profile
+export default ProfileCards

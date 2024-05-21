@@ -1,4 +1,17 @@
-export const dVolunteerData = {
+export interface IDData {
+  btnTitle?: string
+  city?: string
+  email?: string
+  possibilities?: string
+  opportunity?: string
+  desiredRole?: string
+  interestingProject?: string
+  coopTerms?: string
+  firstBlueBtn?: string
+  secondBlueBtn?: string
+}
+
+export const dVolunteerData: IDData = {
   btnTitle: 'Написати',
   city: 'Місто:',
   email: 'Електронна пошта:',

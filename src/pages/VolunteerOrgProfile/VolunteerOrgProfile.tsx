@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import s from './ProfileVolunt.module.scss'
+import s from './VolunteerOrgProfile.module.scss'
 
 import Button from '../../components/Button/Button'
 import EditIcon from '../../../public/images/icons/EditIcon'
@@ -14,15 +14,15 @@ import {
   vacancyData
 } from './profileVoluntData'
 import useMediaQuery from '../../hooks/useMediaQuery'
-import Profile from '../../components/Profile/Profile'
-import { projectData } from '../Volunteer/volunteerData'
+import ProfileCards from '../../components/ProfileCards/ProfileCards'
+import { projectData } from '../VolunteerOrgPage/volunteerData'
 import ToggleBlock from './components/ToggleBlock'
 import InfoImgBlock from './components/InfoImgBlock'
 import routs from '../../routes/NavLinks'
 import { useLocation, useParams } from 'react-router-dom'
 import { dOrgData, mapOrgProfData, sOrgData } from './ProfileOrgData'
 
-const ProfileVolunt = () => {
+const VolunteerOrgProfile = () => {
   const [toggle, setToggle] = useState('info')
   const [isVisible, setIsVisible] = useState(false)
   const [isChecked, setIsChecked] = useState(true)
@@ -122,7 +122,7 @@ const ProfileVolunt = () => {
               />
             ) : toggle === 'project' ? (
               <div className={`${s.column}  ${isVisible && s.animation}`}>
-                <Profile
+                <ProfileCards
                   type="project"
                   button
                   centralBtn={isVoluntProfile}
@@ -141,7 +141,7 @@ const ProfileVolunt = () => {
                     <div className={s['content-block__description-title']}>
                       <h2 className={s['text-center']}>{dData.reqProjects}</h2>
                     </div>
-                    <Profile
+                    <ProfileCards
                       type="project"
                       profileMap={projectData}
                       buttonCheck
@@ -154,7 +154,7 @@ const ProfileVolunt = () => {
             ) : toggle === 'vacancy' ? (
               <div className={s.column}>
                 <div className={`${s.vacancy} ${isVisible && s.animation}`}>
-                  <Profile
+                  <ProfileCards
                     type="vacancy"
                     button
                     leftBtn={dData.myVacancy}
@@ -172,7 +172,7 @@ const ProfileVolunt = () => {
             ) : (
               <div className={s.column}>
                 <div className={`${s.vacancy}  ${isVisible && s.animation}`}>
-                  <Profile
+                  <ProfileCards
                     type="grant"
                     button
                     leftBtn={dData.myGrants}
@@ -201,7 +201,7 @@ const ProfileVolunt = () => {
           )}
           {isMobile && (
             <>
-              <Profile
+              <ProfileCards
                 type="project"
                 button
                 leftBtn={dData.myProject}
@@ -216,7 +216,7 @@ const ProfileVolunt = () => {
                 createBtnTitle={dData.btnCreateProject}
               />
               {isVoluntProfile && (
-                <Profile
+                <ProfileCards
                   type="project"
                   button
                   leftBtn={dData.participationInProject}
@@ -228,7 +228,7 @@ const ProfileVolunt = () => {
                   infoMsgBtnR={dData.pMsgBtnRM}
                 />
               )}
-              <Profile
+              <ProfileCards
                 type="vacancy"
                 button
                 leftBtn={dData.myVacancy}
@@ -239,7 +239,7 @@ const ProfileVolunt = () => {
                 createBtn
                 createBtnTitle={dData.btnCreateVacancy}
               />
-              <Profile
+              <ProfileCards
                 type="grant"
                 button
                 leftBtn={dData.myGrants}
@@ -258,4 +258,4 @@ const ProfileVolunt = () => {
   )
 }
 
-export default ProfileVolunt
+export default VolunteerOrgProfile

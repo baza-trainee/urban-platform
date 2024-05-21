@@ -26,7 +26,9 @@ const routs: Routes = {
   editProject: '/editProject/:id',
   volunteerProfile: '/volunteerProfile/:id',
   orgProfileEdit: '/orgProfile/edit/:id',
-  createVacancy: '/createVacancy'
+  createVacancy: '/createVacancy',
+  volunteerPage: '/volunteer/:id',
+  orgPage: '/org/:id'
 }
 
 export default routs

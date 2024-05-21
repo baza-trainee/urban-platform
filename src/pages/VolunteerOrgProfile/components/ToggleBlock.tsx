@@ -1,4 +1,4 @@
-import s from '../ProfileVolunt.module.scss'
+import s from '../VolunteerOrgProfile.module.scss'
 
 type Props = {
   isMobile: boolean

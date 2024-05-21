@@ -1,4 +1,4 @@
-import { IProjectData } from '../Volunteer/volunteerData'
+import { IProjectData } from '../VolunteerOrgPage/volunteerData'
 
 export const dVolunteerData = {
   btnTitle: 'Редагувати',

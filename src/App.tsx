@@ -10,6 +10,7 @@ import About from './pages/About/About'
 import HowItWorks from './pages/HowItWorks/HowItWorks'
 // import Contacts from './pages/Contacts/Contacts'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
+import Login from './pages/LoginPage/LiginIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
 import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
 import CreateGrant from './pages/CreateGrant/CreateGrant'
@@ -36,6 +37,7 @@ function App() {
           <Route path="request-password" element={<RequestPasswordForm />} />
         </Route>
         <Route path="registration" element={<RegPage />} />
+        <Route path="login" element={<Login />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"

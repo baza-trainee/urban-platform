@@ -5,7 +5,7 @@ import css from './RegistrationPage.module.scss'
 import Button from '../../../components/Button/Button'
 import Eye from '../../../components/Eye/Eye'
 import checkboxData from '../checkboxData.json'
-import { signupSchemaPrivat } from '../schema'
+import { signupSchemaPrivat } from '../regSchema'
 import './animations.scss'
 
 type FormValues = {

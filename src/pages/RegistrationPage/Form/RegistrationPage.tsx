@@ -4,7 +4,7 @@ import { InputMask } from 'primereact/inputmask'
 import Button from '../../../components/Button/Button'
 import Eye from '../../../components/Eye/Eye'
 import css from './RegistrationPage.module.scss'
-import { signupSchemaStep0, signupSchemaStep1 } from '../schema'
+import { signupSchemaStep0, signupSchemaStep1 } from '../regSchema'
 import './animations.scss'
 
 type FormValues = {

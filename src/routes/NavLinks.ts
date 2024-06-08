@@ -16,6 +16,7 @@ const routs: Routes = {
   createProject: '/createProject',
   createGrant: '/createGrant',
   registration: '/registration',
+  login: '/login',
   donation: '/donation',
   donationThanks: '/support',
   editGrant: '/editGrant/:id',

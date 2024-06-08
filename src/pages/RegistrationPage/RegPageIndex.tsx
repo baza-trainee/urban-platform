@@ -94,7 +94,7 @@ const RegPage: React.FC = () => {
               buttonClasses={'link'}
               to={''}
               name="Увійти"
-              onClick={() => (window.location.href = '/')}
+              onClick={() => (window.location.href = '/registration')}
               handleMouseEnter={() => {}}
               handleMouseLeave={() => {}}
               styleBtn={{ width: '100%' }}

@@ -90,6 +90,17 @@
       padding: 12px;
       gap: 8px;
     }
+    &_mobile {
+      @include flex(column);
+      width: 282px;
+      padding: 12px;
+      gap: 8px;
+      @media (max-width: $tablet-max-width) {
+        width: 216px;
+        padding: 16px;
+        gap: 16px;
+      }
+    }
     &_vacancy-grant {
       width: 282px;
       @media (max-width: $tablet-max-width) {
@@ -120,6 +131,13 @@
     @media (max-width: $mobile-max-width) {
       width: 213px;
       height: 120px;
+    }
+    &_mobile {
+      width: 250px;
+      height: 120px;
+      @media (max-width: $tablet-max-width) {
+        width: 184px;
+      }
     }
   }
   &__img {
@@ -154,6 +172,13 @@
       width: 213px;
       gap: 8px;
     }
+    &_mobile {
+      width: 250px;
+      gap: 8px;
+      @media (max-width: $tablet-max-width) {
+        width: 184px;
+      }
+    }
     &_vacancy-grant {
       width: 250px;
       gap: 16px;
@@ -178,6 +203,9 @@
     @media (max-width: $tablet-max-width) {
       font-size: $fs-s;
     }
+    &_mobile {
+      font-size: $fs-s;
+    }
   }
   &__time {
     font-family: $body-font-family;
@@ -186,6 +214,11 @@
     line-height: $text-line-height;
     color: $color-text-faded;
     @media (max-width: $tablet-max-width) {
+      font-family: $secondary-font-family;
+      font-size: $fs-xs;
+      line-height: 1.2;
+    }
+    &_mobile {
       font-family: $secondary-font-family;
       font-size: $fs-xs;
       line-height: 1.2;
@@ -203,6 +236,9 @@
       font-size: $fs-s-mob;
     }
     @media (max-width: $mobile-max-width) {
+      font-size: $fs-xs;
+    }
+    &_mobile {
       font-size: $fs-xs;
     }
     &_vacancy-grant {
@@ -226,6 +262,10 @@
       flex-direction: column;
       align-items: normal;
     }
+    &_mobile {
+      flex-direction: column;
+      align-items: normal;
+    }
     &_vacancy-grant {
       @include flex(column);
       gap: 16px;
@@ -239,6 +279,9 @@
       width: 178px;
     }
     @media (max-width: $mobile-max-width) {
+      width: 213px;
+    }
+    &_mobile {
       width: 213px;
     }
     &_vacancy-grant {
@@ -257,6 +300,9 @@
       font-size: $fs-s-mob;
     }
     @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+    }
+    &_mobile {
       font-size: $fs-s-mob;
     }
   }
@@ -279,6 +325,10 @@
       justify-content: space-between;
     }
     @media (max-width: $mobile-max-width) {
+      @include flex(column-reverse);
+      gap: 8px;
+    }
+    &_mobile {
       @include flex(column-reverse);
       gap: 8px;
     }

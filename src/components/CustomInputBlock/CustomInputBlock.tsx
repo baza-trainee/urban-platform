@@ -10,10 +10,11 @@ import {
 } from 'primereact/autocomplete'
 
 import s from './CustomInputBlock.module.scss'
+import Eye from '../Eye/Eye'
 
 interface IGrantInputBlockProps {
   blockTypes: string
-  title: string
+  title?: string
   name: string
   checkboxName?: string
   inputClass: string
@@ -29,10 +30,11 @@ interface IGrantInputBlockProps {
   onBlur: (
     e: AutoCompleteChangeEvent | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void
-  value?: string | boolean
+  value?: string | boolean | string[]
   valueRadioInput?: string
   array?: string[]
   text?: string
+  rowBlock?: boolean
 }
 
 const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
@@ -52,9 +54,11 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
   value,
   valueRadioInput,
   array,
-  text
+  text,
+  rowBlock
 }) => {
   const [suggestions, setSuggestions] = useState<string[] | undefined>(array)
+  const [visiblePassword, setVisiblePassword] = useState(false)
   const [isFocus, setIsFocus] = useState<boolean>(false)
 
   const inputClassName = clsx(
@@ -75,6 +79,27 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
       array && array.filter((it) => it.toLowerCase().includes(value.toLowerCase()))
     setSuggestions(filteredSuggestions)
   }
+
+  const checkbox =
+    array &&
+    array.map((it) => {
+      return (
+        <label key={it} className={`${s['input-block__checkbox-block']}`}>
+          <Field
+            type="checkbox"
+            className={`${s['input-block__input_checkbox']}`}
+            name={name}
+            id={it}
+            value={it}
+          />
+          <span
+            className={`${s['input-block__radio-text']} ${s['input-block__radio-text_checkbox']}`}
+          >
+            {it}
+          </span>
+        </label>
+      )
+    })
 
   const radio =
     array &&
@@ -138,12 +163,12 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
         className={inputClassName}
         name={name}
         id={name}
+        type="text"
         required
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
-        type="text"
       />
     ) : blockTypes === 'area' ? (
       <Field
@@ -163,8 +188,8 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
           isErr
             ? `${s.complete_error} ${s.complete}`
             : isFocus
-              ? `${s.complete_focus} ${s.complete}`
-              : `${s.complete} `
+            ? `${s.complete_focus} ${s.complete}`
+            : `${s.complete} `
         }
         panelClassName={s.panel}
         dropdown
@@ -215,30 +240,80 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
             onBlur={onBlur}
           />
         )}
-        <div className={`${s['input-block__checkbox-block']}`}>
-          <Field
-            type="checkbox"
-            className={`${s['input-block__input_checkbox']} ${s['align-start']}`}
-            name={checkboxName}
-            id={checkboxName}
-          />
+        <div
+          className={`${s['input-block__checkbox-block']} ${s['input-block__checkbox-block_phone']}`}
+        >
+          <div>
+            <Field
+              type="checkbox"
+              className={`${s['input-block__input_checkbox']} ${s['align-start']}`}
+              name={checkboxName}
+              id={checkboxName}
+            />
+            <span className={s['input-block__input_checkbox-mark']} />
+          </div>
           <span className={s['input-block__checkbox-text']}>{text}</span>
         </div>
       </>
+    ) : blockTypes === 'password' ? (
+      <>
+        {' '}
+        <Field
+          className={inputClassName}
+          title="Пароль має містити від 8 до 64 символів (латинські літери нижнього, верхнього регістру, цифри, та @, #, $, %, ^, &, +, =, !)"
+          name={name}
+          type={visiblePassword ? 'text' : 'password'}
+          placeholder="Ввести пароль"
+          id={name}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        <div className={s.eye}>
+          <Eye
+            onClickShowPass={(boolean: boolean) => {
+              setVisiblePassword(boolean)
+            }}
+            onShowPass={visiblePassword}
+          />
+        </div>{' '}
+      </>
+    ) : blockTypes === 'checkbox' ? (
+      <div role="group" className={s['input-block__checkbox-container']}>
+        {checkbox}
+      </div>
+    ) : blockTypes === 'popup' ? (
+      <button className={s['input-block__popup']}>{placeholder}</button>
     ) : (
       ''
     )
 
   return (
-    <>
+    <div>
       {blockTypes && (
-        <div className={`${s['input-block']}`}>
-          <h2 className={s['input-block__title']}>{title}</h2>
-          {input}
-          <ErrorMessage className={s.err} name={name} component="div" />
+        <div className={`${s['input-block']} ${rowBlock && s['input-block_row']}`}>
+          <div
+            className={`${s.width} ${rowBlock && s['input-block__title-block-row']} ${
+              rowBlock &&
+              blockTypes === 'input&checkbox' &&
+              s['input-block__title-block-row_checkbox-input']
+            }`}
+          >
+            {title && (
+              <h2
+                className={`${s['input-block__title']} ${rowBlock && s['input-block__title_row']}`}
+              >
+                {title}
+              </h2>
+            )}
+          </div>
+          <div className={`${s.width} ${rowBlock && s['input-block__field-error']}`}>
+            {input}
+            <ErrorMessage className={s.err} name={name} component="div" />
+          </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
 

@@ -28,6 +28,7 @@ interface IProps {
   createBtnLink?: string
   createBtn?: boolean
   createBtnNon?: boolean
+  mobile?: boolean
 }
 
 const ProfileCards: React.FC<IProps> = ({
@@ -48,7 +49,8 @@ const ProfileCards: React.FC<IProps> = ({
   createBtnTitle,
   createBtnLink,
   createBtn,
-  createBtnNon
+  createBtnNon,
+  mobile
 }) => {
   const [active, setActive] = useState(leftBtn)
 
@@ -67,11 +69,25 @@ const ProfileCards: React.FC<IProps> = ({
     slidesToScroll: 1
   }
 
-  const projectBtnStyle = isDesktop
+  const projectBtnStyleMobile = isDesktop
+    ? { width: '100%' }
+    : isTablet
+    ? { width: '100%', height: '48px' }
+    : { width: '100%', height: '55px', 'line-height': '1.3' }
+
+  const projectBtnStyle = mobile
+    ? { width: '100%' }
+    : isDesktop
     ? { width: '250px' }
     : isTablet
     ? { width: '164px', height: '48px' }
     : { width: '213px', height: '55px', 'line-height': '1.3' }
+  const styleBtn =
+    (toggle && isTablet) || mobile
+      ? { width: '100%', height: '40px' }
+      : toggle
+      ? { width: '100%' }
+      : {}
   const likeBtnClass = isTablet
     ? 'outlineIconLike'
     : 'outlineIconLike outlineIconLike_project outlineIconLike_mobile'
@@ -105,10 +121,14 @@ const ProfileCards: React.FC<IProps> = ({
         key={it.titleUrl}
         className={`${s['profile-block__container']} ${
           toggle && toggle !== 'project' && s['profile-block__container_vacancy-grant']
-        }`}
+        } ${mobile && s['profile-block__container_mobile']}`}
       >
         {type === 'project' && (
-          <div className={s['profile-block__img-block']}>
+          <div
+            className={`${s['profile-block__img-block']} ${
+              mobile && s['profile-block__img-block_mobile']
+            }`}
+          >
             <img
               src="/images/default_project_img.png"
               alt="Project img"
@@ -120,7 +140,7 @@ const ProfileCards: React.FC<IProps> = ({
         <div
           className={`${s['profile-block__info-block']} ${
             toggle && toggle !== 'project' && s['profile-block__info-block_vacancy-grant']
-          }`}
+          } ${mobile && s['profile-block__info-block_mobile']}`}
         >
           <div className={s['profile-block__title-block']}>
             <Link
@@ -136,31 +156,43 @@ const ProfileCards: React.FC<IProps> = ({
                     )
                   : it.titleUrl
               }
-              className={s['profile-block__title']}
+              className={`${s['profile-block__title']} ${
+                mobile && s['profile-block__title_mobile']
+              }`}
             >
               {it.title}
             </Link>
             {type !== 'vacancy' && (
-              <p className={s['profile-block__time']}>{`${it.timeFrom} - ${it.timeTo}`}</p>
+              <p
+                className={`${s['profile-block__time']} ${
+                  mobile && s['profile-block__time_mobile']
+                }`}
+              >{`${it.timeFrom} - ${it.timeTo}`}</p>
             )}
           </div>
           {type !== 'project' && <ul className={s['profile-block__info-list']}>{mapLi(it)}</ul>}
           <div
             className={`${s['profile-block__description-block']} ${
               toggle && toggle !== 'project' && s['profile-block__description-block_vacancy-grant']
-            }`}
+            } ${mobile && s['profile-block__description-block_mobile']}`}
           >
-            <p className={s['profile-block__description']}>{it.description}</p>
+            <p
+              className={`${s['profile-block__description']}${
+                mobile && s['profile-block__description_mobile']
+              }`}
+            >
+              {it.description}
+            </p>
           </div>
           <div
             className={`${s['profile-block__btn-block']} ${
               toggle && toggle !== 'project' && s['profile-block__btn-block_vacancy-grant']
-            }`}
+            } ${mobile && s['profile-block__btn-block_mobile']}`}
           >
             <div
               className={`${s['profile-block__org-container']} ${
                 toggle && toggle !== 'project' && s['profile-block__org-container_vacancy-grant']
-              }`}
+              } ${mobile && s['profile-block__org-container_mobile']}`}
             >
               <div className={s['profile-block__img-container']}>
                 <img
@@ -169,13 +201,23 @@ const ProfileCards: React.FC<IProps> = ({
                   className={s['profile-block__img']}
                 />
               </div>
-              <Link className={s['profile-block__org']} to={it.orgUrl}>
+              <Link
+                className={`${s['profile-block__org']} ${mobile && s['profile-block__org_mobile']}`}
+                to={it.orgUrl}
+              >
                 {it.org}
               </Link>
             </div>
-            <div className={s['profile-block__btns']} style={toggle ? { width: '100%' } : {}}>
+            <div
+              className={`${s['profile-block__btns']} ${mobile && s['profile-block__btns_mobile']}`}
+              style={toggle ? { width: '100%' } : {}}
+            >
               {type === 'project' && buttonCheck && active !== 'Чернетки' ? (
-                <Button name={checkBtnTitle} buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
+                <Button
+                  name={checkBtnTitle}
+                  buttonClasses="filledBtn"
+                  styleBtn={mobile ? projectBtnStyleMobile : projectBtnStyle}
+                />
               ) : (type === 'vacancy' || type === 'grant') && active === 'Чернетки' ? (
                 <Button
                   component="link"
@@ -194,13 +236,7 @@ const ProfileCards: React.FC<IProps> = ({
                   buttonClasses={likeBtnClass}
                   name={it.likes}
                   startIcon={<IconLike />}
-                  styleBtn={
-                    toggle && isTablet
-                      ? { width: '100%', height: '40px' }
-                      : toggle
-                      ? { width: '100%' }
-                      : {}
-                  }
+                  styleBtn={styleBtn}
                 />
               )}
             </div>

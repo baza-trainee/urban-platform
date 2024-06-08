@@ -21,6 +21,8 @@ type Props = {
   isVoluntProfile?: boolean
   editBtn?: boolean
   btnBlock?: boolean
+  urlIcons?: boolean
+  imgInput?: boolean
 }
 
 const ProfileImg: React.FC<Props> = ({
@@ -30,7 +32,9 @@ const ProfileImg: React.FC<Props> = ({
   navLink,
   btnTitle,
   editBtn,
-  btnBlock
+  btnBlock,
+  urlIcons,
+  imgInput
 }) => {
   const location = useLocation()
   const isPages =
@@ -40,9 +44,10 @@ const ProfileImg: React.FC<Props> = ({
   const img = sVolunteerData.userImg
 
   const s = isPages ? page : profile
+  console.log(isPages)
 
   return (
-    <div className={s['img-block']}>
+    <div className={`${s['img-block']} ${imgInput && s['img-block__img-input']}`}>
       <div className={s['img-block__img-container']}>
         {img ? (
           <img className={s['img-block__img']} src={img} alt="Your Image" />
@@ -60,32 +65,36 @@ const ProfileImg: React.FC<Props> = ({
           />
         )}
       </div>
-      {/* {!img && (
-          <div className={s['img-block__img-info']}>
-            <h4>{isVoluntProfile ? 'Додати фото' : 'Додати фото або логотип'}</h4>
-          </div>
-        )} */}
+      {imgInput && (
+        <div className={s['img-block__img-info']}>
+          <h4>{isVoluntProfile ? 'Додати фото' : 'Додати фото або логотип'}</h4>
+        </div>
+      )}
       <div
         className={`${s['img-block__url-icons']} ${
           !isVoluntProfile && s['img-block__url-icons_org']
         }`}
       >
-        <Link to={sVolunteerData.urlInsta} className={s['img-block__icon']}>
-          <Instagram />
-        </Link>
-        <Link to={sVolunteerData.urlF} className={s['img-block__icon']}>
-          <Facebook />
-        </Link>
-        <Link to={sVolunteerData.urlTg} className={s['img-block__icon']}>
-          <Telegram />
-        </Link>
-        <Link to={sVolunteerData.urlYouTube} className={s['img-block__icon']}>
-          <YouTube />
-        </Link>
-        {!isVoluntProfile && (
-          <Link to={sVolunteerData.urlWebSite} className={s['img-block__icon']}>
-            <WebIcon />
-          </Link>
+        {urlIcons && (
+          <>
+            <Link to={sVolunteerData.urlInsta} className={s['img-block__icon']}>
+              <Instagram />
+            </Link>
+            <Link to={sVolunteerData.urlF} className={s['img-block__icon']}>
+              <Facebook />
+            </Link>
+            <Link to={sVolunteerData.urlTg} className={s['img-block__icon']}>
+              <Telegram />
+            </Link>
+            <Link to={sVolunteerData.urlYouTube} className={s['img-block__icon']}>
+              <YouTube />
+            </Link>
+            {!isVoluntProfile && (
+              <Link to={sVolunteerData.urlWebSite} className={s['img-block__icon']}>
+                <WebIcon />
+              </Link>
+            )}
+          </>
         )}
       </div>
       {btnBlock && (

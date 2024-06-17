@@ -1,36 +1,68 @@
 import * as yup from 'yup'
-import { Block } from './orgProfEditData'
 
-export const dVoluntProfEditData = {
-  addPhoto: 'Додати фото',
-  aboutTitle: 'Про себе',
-  reqTitle: 'Проєкти, у які Вас запросили',
+export const dOrgProfEditData = {
+  aboutTitle: 'Про організацію',
+  reqTitle: 'Люди, що можуть зацікавити Вас',
   btnCnc: 'Відмінити',
   btnSave: 'Зберегти зміни',
-  btnShowMore: 'Показати більше проєктів'
+  btnShowMore: 'Показати більше профілів'
 }
 
-export const sVoluntProfEditData = {
-  firstName: 'Олена',
-  lastName: 'Волонтер',
+export const sOrgProfEditData = {
+  orgTitle: 'ГО “Спільні кроки”',
   fCity: 'Київ',
   fEmail: 'example@example.com',
   fPhone: '+380990000000',
   fcPhone: true,
-  fcsOpportunities: [],
   direction: '',
-  roles: '',
-  fcsProjects: [],
-  fcsTerms: [],
+  contact: 'Петро Петрович Петров',
   fInstagram: '@olenavolonteer',
   fYouTube: 'https://www.youtube.com/olenavolonteer',
   fFacebook: 'https://www.facebook.com/olenavolonteer',
   fTelegram: 'https://t.me/olenavolonteer',
   fLinkedIn: 'https://www.linkedin.com/in/olenavolonteer',
-  area: ''
+  area: `Громадська організація "Спільні кроки" є активним учасником соціального розвитку в Львові. Організація заснована Олександром Івановим, який вирішив об'єднати зусилля громади для вирішення соціальних питань. Реєструючись на платформі "Місто активних людей",  ГО "Спільні кроки" прагне знаходити волонтерів для реалізації своїх проєктів, спрямованих на волонтерство для вразливих категорій населення та освіту.`
 }
 
-export const forMapV: Block[] = [
+interface BaseBlock {
+  blockTypes: string
+  title?: string
+  name: string
+  inputClass?: string
+  placeholder?: string
+  text?: string
+  mask?: string
+  checkName?: string
+  radioList?: string[]
+}
+
+interface InputBlock extends BaseBlock {
+  blockTypes: 'input' | 'password'
+}
+
+interface InputCheckboxBlock extends BaseBlock {
+  blockTypes: 'input&checkbox'
+  mask: string
+  checkName: string
+  text: string
+}
+
+interface CheckboxBlock extends BaseBlock {
+  blockTypes: 'checkbox'
+  radioList: string[]
+}
+
+interface PopupBlock extends BaseBlock {
+  blockTypes: 'popup'
+}
+
+interface AreaBlock extends BaseBlock {
+  blockTypes: 'area'
+}
+
+export type Block = InputBlock | InputCheckboxBlock | CheckboxBlock | PopupBlock | AreaBlock
+
+export const forMapO: Block[] = [
   {
     blockTypes: 'input',
     title: 'Місто:',
@@ -63,37 +95,17 @@ export const forMapV: Block[] = [
     placeholder: ''
   },
   {
-    blockTypes: 'checkbox',
-    title: 'Розглядаю можливості:',
-    name: 'opportunityLocation',
-    inputClass: 'input-block__radio-container',
-    radioList: ['тільки онлайн', 'тільки в Києві', 'по всій Україні']
-  },
-  {
     blockTypes: 'popup',
     title: 'Цікавлять напрями:',
     name: 'directions',
     placeholder: 'Усі напрями/оберіть напрям'
   },
   {
-    blockTypes: 'popup',
-    title: 'Бажана роль у проєктах:',
-    name: 'desirableRole',
-    placeholder: 'Усі ролі/оберіть ролі'
-  },
-  {
-    blockTypes: 'checkbox',
-    title: 'Які проєкти Вас цікавлять?',
-    name: 'interestedProgects',
-    inputClass: 'input-block__radio-container',
-    radioList: ['Ініціативи', 'Діючі']
-  },
-  {
-    blockTypes: 'checkbox',
-    title: 'Умови співпраці',
-    name: 'termsCoop',
-    inputClass: 'input-block__radio-container',
-    radioList: ['Безкоштовно', 'З оплатою']
+    blockTypes: 'input',
+    title: 'Контактна особа',
+    name: 'contant',
+    inputClass: 'input-block__input',
+    placeholder: 'Петро Петрович Петров'
   },
   {
     blockTypes: 'input',
@@ -158,22 +170,19 @@ export type FormValues = {
 }
 
 export const initialValues = {
-  city: sVoluntProfEditData.fCity,
-  email: sVoluntProfEditData.fEmail,
-  phone: sVoluntProfEditData.fPhone,
-  phoneCheckbox: sVoluntProfEditData.fcPhone,
+  city: sOrgProfEditData.fCity,
+  email: sOrgProfEditData.fEmail,
+  phone: sOrgProfEditData.fPhone,
+  phoneCheckbox: sOrgProfEditData.fcPhone,
   password: '',
-  opportunityLocation: sVoluntProfEditData.fcsOpportunities,
-  directions: sVoluntProfEditData.direction,
-  roles: sVoluntProfEditData.roles,
-  interestedProgects: sVoluntProfEditData.fcsProjects,
-  termsCoop: sVoluntProfEditData.fcsTerms,
-  instagram: sVoluntProfEditData.fInstagram,
-  youTube: sVoluntProfEditData.fYouTube,
-  facebook: sVoluntProfEditData.fFacebook,
-  telegram: sVoluntProfEditData.fTelegram,
-  linkedIn: sVoluntProfEditData.fLinkedIn,
-  area: sVoluntProfEditData.area
+  directions: sOrgProfEditData.direction,
+  contact: sOrgProfEditData.contact,
+  instagram: sOrgProfEditData.fInstagram,
+  youTube: sOrgProfEditData.fYouTube,
+  facebook: sOrgProfEditData.fFacebook,
+  telegram: sOrgProfEditData.fTelegram,
+  linkedIn: sOrgProfEditData.fLinkedIn,
+  area: sOrgProfEditData.area
 }
 
 const phoneRegExp = /^\+380\(\d{2}\)\d{3}-\d{2}-\d{2}$/
@@ -251,3 +260,98 @@ export const grantFormSchema = yup.object().shape({
     .matches(linkedInRegExp, 'Введіть коректне посилання'),
   area: yup.string().required('Обов`язкове поле').label('Обов`язкове поле')
 })
+
+export const userData = [
+  {
+    id: '1',
+    imgUrl: '',
+    title: 'Олена',
+    lastName: 'Волонтер',
+    titleUrl: 'sdasd',
+    joinAt: '11.11.2023',
+    keys: [
+      {
+        participation: 'Участь:',
+        location: 'Локація:',
+        role: 'Залучений, як:',
+        areasInterest: 'Категорії:'
+      },
+      {
+        participation: 'Онлайн',
+        location: 'Київ',
+        role: 'Працівник',
+        areasInterest: 'Мистецтво, культура'
+      }
+    ],
+    likes: '123'
+  },
+  {
+    id: '2',
+    imgUrl: '',
+    title: 'Олена',
+    lastName: 'Волонтер',
+    titleUrl: 'sdasd',
+    joinAt: '11.11.2023',
+    keys: [
+      {
+        participation: 'Участь:',
+        location: 'Локація:',
+        role: 'Залучений, як:',
+        areasInterest: 'Категорії:'
+      },
+      {
+        participation: 'Онлайн',
+        location: 'Київ',
+        role: 'Працівник',
+        areasInterest: 'Мистецтво, культура'
+      }
+    ],
+    likes: '123'
+  },
+  {
+    id: '3',
+    imgUrl: '',
+    title: 'Олена',
+    lastName: 'Волонтер',
+    titleUrl: 'sdasd',
+    joinAt: '11.11.2023',
+    keys: [
+      {
+        participation: 'Участь:',
+        location: 'Локація:',
+        role: 'Залучений, як:',
+        areasInterest: 'Категорії:'
+      },
+      {
+        participation: 'Онлайн',
+        location: 'Київ',
+        role: 'Працівник',
+        areasInterest: 'Мистецтво, культура'
+      }
+    ],
+    likes: '123'
+  },
+  {
+    id: '4',
+    imgUrl: '',
+    title: 'Олена',
+    lastName: 'Волонтер',
+    titleUrl: 'sdasd',
+    joinAt: '11.11.2023',
+    keys: [
+      {
+        participation: 'Участь:',
+        location: 'Локація:',
+        role: 'Залучений, як:',
+        areasInterest: 'Категорії:'
+      },
+      {
+        participation: 'Онлайн',
+        location: 'Київ',
+        role: 'Працівник',
+        areasInterest: 'Мистецтво, культура'
+      }
+    ],
+    likes: '123'
+  }
+]

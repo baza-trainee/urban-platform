@@ -75,14 +75,18 @@ export interface IProjectData {
   id: string
   title: string
   titleUrl: string
+  lastName?: string
   timeFrom?: string
   timeTo?: string
-  description: string
-  org: string
-  orgUrl: string
+  description?: string
+  org?: string
+  orgUrl?: string
+  orgImgUrl?: string
   likes: string
   city?: string
   keys?: { [key: string]: string }[]
+  imgUrl?: string
+  joinAt?: string
 }
 
 export const projectData: IProjectData[] = [
@@ -90,12 +94,14 @@ export const projectData: IProjectData[] = [
     id: '1',
     title: 'Найкращий проєкт',
     titleUrl: 'sdasd',
+    imgUrl: '',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:
       'На платформі “Місто активних людей” Ви можете сформувати команду та виконати спільний проєкт, знайти однодумців, інвесторів, долучитись до існуючого проєкту.',
     org: 'ГО “Спільні кроки”',
     orgUrl: '',
+    orgImgUrl: '',
     likes: '123',
     city: 'Київ'
   },
@@ -103,12 +109,14 @@ export const projectData: IProjectData[] = [
     id: '2',
     title: 'Найкращий проєкт',
     titleUrl: 'dwrqwe',
+    imgUrl: '',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:
       'На платформі “Місто активних людей” Ви можете сформувати команду та виконати спільний проєкт, знайти однодумців, інвесторів, долучитись до існуючого проєкту.',
     org: 'ГО “Спільні кроки”',
     orgUrl: '',
+    orgImgUrl: '',
     likes: '123',
     city: 'Київ'
   },
@@ -116,12 +124,14 @@ export const projectData: IProjectData[] = [
     id: '3',
     title: 'Найкращий проєкт',
     titleUrl: 'dwrqwe',
+    imgUrl: '',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:
       'На платформі “Місто активних людей” Ви можете сформувати команду та виконати спільний проєкт, знайти однодумців, інвесторів, долучитись до існуючого проєкту.',
     org: 'ГО “Спільні кроки”',
     orgUrl: '',
+    orgImgUrl: '',
     likes: '123',
     city: 'Київ'
   },
@@ -129,12 +139,14 @@ export const projectData: IProjectData[] = [
     id: '4',
     title: 'Найкращий проєкт',
     titleUrl: 'dwrqwe',
+    imgUrl: '',
     timeFrom: '28.11.2023',
     timeTo: '01.09.2024',
     description:
       'На платформі “Місто активних людей” Ви можете сформувати команду та виконати спільний проєкт, знайти однодумців, інвесторів, долучитись до існуючого проєкту.',
     org: 'ГО “Спільні кроки”',
     orgUrl: '',
+    orgImgUrl: '',
     likes: '123',
     city: 'Київ'
   }

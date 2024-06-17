@@ -26,7 +26,7 @@
   right: 8px;
   display: block;
 
-  @include tablet {
+  @media (max-width: $tablet-max-width) {
     top: 8px;
     right: 0.8rem;
   }

@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
 import clsx from 'clsx'
 import { ErrorMessage, Field } from 'formik'
-import { InputMask } from 'primereact/inputmask'
-import {
-  AutoComplete,
-  AutoCompleteChangeEvent,
-  AutoCompleteCompleteEvent,
-  AutoCompleteSelectEvent
-} from 'primereact/autocomplete'
+import { AutoCompleteChangeEvent, AutoCompleteSelectEvent } from 'primereact/autocomplete'
 
 import s from './CustomInputBlock.module.scss'
-import Eye from '../Eye/Eye'
 
-interface IGrantInputBlockProps {
+import InputWithCheckbox from './components/InputWithCheckbox'
+import CheckboxBlock from './components/CheckboxBlock'
+import PasswordInput from './components/PasswordInput'
+import RadioInputBlock from './components/RadioInputBlock'
+import Select from './components/Select'
+
+interface IProps {
   blockTypes: string
   title?: string
   name: string
@@ -37,7 +35,7 @@ interface IGrantInputBlockProps {
   rowBlock?: boolean
 }
 
-const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
+const CustomInputBlock: React.FC<IProps> = ({
   blockTypes,
   title,
   name,
@@ -57,105 +55,10 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
   text,
   rowBlock
 }) => {
-  const [suggestions, setSuggestions] = useState<string[] | undefined>(array)
-  const [visiblePassword, setVisiblePassword] = useState(false)
-  const [isFocus, setIsFocus] = useState<boolean>(false)
-
   const inputClassName = clsx(
     isErr ? s['input-block__input_error'] : null,
     inputClass.split(' ').map((it) => s[it])
   )
-
-  const handleFocus = () => {
-    setIsFocus(true)
-  }
-  const handleBlur = () => {
-    setIsFocus(false)
-  }
-
-  const complete = (e: AutoCompleteCompleteEvent): void => {
-    const value = e.query
-    const filteredSuggestions =
-      array && array.filter((it) => it.toLowerCase().includes(value.toLowerCase()))
-    setSuggestions(filteredSuggestions)
-  }
-
-  const checkbox =
-    array &&
-    array.map((it) => {
-      return (
-        <label key={it} className={`${s['input-block__checkbox-block']}`}>
-          <Field
-            type="checkbox"
-            className={`${s['input-block__input_checkbox']}`}
-            name={name}
-            id={it}
-            value={it}
-          />
-          <span
-            className={`${s['input-block__radio-text']} ${s['input-block__radio-text_checkbox']}`}
-          >
-            {it}
-          </span>
-        </label>
-      )
-    })
-
-  const radio =
-    array &&
-    array.map((it) => {
-      return it === 'інше (вказати)' ? (
-        <div
-          key={it}
-          className={`${s['input-block__radio-block']}`}
-          onClick={() => onChangeSetRadio && onChangeSetRadio(it)}
-        >
-          <Field
-            type="radio"
-            className={`${s['input-block__input_radio']}`}
-            name={name}
-            id={it}
-            required
-            value={it}
-          />
-          <span className={s['input-block__radio-text']}>
-            {value === it ? (
-              <>
-                інше (вказати:{' '}
-                <Field
-                  type="text"
-                  className={s.radioInput}
-                  name={`${name}Text`}
-                  id={`${name}Text`}
-                  required
-                  onChange={onChange}
-                  value={valueRadioInput}
-                />{' '}
-                )
-              </>
-            ) : (
-              `${it}`
-            )}
-          </span>
-        </div>
-      ) : (
-        <div
-          key={it}
-          className={`${s['input-block__radio-block']}`}
-          onClick={() => onChangeSetRadio && onChangeSetRadio(it)}
-        >
-          <Field
-            type="radio"
-            className={`${s['input-block__input_radio']}`}
-            name={name}
-            id={it}
-            required
-            value={it}
-          />
-          <span className={s['input-block__radio-text']}>{it}</span>
-        </div>
-      )
-    })
 
   const input =
     blockTypes === 'input' ? (
@@ -183,105 +86,48 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
         value={value}
       />
     ) : blockTypes === 'select' ? (
-      <AutoComplete
-        className={
-          isErr
-            ? `${s.complete_error} ${s.complete}`
-            : isFocus
-            ? `${s.complete_focus} ${s.complete}`
-            : `${s.complete} `
-        }
-        panelClassName={s.panel}
-        dropdown
-        name={'category'}
-        id={'category'}
-        onChange={(e) => {
-          onChangeAutoComplete(e)
-          onBlur(e)
-        }}
-        onSelect={onSelectAutoComplete}
-        onFocus={handleFocus}
-        onBlur={(e) =>
-          setTimeout(() => {
-            handleBlur()
-            onBlur(e)
-          }, 100)
-        }
-        completeMethod={complete}
-        suggestions={suggestions}
+      <Select
+        isErr={isErr}
+        array={array}
+        onChangeAutoComplete={onChangeAutoComplete}
+        onBlur={onBlur}
+        onSelectAutoComplete={onSelectAutoComplete}
         value={value}
       />
     ) : blockTypes === 'radio' ? (
-      <div className={s['input-block__radio-container']}>{radio}</div>
+      <RadioInputBlock
+        array={array}
+        onChangeSetRadio={onChangeSetRadio}
+        name={name}
+        value={value}
+        onChange={onChange}
+        valueRadioInput={valueRadioInput}
+        isErr={isErr}
+      />
     ) : blockTypes === 'input&checkbox' ? (
-      <>
-        {mask ? (
-          <Field
-            as={InputMask}
-            mask={mask}
-            className={inputClassName}
-            placeholder={placeholder}
-            name={name}
-            id={name}
-            required
-            value={value}
-            onChange={onChange}
-            onBlur={onBlur}
-          />
-        ) : (
-          <Field
-            className={inputClassName}
-            placeholder={placeholder}
-            name={name}
-            id={name}
-            required
-            value={value}
-            onChange={onChange}
-            onBlur={onBlur}
-          />
-        )}
-        <div
-          className={`${s['input-block__checkbox-block']} ${s['input-block__checkbox-block_phone']}`}
-        >
-          <div>
-            <Field
-              type="checkbox"
-              className={`${s['input-block__input_checkbox']} ${s['align-start']}`}
-              name={checkboxName}
-              id={checkboxName}
-            />
-            <span className={s['input-block__input_checkbox-mark']} />
-          </div>
-          <span className={s['input-block__checkbox-text']}>{text}</span>
-        </div>
-      </>
+      <InputWithCheckbox
+        mask={mask}
+        inputClassName={inputClassName}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        checkboxName={checkboxName}
+        text={text}
+        isErr={isErr}
+      />
     ) : blockTypes === 'password' ? (
-      <>
-        {' '}
-        <Field
-          className={inputClassName}
-          title="Пароль має містити від 8 до 64 символів (латинські літери нижнього, верхнього регістру, цифри, та @, #, $, %, ^, &, +, =, !)"
-          name={name}
-          type={visiblePassword ? 'text' : 'password'}
-          placeholder="Ввести пароль"
-          id={name}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-        />
-        <div className={s.eye}>
-          <Eye
-            onClickShowPass={(boolean: boolean) => {
-              setVisiblePassword(boolean)
-            }}
-            onShowPass={visiblePassword}
-          />
-        </div>{' '}
-      </>
+      <PasswordInput
+        inputClassName={inputClassName}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        isErr={isErr}
+      />
     ) : blockTypes === 'checkbox' ? (
-      <div role="group" className={s['input-block__checkbox-container']}>
-        {checkbox}
-      </div>
+      <CheckboxBlock name={name} array={array} />
     ) : blockTypes === 'popup' ? (
       <button className={s['input-block__popup']}>{placeholder}</button>
     ) : (
@@ -317,4 +163,4 @@ const GrantInputBlock: React.FC<IGrantInputBlockProps> = ({
   )
 }
 
-export default GrantInputBlock
+export default CustomInputBlock

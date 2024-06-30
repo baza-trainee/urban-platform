@@ -17,6 +17,8 @@ const routs: Routes = {
   createGrant: '/createGrant',
   registration: '/registration',
   login: '/login',
+  requestPassword: '/request-password',
+  confirmPassword: '/confirm-password',
   donation: '/donation',
   donationThanks: '/support',
   editGrant: '/editGrant/:id',

@@ -137,7 +137,7 @@ const LoginFields = ({ labelEmail, labelPass }: TLoginFieldsProps) => {
               buttonClasses={'link'}
               to={''}
               name="Забули пароль?"
-              onClick={() => (window.location.href = '/registration')}
+              onClick={() => (window.location.href = '/request-password')}
               handleMouseEnter={() => {}}
               handleMouseLeave={() => {}}
               styleBtn={{ width: '100%' }}

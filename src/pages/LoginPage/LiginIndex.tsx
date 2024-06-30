@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Form, Formik } from 'formik'
 import s from './LiginIndex.module.scss'
-import { LoginSchema } from './loginSchema'
+import { LoginSchema } from '../../schemas/loginSchema'
 import Button from '../../components/Button/Button'
 import SocialAuth from '../../components/SocialAuth/SocialAuth'
 import LoginFields from './Form/LoginFields'

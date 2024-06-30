@@ -12,7 +12,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import Login from './pages/LoginPage/LiginIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
-import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
+import RequestPasswordForm from './pages/RequestPassword/RequestPasswordForm'
 import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
@@ -32,12 +32,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path="/" element={<HomePage />}>
-          <Route path="confirm-password" element={<ConfirmPasswordForm />} />
-          <Route path="request-password" element={<RequestPasswordForm />} />
-        </Route>
+        <Route path="/" element={<HomePage />} />
+
         <Route path="registration" element={<RegPage />} />
         <Route path="login" element={<Login />} />
+        <Route path="request-password" element={<RequestPasswordForm />} />
+        <Route path="confirm-password" element={<ConfirmPasswordForm />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"

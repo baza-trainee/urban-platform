@@ -12,7 +12,7 @@ interface InitValuesRequestPassw {
   email: string
 }
 
-const btnStyle = { width: '100%' }
+// const btnStyle = { width: '100%' }
 const subtitleText = {
   textStart1:
     'Введіть емейл, вказаний при реєстрації  і ми надішлемо Вам лист із посиланням для відновлення паролю',
@@ -79,41 +79,59 @@ const RequestPasswordForm = () => {
             )}
           </p>
           <form className={s.login__form} onSubmit={handleSubmit}>
-            <div className={s.mainForm}>
-              <label
-                className={clsx(s.label, errors.email && touched.email && s.errorColor)}
-                htmlFor="email"
-              >
-                E-mail*
-              </label>
-              <div className={s.inputContainer}>
-                <input
-                  type="email"
-                  className={clsx(
-                    s.input,
-                    values.email && s.active,
-                    errors.email && touched.email && s.error,
-                    isSuccessResponse && s.disabled
-                  )}
-                  placeholder="Введіть e-mail"
-                  name="email"
-                  id="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  disabled={isSuccessResponse}
-                />
-                {errors.email && touched.email && <p className={s.errorMsg}>{errors.email}</p>}
+            {/* <section className={`${s.inputs} slideInLeft`}> */}
+            <section className={s.inputs}>
+              <div className={s.inputWrapper}>
+                <label
+                  className={clsx(s.label, errors.email && touched.email && s.errorColor)}
+                  htmlFor="email"
+                >
+                  Електронна адреса
+                </label>
+                <div className={s.inputContainer}>
+                  <input
+                    type="email"
+                    className={clsx(
+                      s.input,
+                      values.email && s.active,
+                      errors.email && touched.email && s.error,
+                      isSuccessResponse && s.disabled
+                    )}
+                    placeholder="example@example.com"
+                    name="email"
+                    id="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    disabled={isSuccessResponse}
+                  />
+                  {errors.email && touched.email && <p className={s.errorMsg}>{errors.email}</p>}
+                </div>
               </div>
-            </div>
 
-            <Button
-              styleBtn={btnStyle}
-              buttonClasses={'primaryBtn'}
-              name={'Надіслати'}
-              type={'submit'}
-              disabled={!isValid || !values.email || isSuccessResponse}
-            />
+              <div className={s.btnWrap}>
+                <Button
+                  buttonClasses={'filledBtn'}
+                  type={'submit'}
+                  name={'Надіслати'}
+                  styleBtn={{ width: '100%' }}
+                  disabled={!isValid || !values.email || isSuccessResponse}
+                />
+              </div>
+
+              <div className={s.btnWrap}>
+                <Button
+                  buttonClasses={'outlineBtn header_tablet'}
+                  component={'link'}
+                  to={''}
+                  name={'Створити проєкт'}
+                  onClick={() => (window.location.href = '/registration')}
+                  styleBtn={{ width: '100%' }}
+                  handleMouseEnter={() => {}}
+                  handleMouseLeave={() => {}}
+                />
+              </div>
+            </section>
           </form>
         </div>
       </main>

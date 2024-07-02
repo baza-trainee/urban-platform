@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 // import { useNavigate } from 'react-router'
 import s from './RequestPasswordForm.module.scss'
 // import ModalBack from 'src/components/ModalBack/ModalBack.tsx';
-import Button from '../../components/Button/Button'
+import Button from '../Button/Button.tsx'
 import { requestPasswSchema } from '../../schemas/requestPassword.schema.ts'
 import clsx from 'clsx'
 import { useState } from 'react'
@@ -10,16 +10,6 @@ import { useRequestPassMutation } from '../../store/slice/authApiSlice.ts'
 
 interface InitValuesRequestPassw {
   email: string
-}
-
-// const btnStyle = { width: '100%' }
-const subtitleText = {
-  textStart1:
-    'Введіть емейл, вказаний при реєстрації  і ми надішлемо Вам лист із посиланням для відновлення паролю',
-  //   textStart2: 'Якщо у вас є акаунт, вам на email буде надіслано посилання для відновлення пароля',
-  textResponse1:
-    'Ми надіслали Вам лист з інформацією про відновлення паролю на пошту example@example.com',
-  textResponse2: 'Не отримали лист?  Перевірте папку “Спам” або натисніть:'
 }
 
 const initialValues: InitValuesRequestPassw = {
@@ -43,6 +33,15 @@ const RequestPasswordForm = () => {
     }
   })
 
+  const subtitleText = {
+    textStart1:
+      'Введіть емейл, вказаний при реєстрації  і ми надішлемо Вам лист із посиланням для відновлення паролю',
+    // textResponse1:
+    //   'Ми надіслали Вам лист з інформацією про відновлення паролю на пошту example@example.com',
+    textResponse1: `Ми надіслали Вам лист з інформацією про відновлення паролю на пошту ${values.email}`,
+    textResponse2: 'Не отримали лист?  Перевірте папку “Спам” або натисніть:'
+  }
+
   return (
     // <ModalBack handleCloseModal={() => navigate('/')}>
     <div className={s.wrapper}>
@@ -53,13 +52,22 @@ const RequestPasswordForm = () => {
         {/* <span className={s.actionHidden}>{action}</span> */}
       </div>
 
-      <main className={s.main}>
+      {/* <main className={s.main}> */}
+      <main className={`${s.main} ${!isSuccessResponse ? s.fadeIn : s.fadeOut}`}>
         <div className={s.mainGreetings}>
           <div className={s.logoWrap}>{/* <LogoGreeting /> */}</div>
         </div>
 
         <div className={s.mainTitle}>
-          <h2>Забули пароль?</h2>
+          {!isSuccessResponse ? (
+            <>
+              <h2>Забули пароль?</h2>
+            </>
+          ) : (
+            <>
+              <h2>Перевірте свою пошту</h2>
+            </>
+          )}
         </div>
 
         <div className={s.formWrap}>
@@ -94,7 +102,7 @@ const RequestPasswordForm = () => {
                     className={clsx(
                       s.input,
                       values.email && s.active,
-                      errors.email && touched.email && s.error,
+                      errors.email && touched.email && s.input_error,
                       isSuccessResponse && s.disabled
                     )}
                     placeholder="example@example.com"
@@ -105,7 +113,9 @@ const RequestPasswordForm = () => {
                     onBlur={handleBlur}
                     disabled={isSuccessResponse}
                   />
-                  {errors.email && touched.email && <p className={s.errorMsg}>{errors.email}</p>}
+                  {errors.email && touched.email && (
+                    <p className={s.errorMessage}>{errors.email}</p>
+                  )}
                 </div>
               </div>
 
@@ -113,8 +123,8 @@ const RequestPasswordForm = () => {
                 <Button
                   buttonClasses={'filledBtn'}
                   type={'submit'}
-                  name={'Надіслати'}
-                  styleBtn={{ width: '100%' }}
+                  name={!isSuccessResponse ? 'Надіслати' : 'Надіслати ще раз'}
+                  styleBtn={{ width: '100%', height: '100%' }}
                   disabled={!isValid || !values.email || isSuccessResponse}
                 />
               </div>
@@ -124,8 +134,8 @@ const RequestPasswordForm = () => {
                   buttonClasses={'outlineBtn header_tablet'}
                   component={'link'}
                   to={''}
-                  name={'Створити проєкт'}
-                  onClick={() => (window.location.href = '/registration')}
+                  name={'Повернутись до входу'}
+                  onClick={() => (window.location.href = '/login')}
                   styleBtn={{ width: '100%' }}
                   handleMouseEnter={() => {}}
                   handleMouseLeave={() => {}}

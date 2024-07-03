@@ -1,7 +1,6 @@
 import { useFormik } from 'formik'
 // import { useNavigate } from 'react-router'
 import s from './RequestPasswordForm.module.scss'
-// import ModalBack from 'src/components/ModalBack/ModalBack.tsx';
 import Button from '../Button/Button.tsx'
 import { requestPasswSchema } from '../../schemas/requestPassword.schema.ts'
 import clsx from 'clsx'
@@ -36,14 +35,11 @@ const RequestPasswordForm = () => {
   const subtitleText = {
     textStart1:
       'Введіть емейл, вказаний при реєстрації  і ми надішлемо Вам лист із посиланням для відновлення паролю',
-    // textResponse1:
-    //   'Ми надіслали Вам лист з інформацією про відновлення паролю на пошту example@example.com',
     textResponse1: `Ми надіслали Вам лист з інформацією про відновлення паролю на пошту ${values.email}`,
     textResponse2: 'Не отримали лист?  Перевірте папку “Спам” або натисніть:'
   }
 
   return (
-    // <ModalBack handleCloseModal={() => navigate('/')}>
     <div className={s.wrapper}>
       <div className={s.pageTitle}>
         <span className={s.titleLeft}>Головна</span>
@@ -52,7 +48,6 @@ const RequestPasswordForm = () => {
         {/* <span className={s.actionHidden}>{action}</span> */}
       </div>
 
-      {/* <main className={s.main}> */}
       <main className={`${s.main} ${!isSuccessResponse ? s.fadeIn : s.fadeOut}`}>
         <div className={s.mainGreetings}>
           <div className={s.logoWrap}>{/* <LogoGreeting /> */}</div>
@@ -71,23 +66,19 @@ const RequestPasswordForm = () => {
         </div>
 
         <div className={s.formWrap}>
-          {/* <h2 className={s.title}>Відновлення пароля</h2> */}
           <p className={clsx(s.subtitle, isSuccessResponse && s.responseText)}>
             {!isSuccessResponse ? (
               <>
                 <span>{subtitleText.textStart1}</span>
-                {/* <span>{subtitleText.textStart2}</span> */}
               </>
             ) : (
               <>
-                // subtitleText.textResponse
                 <span>{subtitleText.textResponse1}</span>
                 <span>{subtitleText.textResponse2}</span>
               </>
             )}
           </p>
           <form className={s.login__form} onSubmit={handleSubmit}>
-            {/* <section className={`${s.inputs} slideInLeft`}> */}
             <section className={s.inputs}>
               <div className={s.inputWrapper}>
                 <label
@@ -146,7 +137,6 @@ const RequestPasswordForm = () => {
         </div>
       </main>
     </div>
-    // </ModalBack>
   )
 }
 

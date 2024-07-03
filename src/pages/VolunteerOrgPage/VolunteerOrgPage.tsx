@@ -48,6 +48,7 @@ const VolunteerOrgPage = () => {
           isVoluntProfile={isVolunteerPage}
           isMobile={isMobile}
           btnBlock={isVolunteerPage}
+          urlIcons
         />
         <div className={s['content-block']}>
           {!isMobile && (

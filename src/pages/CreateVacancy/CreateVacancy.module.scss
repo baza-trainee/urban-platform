@@ -38,24 +38,34 @@
 .container {
   max-width: $content-max-width;
   margin: 64px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   @media (max-width: $tablet-max-width) {
     margin: 32px auto;
+    gap: 16px;
   }
   @media (max-width: $mobile-max-width) {
     margin: 24px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 24px;
   }
 }
 
 .content-box {
   width: 882px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   @media (max-width: $tablet-max-width) {
     width: 680px;
+    gap: 16px;
   }
   @media (max-width: $mobile-max-width) {
     width: 288px;
+    gap: 24px;
   }
 }
 
@@ -80,13 +90,6 @@
 .input-block {
   position: relative;
   width: 100%;
-  margin-bottom: 32px;
-  @media (max-width: $tablet-max-width) {
-    margin-bottom: 16px;
-  }
-  @media (max-width: $mobile-max-width) {
-    margin-bottom: 24px;
-  }
   &_time-block {
     display: inline-block;
   }

@@ -43,6 +43,7 @@ const InfoImgBlock: React.FC<Props> = ({
         navLink={navLink}
         btnTitle={btnTitle}
         editBtn
+        urlIcons
       />
     </div>
   )

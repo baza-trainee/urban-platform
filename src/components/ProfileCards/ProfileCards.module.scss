@@ -74,6 +74,22 @@
       color: $button-secondary-bg-active;
     }
   }
+  &__user-container {
+    width: 100%;
+    @include flex(row, start, start);
+    gap: 24px;
+    @media (max-width: $tablet-max-width) {
+      gap: 12px;
+    }
+    @media (max-width: $mobile-max-width) {
+      @include flex(column, center, center);
+      gap: 8px;
+    }
+    &_mobile {
+      @include flex(column, center, center);
+      gap: 8px;
+    }
+  }
   &__container {
     width: 100%;
     @include flex;
@@ -89,6 +105,21 @@
       width: 237px !important;
       padding: 12px;
       gap: 8px;
+    }
+    &_mobile {
+      @include flex(column);
+      width: 282px;
+      padding: 12px;
+      gap: 8px;
+      @media (max-width: $tablet-max-width) {
+        width: 216px;
+        padding: 16px;
+        gap: 16px;
+      }
+    }
+    &_user {
+      @include flex(column, start, start);
+      gap: 12px;
     }
     &_vacancy-grant {
       width: 282px;
@@ -120,6 +151,30 @@
     @media (max-width: $mobile-max-width) {
       width: 213px;
       height: 120px;
+    }
+    &_mobile {
+      width: 250px;
+      height: 120px;
+      @media (max-width: $tablet-max-width) {
+        width: 184px;
+      }
+    }
+    &_user {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto;
+      @media (max-width: $tablet-max-width) {
+        width: 80px;
+        height: 80px;
+      }
+      @media (max-width: $mobile-max-width) {
+        width: 128px;
+        height: 128px;
+      }
+      &_mobile {
+        width: 128px;
+        height: 128px;
+      }
     }
   }
   &__img {
@@ -154,6 +209,13 @@
       width: 213px;
       gap: 8px;
     }
+    &_mobile {
+      width: 250px;
+      gap: 8px;
+      @media (max-width: $tablet-max-width) {
+        width: 184px;
+      }
+    }
     &_vacancy-grant {
       width: 250px;
       gap: 16px;
@@ -166,6 +228,10 @@
   &__title-block {
     width: 100%;
     @include flex(column, start, start);
+    &_user {
+      margin-top: 8px;
+      align-items: center;
+    }
   }
   &__title {
     cursor: pointer;
@@ -178,6 +244,15 @@
     @media (max-width: $tablet-max-width) {
       font-size: $fs-s;
     }
+    &_mobile {
+      font-size: $fs-s;
+    }
+    &_mobile-user {
+      font-size: $fs-l-mob;
+      @media (max-width: $tablet-max-width) {
+        font-size: $fs-s;
+      }
+    }
   }
   &__time {
     font-family: $body-font-family;
@@ -189,6 +264,18 @@
       font-family: $secondary-font-family;
       font-size: $fs-xs;
       line-height: 1.2;
+    }
+    &_mobile {
+      font-family: $secondary-font-family;
+      font-size: $fs-xs;
+      line-height: 1.2;
+      &_user {
+        font-size: $fs-xs-mob;
+      }
+    }
+    &_user {
+      margin-top: 8px;
+      font-size: $fs-xs;
     }
   }
   &__description-block {
@@ -203,6 +290,9 @@
       font-size: $fs-s-mob;
     }
     @media (max-width: $mobile-max-width) {
+      font-size: $fs-xs;
+    }
+    &_mobile {
       font-size: $fs-xs;
     }
     &_vacancy-grant {
@@ -226,6 +316,10 @@
       flex-direction: column;
       align-items: normal;
     }
+    &_mobile {
+      flex-direction: column;
+      align-items: normal;
+    }
     &_vacancy-grant {
       @include flex(column);
       gap: 16px;
@@ -239,6 +333,9 @@
       width: 178px;
     }
     @media (max-width: $mobile-max-width) {
+      width: 213px;
+    }
+    &_mobile {
       width: 213px;
     }
     &_vacancy-grant {
@@ -257,6 +354,9 @@
       font-size: $fs-s-mob;
     }
     @media (max-width: $mobile-max-width) {
+      font-size: $fs-s-mob;
+    }
+    &_mobile {
       font-size: $fs-s-mob;
     }
   }
@@ -282,6 +382,27 @@
       @include flex(column-reverse);
       gap: 8px;
     }
+    &_mobile {
+      @include flex(column-reverse);
+      gap: 8px;
+      &_user {
+        gap: 16px;
+        flex-direction: row;
+        @media (max-width: $tablet-max-width) {
+          gap: 8px;
+          flex-direction: column;
+        }
+        @media (max-width: $mobile-max-width) {
+          margin-top: 8px;
+        }
+      }
+    }
+    &_user {
+      @media (max-width: $mobile-max-width) {
+        @include flex(column);
+        margin-top: 8px;
+      }
+    }
   }
   &__info-list {
     @include flex(column);
@@ -294,10 +415,31 @@
     @media (max-width: $tablet-max-width) {
       font-size: $fs-xs-mob;
     }
+    &_user {
+      gap: 8px;
+      @media (max-width: $mobile-max-width) {
+        font-size: $fs-xs;
+      }
+      &_mobile {
+        gap: 4px;
+        @media (max-width: $tablet-max-width) {
+          gap: 8px;
+        }
+      }
+    }
   }
   &__info {
     @include flex(row, start, start);
     gap: 16px;
+    &_user {
+      gap: 24px;
+      @media (max-width: $mobile-max-width) {
+        gap: 35px;
+      }
+    }
+    &_mobile {
+      gap: 48px;
+    }
   }
   &__info-keys {
     text-align: left;
@@ -308,6 +450,27 @@
     @media (max-width: $mobile-max-width) {
       width: 85px;
     }
+    &_user {
+      width: 180px;
+      @media (max-width: $tablet-max-width) {
+        width: 64px;
+      }
+      @media (max-width: $mobile-max-width) {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 89px;
+      }
+    }
+    &_mobile {
+      width: 87px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @media (max-width: $tablet-max-width) {
+        width: 72px;
+      }
+    }
   }
   &__info-value {
     text-align: left;
@@ -317,6 +480,27 @@
     }
     @media (max-width: $mobile-max-width) {
       width: 104px;
+    }
+    &_user {
+      width: 470px;
+      @media (max-width: $tablet-max-width) {
+        width: 196px;
+      }
+      @media (max-width: $mobile-max-width) {
+        width: 89px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    &_mobile {
+      width: 115px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @media (max-width: $tablet-max-width) {
+        width: 64px;
+      }
     }
   }
 

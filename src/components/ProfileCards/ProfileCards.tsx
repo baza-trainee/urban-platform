@@ -5,9 +5,13 @@ import useMediaQuery from '../../hooks/useMediaQuery'
 import Slider from 'react-slick'
 import IconLike from '../../assets/icons/IconLike'
 import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
 import { IProjectData } from '../../pages/VolunteerOrgPage/volunteerData'
 import routs from '../../routes/NavLinks'
+import ImgBlock from './components/ImgBlock'
+import OrgImgBlock from './components/OrgImgBlock'
+import TitleBlock from './components/TitleBlock'
+import DescriptionBlock from './components/DescriptionBlock'
+import UserButtonBlock from './components/UserButtonBlock'
 
 interface IProps {
   profileMap: IProjectData[]
@@ -18,7 +22,7 @@ interface IProps {
   centralBtn?: boolean
   buttonCheck?: boolean
   toggle?: string
-  type: 'project' | 'vacancy' | 'grant'
+  type: 'project' | 'vacancy' | 'grant' | 'user'
   checkBtnTitle?: string
   infoMsg?: string
   infoMsgBtnL?: string
@@ -28,6 +32,7 @@ interface IProps {
   createBtnLink?: string
   createBtn?: boolean
   createBtnNon?: boolean
+  mobile?: boolean
 }
 
 const ProfileCards: React.FC<IProps> = ({
@@ -48,7 +53,8 @@ const ProfileCards: React.FC<IProps> = ({
   createBtnTitle,
   createBtnLink,
   createBtn,
-  createBtnNon
+  createBtnNon,
+  mobile
 }) => {
   const [active, setActive] = useState(leftBtn)
 
@@ -57,6 +63,7 @@ const ProfileCards: React.FC<IProps> = ({
   const navLink = (link: string, id: string): string => {
     return link.split(':')[0] + id
   }
+  const isUser = type === 'user'
 
   const settings = {
     dots: true,
@@ -67,15 +74,28 @@ const ProfileCards: React.FC<IProps> = ({
     slidesToScroll: 1
   }
 
-  const projectBtnStyle = isDesktop
+  const projectBtnStyleMobile = isDesktop
+    ? { width: '100%' }
+    : isTablet
+    ? { width: '100%', height: '48px' }
+    : { width: '100%', height: '55px', 'line-height': '1.3' }
+
+  const projectBtnStyle = mobile
+    ? { width: '100%' }
+    : isDesktop
     ? { width: '250px' }
     : isTablet
     ? { width: '164px', height: '48px' }
     : { width: '213px', height: '55px', 'line-height': '1.3' }
+  const styleBtn =
+    (toggle && isTablet) || mobile
+      ? { width: '100%', height: '40px' }
+      : toggle
+      ? { width: '100%' }
+      : {}
   const likeBtnClass = isTablet
     ? 'outlineIconLike'
     : 'outlineIconLike outlineIconLike_project outlineIconLike_mobile'
-
   const handleCLickChoiceBtn = (value: string) => {
     setActive(value)
   }
@@ -90,9 +110,26 @@ const ProfileCards: React.FC<IProps> = ({
       const valuesArray = keys.keys[1]
       const mapArr = Object.keys(keysArray)
       return mapArr.map((key, index) => (
-        <li key={index} className={s['profile-block__info']}>
-          <span className={s['profile-block__info-keys']}>{keysArray[key]}</span>
-          <span className={s['profile-block__info-value']}>{valuesArray[key]}</span>
+        <li
+          key={index}
+          className={`${s['profile-block__info']} ${isUser && s['profile-block__info_user']} ${
+            mobile && s['profile-block__info_mobile']
+          }`}
+        >
+          <span
+            className={`${s['profile-block__info-keys']} ${
+              isUser && s['profile-block__info-keys_user']
+            } ${mobile && s['profile-block__info-keys_mobile']}`}
+          >
+            {keysArray[key]}
+          </span>
+          <span
+            className={`${s['profile-block__info-value']} ${
+              isUser && s['profile-block__info-value_user']
+            } ${isUser && mobile && s['profile-block__info-value_mobile']}`}
+          >
+            {valuesArray[key]}
+          </span>
         </li>
       ))
     }
@@ -105,107 +142,123 @@ const ProfileCards: React.FC<IProps> = ({
         key={it.titleUrl}
         className={`${s['profile-block__container']} ${
           toggle && toggle !== 'project' && s['profile-block__container_vacancy-grant']
+        } ${mobile && s['profile-block__container_mobile']} ${
+          isUser && s['profile-block__container_user']
         }`}
       >
-        {type === 'project' && (
-          <div className={s['profile-block__img-block']}>
-            <img
-              src="/images/default_project_img.png"
-              alt="Project img"
-              className={s['profile-block__img']}
-            />
-            <p className={s['profile-block__city-name']}>{it.city}</p>
+        {isUser ? (
+          <div
+            className={`${isUser && s['profile-block__user-container']} ${
+              isUser && mobile && s['profile-block__user-container_mobile']
+            }`}
+          >
+            <div>
+              <ImgBlock type={type} mobile={mobile} city={it.city} imgUrl={it.imgUrl} />
+              {isUser && (
+                <TitleBlock
+                  active={active}
+                  type={type}
+                  navLink={navLink}
+                  id={it.id}
+                  titleUrl={it.titleUrl}
+                  mobile={mobile}
+                  joinAt={it.joinAt}
+                  timeFrom={it.timeFrom}
+                  timeTo={it.timeTo}
+                  title={isMobile ? `${it.title} ${it.lastName}` : it.title}
+                />
+              )}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <ImgBlock type={type} mobile={mobile} city={it.city} imgUrl={it.imgUrl} />
           </div>
         )}
-        <div
-          className={`${s['profile-block__info-block']} ${
-            toggle && toggle !== 'project' && s['profile-block__info-block_vacancy-grant']
-          }`}
-        >
-          <div className={s['profile-block__title-block']}>
-            <Link
-              to={
-                active === 'Чернетки'
-                  ? navLink(
-                      type === 'vacancy'
-                        ? routs.editVacancy
-                        : type === 'grant'
-                        ? routs.editGrant
-                        : routs.editProject,
-                      it.id
-                    )
-                  : it.titleUrl
-              }
-              className={s['profile-block__title']}
-            >
-              {it.title}
-            </Link>
-            {type !== 'vacancy' && (
-              <p className={s['profile-block__time']}>{`${it.timeFrom} - ${it.timeTo}`}</p>
-            )}
-          </div>
-          {type !== 'project' && <ul className={s['profile-block__info-list']}>{mapLi(it)}</ul>}
+        {!isUser ? (
           <div
-            className={`${s['profile-block__description-block']} ${
-              toggle && toggle !== 'project' && s['profile-block__description-block_vacancy-grant']
-            }`}
+            className={`${s['profile-block__info-block']} ${
+              toggle && toggle !== 'project' && s['profile-block__info-block_vacancy-grant']
+            } ${mobile && s['profile-block__info-block_mobile']}`}
           >
-            <p className={s['profile-block__description']}>{it.description}</p>
-          </div>
-          <div
-            className={`${s['profile-block__btn-block']} ${
-              toggle && toggle !== 'project' && s['profile-block__btn-block_vacancy-grant']
-            }`}
-          >
+            <TitleBlock
+              active={active}
+              type={type}
+              navLink={navLink}
+              id={it.id}
+              titleUrl={it.titleUrl}
+              mobile={mobile}
+              joinAt={it.joinAt}
+              timeFrom={it.timeFrom}
+              timeTo={it.timeTo}
+              title={it.title}
+            />
+            {type !== 'project' && <ul className={s['profile-block__info-list']}>{mapLi(it)}</ul>}
+            <DescriptionBlock toggle={toggle} mobile={mobile} description={it.description} />
             <div
-              className={`${s['profile-block__org-container']} ${
-                toggle && toggle !== 'project' && s['profile-block__org-container_vacancy-grant']
-              }`}
+              className={`${s['profile-block__btn-block']} ${
+                toggle && toggle !== 'project' && s['profile-block__btn-block_vacancy-grant']
+              } ${mobile && s['profile-block__btn-block_mobile']}`}
             >
-              <div className={s['profile-block__img-container']}>
-                <img
-                  src="/images/default_org_icon.svg"
-                  alt="Organization img"
-                  className={s['profile-block__img']}
-                />
+              <OrgImgBlock
+                toggle={toggle}
+                mobile={mobile}
+                orgUrl={it.orgUrl}
+                org={it.org}
+                orgImgUrl={it.orgImgUrl}
+              />
+              <div
+                className={`${s['profile-block__btns']} ${
+                  mobile && s['profile-block__btns_mobile']
+                }`}
+                style={toggle ? { width: '100%' } : {}}
+              >
+                {type === 'project' && buttonCheck && active !== 'Чернетки' ? (
+                  <Button
+                    name={checkBtnTitle}
+                    buttonClasses="filledBtn"
+                    styleBtn={mobile ? projectBtnStyleMobile : projectBtnStyle}
+                  />
+                ) : (type === 'vacancy' || type === 'grant') && active === 'Чернетки' ? (
+                  <Button
+                    component="link"
+                    to={navLink(type === 'vacancy' ? routs.editVacancy : routs.editGrant, it.id)}
+                    handleMouseEnter={() => null}
+                    handleMouseLeave={() => null}
+                    name="Редагувати"
+                    buttonClasses="filledBtn"
+                    styleBtn={{ width: '100%' }}
+                  />
+                ) : (
+                  false
+                )}
+                {(!button || active !== rightBtn) && (
+                  <Button
+                    buttonClasses={likeBtnClass}
+                    name={it.likes}
+                    startIcon={<IconLike />}
+                    styleBtn={styleBtn}
+                  />
+                )}
               </div>
-              <Link className={s['profile-block__org']} to={it.orgUrl}>
-                {it.org}
-              </Link>
-            </div>
-            <div className={s['profile-block__btns']} style={toggle ? { width: '100%' } : {}}>
-              {type === 'project' && buttonCheck && active !== 'Чернетки' ? (
-                <Button name={checkBtnTitle} buttonClasses="filledBtn" styleBtn={projectBtnStyle} />
-              ) : (type === 'vacancy' || type === 'grant') && active === 'Чернетки' ? (
-                <Button
-                  component="link"
-                  to={navLink(type === 'vacancy' ? routs.editVacancy : routs.editGrant, it.id)}
-                  handleMouseEnter={() => null}
-                  handleMouseLeave={() => null}
-                  name="Редагувати"
-                  buttonClasses="filledBtn"
-                  styleBtn={{ width: '100%' }}
-                />
-              ) : (
-                false
-              )}
-              {(!button || active !== rightBtn) && (
-                <Button
-                  buttonClasses={likeBtnClass}
-                  name={it.likes}
-                  startIcon={<IconLike />}
-                  styleBtn={
-                    toggle && isTablet
-                      ? { width: '100%', height: '40px' }
-                      : toggle
-                      ? { width: '100%' }
-                      : {}
-                  }
-                />
-              )}
             </div>
           </div>
-        </div>
+        ) : (
+          <ul
+            className={`${s['profile-block__info-list']} ${s['profile-block__info-list_user']} ${
+              mobile && s['profile-block__info-list_user_mobile']
+            }`}
+          >
+            {mapLi(it)}
+          </ul>
+        )}
+        <UserButtonBlock
+          isUser={isUser}
+          mobile={mobile}
+          likeBtnClass={likeBtnClass}
+          checkBtnTitle={checkBtnTitle}
+          likes={it.likes}
+        />
       </div>
     )
   })

@@ -82,7 +82,7 @@ const ProfileCards: React.FC<IProps> = ({
 
   useEffect(() => {
     setActive(leftBtn)
-  }, [toggle])
+  }, [toggle, leftBtn])
 
   const mapLi = (keys: IProjectData) => {
     if ('keys' in keys && Array.isArray(keys.keys)) {

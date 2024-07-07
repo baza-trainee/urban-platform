@@ -1,3 +1,5 @@
+import routs from '../../../../routes/NavLinks'
+
 export interface INavLink {
   name: string
   to: string
@@ -6,10 +8,10 @@ export interface INavLink {
 export const navLinks: INavLink[] = [
   {
     name: 'Про платформу',
-    to: '/about'
+    to: routs.about
   },
   {
     name: 'Як це працює?',
-    to: '/howitWorks'
+    to: routs.howItWorks
   }
 ]

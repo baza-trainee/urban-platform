@@ -1,8 +1,20 @@
 import { useState } from 'react'
+
 import s from './CookiesPanel.module.scss'
+
+import Button from '../Button/Button'
+import useMediaQuery from '../../hooks/useMediaQuery'
+import routs from '../../routes/NavLinks'
 
 const CookiesPanel: React.FC = () => {
   const [isPanelShow, setIsPanelShow] = useState(false)
+  const { isDesktop, isTablet } = useMediaQuery()
+
+  const btnStyles = isDesktop
+    ? { width: '135px', margin: '0 auto' }
+    : isTablet
+    ? { width: '112px', height: '48px', margin: '0 auto' }
+    : { width: '288px', height: '56px', margin: '0 auto' }
 
   if (!isPanelShow) {
     return (
@@ -16,11 +28,16 @@ const CookiesPanel: React.FC = () => {
         <p>Натискаючи на ОК, ви даєте згоду на використання cookies.</p>
         <p>
           Якщо ви хочете дізнатися більше, перейдіть до{' '}
-          <a href="/pdf/privacy-policy.pdf" target="_blank">
+          <a href={routs.privacyPolicy} target="_blank">
             Політики конфіденційності.{' '}
           </a>{' '}
         </p>
-        <button onClick={() => setIsPanelShow(!isPanelShow)}>OK</button>
+        <Button
+          name="OK"
+          onClick={() => setIsPanelShow(!isPanelShow)}
+          buttonClasses="filledBtn"
+          styleBtn={btnStyles}
+        />
       </section>
     )
   }

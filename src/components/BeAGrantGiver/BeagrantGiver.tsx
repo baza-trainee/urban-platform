@@ -3,6 +3,7 @@ import s from './BeagrantGiver.module.scss'
 import Button from '../Button/Button.tsx'
 import CalltoActionIcon from '../../assets/icons/calltoActionIcon.tsx'
 import beagrantgiverTextData from './beagrantgiverTextData.json'
+import routs from '../../routes/NavLinks.ts'
 
 const BeagrantGiver: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const BeagrantGiver: React.FC = () => {
             <Button
               component="link"
               buttonClasses={'filledBtn'}
-              to={'/'}
+              to={routs.createGrant}
               name={'Створити грант'}
               styleBtn={{ width: '100%' }}
               handleMouseEnter={() => {}}

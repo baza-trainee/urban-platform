@@ -63,7 +63,7 @@ const HeroNav: React.FC<HeroNavProps> = ({ unListClass, navClass, onClick }) => 
             <Button
               component="link"
               buttonClasses={'heroNavGrid'}
-              to={'/'}
+              to={link.to}
               name={link.name}
               onClick={() => handleClick(index)}
               handleMouseEnter={() => handleMouseEnter(index)}

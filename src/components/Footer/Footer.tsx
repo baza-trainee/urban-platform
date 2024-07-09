@@ -19,37 +19,37 @@ const Footer: React.FC = () => {
             <div className={s.footer__menu}>
               <ul className={s.footer__list}>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.about} className={s.footer__link}>
                     Про нас
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.projects} className={s.footer__link}>
                     Проєкти
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.members} className={s.footer__link}>
                     Учасники
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.grants} className={s.footer__link}>
                     Гранти
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.organizations} className={s.footer__link}>
                     ГО
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.vacancies} className={s.footer__link}>
                     Вакансії у громадському секторі
                   </a>
                 </li>
                 <li>
-                  <a href="" className={s.footer__link}>
+                  <a href={routs.contacts} className={s.footer__link}>
                     Контакти
                   </a>
                 </li>
@@ -60,12 +60,12 @@ const Footer: React.FC = () => {
             <div className={s.footer__item}>
               <div className={s.footer__items}>
                 <div className={s.footer__link}>
-                  <a href="" target="_blank">
+                  <a href={routs.privacyPolicy} target="_blank">
                     Політика конфіденційності
                   </a>
                 </div>
                 <div className={s.footer__link}>
-                  <a href="" target="_blank">
+                  <a href={routs.termsOfSite} target="_blank">
                     Правила користування сайтом
                   </a>
                 </div>
@@ -73,10 +73,10 @@ const Footer: React.FC = () => {
               <div className={s.footer__social}>
                 <h3 className={s.footer__title}>Ми в соцмережа:</h3>
                 <div className={s.footer__socialLink}>
-                  <Link to="/">
+                  <Link to={routs.facebook}>
                     <img src={socilalImgFrooter1} alt="socilalImgFrooter1" />
                   </Link>
-                  <Link to="/">
+                  <Link to={routs.linkedIn}>
                     <img src={socilalImgFrooter2} alt="socilalImgFrooter2" />
                   </Link>
                 </div>
@@ -88,18 +88,21 @@ const Footer: React.FC = () => {
               </div>
               <div className={s.footer__contact}>
                 <div className={s.footer__phoneContact}>
-                  <span>+38 096 016 59 07</span>
+                  <a href={routs.phone}>
+                    <span>+38 096 016 59 07</span>
+                  </a>
                 </div>
                 <div className={s.footer__emailContacts}>
-                  <span>active.people.city@gmail.com</span>
+                  <a href={routs.email}>
+                    <span>active.people.city@gmail.com</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className={s.footer__copy}>
-          Розробка <a href="https://baza-trainee.tech/ua">Baza Trainee Ukraine </a> © Усі права
-          захищені
+          Розробка <a href={routs.baza}>Baza Trainee Ukraine </a> © Усі права захищені
         </div>
       </div>
     </footer>

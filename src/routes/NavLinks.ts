@@ -5,6 +5,11 @@ interface Routes {
 const routs: Routes = {
   linkedIn: '/',
   facebook: '/',
+  phone: 'tel:380960165907',
+  email: 'mailto:active.people.city@gmail.com',
+  baza: 'https://baza-trainee.tech/ua',
+  privacyPolicy: '/pdf/privacy-policy.pdf',
+  termsOfSite: '',
   home: '/',
   projects: '/projects',
   members: '/parties',
@@ -29,7 +34,10 @@ const routs: Routes = {
   orgProfileEdit: '/orgProfile/edit/:id',
   createVacancy: '/createVacancy',
   volunteerPage: '/volunteer/:id',
-  orgPage: '/org/:id'
+  orgPage: '/org/:id',
+  howItWoks: '/howitworks',
+  about: '/about',
+  contacts: '/contacts'
 }
 
 export default routs

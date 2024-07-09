@@ -3,6 +3,7 @@ import s from './PublishVacancy.module.scss'
 import Button from '../Button/Button.tsx'
 import CalltoActionIcon from '../../assets/icons/calltoActionIcon.tsx'
 import publishVacancyTextData from './publishVacancyTextData.json'
+import routs from '../../routes/NavLinks.ts'
 
 const PublishVacancy: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const PublishVacancy: React.FC = () => {
             <Button
               component="link"
               buttonClasses={'filledBtn'}
-              to={'/'}
+              to={routs.createVacancy}
               name={'Створити вакансію'}
               styleBtn={{ width: '100%' }}
               handleMouseEnter={() => {}}

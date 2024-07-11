@@ -10,8 +10,6 @@ import './animations.scss'
 interface TLoginFieldsProps {
   labelEmail: string
   labelPass: string
-  // loginError: string | null
-  // setLoginError: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 interface FormValues {
@@ -19,9 +17,7 @@ interface FormValues {
   loginPassword: string
 }
 
-// const LoginFields = ({ labelEmail, labelPass, loginError, setLoginError }: TLoginFieldsProps) => {
 const LoginFields = ({ labelEmail, labelPass }: TLoginFieldsProps) => {
-  // const LoginFields = () => {
   const [onShowPass, setOnShowPass] = useState<boolean>(false)
   const { errors, touched, validateField, handleChange, handleBlur } =
     useFormikContext<FormValues>()
@@ -137,7 +133,7 @@ const LoginFields = ({ labelEmail, labelPass }: TLoginFieldsProps) => {
               buttonClasses={'link'}
               to={''}
               name="Забули пароль?"
-              onClick={() => (window.location.href = '/registration')}
+              onClick={() => (window.location.href = '/request-password')}
               handleMouseEnter={() => {}}
               handleMouseLeave={() => {}}
               styleBtn={{ width: '100%' }}

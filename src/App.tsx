@@ -4,7 +4,6 @@ import './App.scss'
 import MainLayout from './components/Layout/MainLayout'
 import HomePage from './pages/Home/HomePage'
 import Page404 from './pages/Page404/Page404'
-import Checkmail from './pages/Checkmail/Checkmail'
 import Support from './pages/SupportPage/Support'
 import About from './pages/About/About'
 import HowItWorks from './pages/HowItWorks/HowItWorks'
@@ -12,7 +11,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import Login from './pages/LoginPage/LiginIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
-import RequestPasswordForm from './components/RequestPasswordForm/RequestPasswordForm'
+import RequestPasswordForm from './components/RequestPassword/RequestPasswordForm'
 import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
@@ -33,12 +32,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path="/" element={<HomePage />}>
-          <Route path="confirm-password" element={<ConfirmPasswordForm />} />
-          <Route path="request-password" element={<RequestPasswordForm />} />
-        </Route>
+        <Route path="/" element={<HomePage />} />
+
         <Route path="registration" element={<RegPage />} />
         <Route path="login" element={<Login />} />
+        <Route path="request-password" element={<RequestPasswordForm />} />
+        <Route path="confirm-password" element={<ConfirmPasswordForm />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route
           path="account/*"
@@ -48,7 +47,6 @@ function App() {
             </React.Suspense>
           }
         />
-        <Route path="/checkMail" element={<Checkmail />} />
         <Route path="/support" element={<Support />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/about" element={<About />} />

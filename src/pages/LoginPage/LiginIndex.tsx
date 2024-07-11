@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { Form, Formik } from 'formik'
 import s from './LiginIndex.module.scss'
-import { LoginSchema } from './loginSchema'
+import { LoginSchema } from '../../schemas/loginSchema'
 import Button from '../../components/Button/Button'
 import SocialAuth from '../../components/SocialAuth/SocialAuth'
 import LoginFields from './Form/LoginFields'
 import { useLoginForm } from '../../hooks/useLoginForm'
+import loginData from './loginData.json'
 
 const Login: React.FC = () => {
   // const { handleSubmit, setLoginError, loginError, initialValues } = useLoginForm()
@@ -26,7 +27,7 @@ const Login: React.FC = () => {
       <main className={s.main}>
         <div className={s.mainGreetings}>
           <div className={s.logoWrap}>{/* <LogoGreeting /> */}</div>
-          <p className={s.greetingsText}>Раді бачити Вас на нашій платформі!</p>
+          <p className={s.greetingsText}>{loginData[0]}</p>
         </div>
         <div className={s.mainTitle}>
           <h2>Увійти</h2>
@@ -59,7 +60,7 @@ const Login: React.FC = () => {
         </Formik>
 
         <div className={s.signinLink}>
-          <div className={s.isProfile}>Немає профілю?</div>
+          <div className={s.isProfile}>{loginData[1]}</div>
           <div>
             <Button
               component="link"

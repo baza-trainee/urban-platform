@@ -44,9 +44,9 @@
   color: $color-text-faded;
 }
 
-.actionHidden {
-  visibility: hidden;
-}
+// .actionHidden {
+//   visibility: hidden;
+// }
 
 .main {
   width: 288px;
@@ -125,56 +125,6 @@
 
   @include desktop {
     font-size: 24px;
-  }
-}
-
-.switchWrap {
-  display: flex;
-  width: 288px;
-  height: 44px;
-
-  border: 2px solid $blue;
-  border-radius: 5px;
-  background: transparent;
-
-  font-family: $body-font-family;
-  font-weight: 500;
-  font-size: 16px;
-  color: $button-secondary-bg-active;
-
-  @include tablet {
-    width: 448px;
-    height: 40px;
-  }
-
-  @include desktop {
-    font-size: 20px;
-    width: 588px;
-    height: 48px;
-  }
-}
-
-.activeSwitch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 16px;
-  width: 294px;
-  background: $blue;
-  cursor: pointer;
-
-  &:hover {
-    background: #033068;
-  }
-}
-
-.blue {
-  background: transparent;
-  color: $blue;
-  cursor: unset;
-
-  &:hover {
-    background: transparent;
   }
 }
 

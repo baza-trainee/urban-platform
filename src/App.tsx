@@ -11,7 +11,7 @@ import HowItWorks from './pages/HowItWorks/HowItWorks'
 import RegPage from './pages/RegistrationPage/RegPageIndex'
 import Login from './pages/LoginPage/LiginIndex'
 import ConfirmPasswordForm from './components/ConfirmPasswordForm/ConfirmPasswordForm'
-// import RequestPasswordForm from './components/RequestPassword/RequestPasswordForm'
+import RequestPasswordForm from './components/RequestPassword/RequestPasswordForm'
 import CreateGrant from './pages/CreateGrant/CreateGrant'
 import Donation from './pages/Donation/Donation'
 import CheckGrant from './pages/CheckGrant/CheckGrant'
@@ -36,7 +36,7 @@ function App() {
 
         <Route path="registration" element={<RegPage />} />
         <Route path="login" element={<Login />} />
-        {/* <Route path="request-password" element={<RequestPasswordForm />} /> */}
+        <Route path="request-password" element={<RequestPasswordForm />} />
         <Route path="confirm-password" element={<ConfirmPasswordForm />} />
         {/* <Route path="/" element={<Footer />}></Route> */}
         <Route

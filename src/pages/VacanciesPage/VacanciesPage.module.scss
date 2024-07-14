@@ -1,2 +1,170 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageTitle {
+  display: flex;
+  gap: 8px;
+  width: 288px;
+  height: 24px;
+  margin: 16px auto 40px auto;
+
+  font-family: $body-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $color-content-text;
+
+  @include tablet {
+    font-size: 14px;
+    width: 680px;
+    margin: 24px auto 32px auto;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    width: 1200px;
+    margin: 24px auto 64px auto;
+  }
+}
+
+.titleDot {
+  position: relative;
+  scale: 3;
+  top: 0.2em;
+}
+
+.titleRight {
+  color: $color-text-faded;
+}
+
+.mainTitle {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  height: 51px;
+  margin-bottom: 24px;
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+  color: $color-content-text;
+
+  @include tablet {
+    margin-bottom: 32px;
+  }
+
+  @include desktop {
+    font-size: 24px;
+    // margin-bottom: 40px;
+  }
+}
+
+.subtitle {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  margin-bottom: 8px;
+  font-family: $body-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $color-content-text;
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 32px;
+  }
+
+  @include desktop {
+    // margin-bottom: 24px;
+    font-size: 20px;
+  }
+}
+
+.inter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 288px;
+  //   flex-direction: row;
+
+  @include tablet {
+    // font-size: 14px;
+    width: 680px;
+    // margin: 24px auto 32px auto;
+  }
+
+  @include desktop {
+    // font-size: 16px;
+    width: 1200px;
+    // margin: 24px auto 64px auto;
+    margin-bottom: 40px;
+  }
+}
+
+.btnWrap {
+  // width: 100%;
+  height: 56px;
+  //   position: relative;
+
+  @include tablet {
+    height: 48px;
+  }
+
+  @include desktop {
+    width: 282px;
+    height: 56px;
+  }
+}
+
+.main {
+  animation: fadeIn 0.3s ease-in-out;
+  // width: 288px;
+  width: 100%;
+  // flex: 1;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @include tablet {
+    // width: 447px;
+    margin-bottom: 48px;
+  }
+
+  @include desktop {
+    // width: 588px;
+    margin-bottom: 64px;
+  }
+}
+
+.pageContent {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+}
+
+.filters {
+  display: flex;
+}
+
+.card {
+  display: flex;
+}

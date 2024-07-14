@@ -73,6 +73,13 @@ const Vacancies: React.FC<VacanciesProps> = ({ onClick }) => {
         {/* <span className={s.actionHidden}>{action}</span> */}
       </div>
 
+      <div className={s.mainTitle}>
+        <h2>Вакансії у громадському секторі</h2>
+      </div>
+      <p className={s.subtitle}>
+        На цій сторінці Ви можете знайти для себе або запропонувати вакансію в громадському секторі
+      </p>
+
       <div className={s.inter}>
         <div className={s.btnWrap}>
           <Button
@@ -91,14 +98,6 @@ const Vacancies: React.FC<VacanciesProps> = ({ onClick }) => {
       </div>
 
       <main className={s.main}>
-        <div className={s.mainTitle}>
-          <h2>Вакансії у громадському секторі</h2>
-          <p className={s.subtitle}>
-            На цій сторінці Ви можете знайти для себе або запропонувати вакансію в громадському
-            секторі
-          </p>
-        </div>
-
         {/* <div className={s.switchWrap}>
           <div
             className={action === 'Фізична особа' ? `${s.activeSwitch} ${s.blue}` : s.activeSwitch}

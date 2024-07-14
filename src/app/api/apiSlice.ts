@@ -41,3 +41,35 @@ export const apiSlice = createApi({
   baseQuery: baseQueryReAuth,
   endpoints: () => ({})
 })
+
+// vacancies api
+
+interface Option {
+  id: string
+  name: string
+}
+
+// interface Card {
+//   id: string
+//   title: string
+//   description: string
+// }
+
+export const api = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  endpoints: (builder) => ({
+    getOptions: builder.query<Option[], string>({
+      query: (input) => `options?query=${input}`
+    })
+    // getCards: builder.query<Card[], Record<string, any>>({
+    //   query: (filters) => ({
+    //     url: 'cards',
+    //     params: filters
+    //   })
+    // })
+  })
+})
+
+// export const { useGetOptionsQuery, useGetCardsQuery } = api
+export const { useGetOptionsQuery } = api
